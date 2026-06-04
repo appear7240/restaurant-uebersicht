@@ -35,6 +35,8 @@
         <div class="cityselect">
           <select id="city" aria-label="Stadt filtern"></select>
         </div>
+        <button id="roll" class="btn-roll" type="button" aria-haspopup="dialog">&#127922; Wohin heute?</button>
+        <button id="theme" class="btn-icon" type="button" aria-label="Hell/Dunkel umschalten" aria-pressed="false"></button>
       </div>
       <div class="chips" id="cat-chips" role="group" aria-label="Kategorie filtern"></div>
     </div>
@@ -57,6 +59,29 @@
       <span class="totop" id="totop">Nach oben &uarr;</span>
     </div>
   </footer>
+
+  <div class="roulette" id="roulette" hidden role="dialog" aria-modal="true" aria-labelledby="rl-title">
+    <div class="roulette-scrim" data-close></div>
+    <div class="roulette-card">
+      <button class="rl-x" data-close type="button" aria-label="Schlie&szlig;en">&times;</button>
+      <p class="rl-kicker" id="rl-title">Wohin heute?</p>
+      <p class="rl-pool" id="rl-pool"></p>
+      <div class="rl-stage">
+        <div class="rl-reel" id="rl-reel">&ndash;</div>
+        <div class="rl-winner" id="rl-winner" hidden>
+          <span class="rl-pop"></span>
+          <div class="rl-name" id="rl-name"></div>
+          <div class="rl-city" id="rl-city"></div>
+          <div class="rl-note" id="rl-note"></div>
+          <div class="rl-tags" id="rl-tags"></div>
+        </div>
+      </div>
+      <div class="rl-actions">
+        <button class="rl-again" id="rl-again" type="button">Nochmal</button>
+        <button class="rl-goto" id="rl-goto" type="button" hidden>Im Verzeichnis zeigen</button>
+      </div>
+    </div>
+  </div>
 
   <script src="data/restaurants.js"></script>
   <script src="assets/app.js"></script>

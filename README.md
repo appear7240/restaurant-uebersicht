@@ -3,6 +3,17 @@
 Kuratierte, statische Restaurant-Übersicht (NRW + Hamburg). Filterbar nach
 **Stadt**, **Kategorie** und **Freitextsuche**. Aktuell 122 Adressen in 18 Städten.
 
+## Features
+
+- **Restaurant-Roulette „Wohin heute?"** – würfelt eine Zufallsadresse aus der
+  aktuell gefilterten Auswahl (Slot-Animation, Re-Roll, „Im Verzeichnis zeigen").
+- **Dark-/Light-Mode** – warmer Candlelit-Dark-Mode, in `localStorage` gemerkt,
+  Default nach `prefers-color-scheme`.
+- **Teilbare Filter** – Stadt/Kategorie/Suche werden in die URL (`#…`) geschrieben;
+  Link teilen oder bookmarken stellt den Filterzustand wieder her.
+- Diakritik-unempfindliche Suche (`dusseldorf` findet „Düsseldorf").
+- Reduced-Motion-tauglich, tastaturbedienbar.
+
 ## Stack
 
 Bewusst minimal: reines HTML/CSS/Vanilla-JS, **kein Build-Schritt**, **keine
