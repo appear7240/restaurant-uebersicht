@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Restaurant-Übersicht</title>
+  <meta name="description" content="Kuratierte Restaurant-Übersicht für NRW & Hamburg – filterbar nach Stadt, Kategorie und Suche." />
+  <meta name="color-scheme" content="light" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..650;1,9..144,400..600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap">
+      <p class="kicker">Persönlicher Guide</p>
+      <h1>Restaurant&#8202;<em>&#8202;Übersicht</em></h1>
+      <p class="lede">Kuratierte Adressen quer durchs Ruhrgebiet, Rheinland &amp; darüber hinaus &ndash; sortiert nach Stadt, filterbar nach Kategorie.</p>
+      <div class="meta">
+        <span><b id="m-total">0</b> Restaurants</span>
+        <span><b id="m-cities">0</b> Städte</span>
+        <span>Stand <b id="m-updated">&ndash;</b></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="wrap">
+      <div class="controls-row">
+        <label class="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.2-3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="q" type="search" placeholder="Suchen &ndash; Name, Stadt, Kategorie&hellip;" autocomplete="off" aria-label="Restaurants durchsuchen" />
+        </label>
+        <div class="cityselect">
+          <select id="city" aria-label="Stadt filtern"></select>
+        </div>
+      </div>
+      <div class="chips" id="cat-chips" role="group" aria-label="Kategorie filtern"></div>
+    </div>
+  </div>
+
+  <main>
+    <div class="wrap">
+      <div id="results"></div>
+      <div class="empty" id="empty" hidden>
+        <h3>Nichts gefunden</h3>
+        <p>Keine Treffer für die aktuelle Auswahl.</p>
+        <button id="reset-empty" type="button">Filter zurücksetzen</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; width:100%;">
+      <span id="foot-count">&ndash;</span>
+      <span class="totop" id="totop">Nach oben &uarr;</span>
+    </div>
+  </footer>
+
+  <script src="data/restaurants.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
