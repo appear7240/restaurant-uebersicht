@@ -266,6 +266,41 @@ def export(x_admin_token: Optional[str] = Header(None)):
     return {"count": n, "pushed": pushed, "message": msg, "path": DATA_PATH}
 
 
+@app.post("/api/enrich-all")
+def enrich_all(limit: int = 20, x_admin_token: Optional[str] = Header(None)):
+    """Reichert bis zu `limit` noch nicht angereicherte Einträge via OpenAI an.
+    cuisine wird als Marker gesetzt (Sentinel '—' wenn leer), damit bereits
+    verarbeitete Zeilen nicht erneut angefragt werden."""
+    check_auth(x_admin_token)
+    key = get_openai_key()
+    if not key:
+        return {"error": "Kein OpenAI-Key gesetzt", "enriched": 0, "remaining": 0}
+    con = db()
+    rows = con.execute(
+        "SELECT * FROM restaurants WHERE cuisine IS NULL OR cuisine='' ORDER BY id LIMIT ?",
+        (limit,)).fetchall()
+    done = 0
+    for r in rows:
+        enr = enrich.call_openai({"name": r["name"], "city": r["city"]}, key)
+        if not enr:
+            continue
+        tags = json.loads(r["tags"] or "[]")
+        for t in (enr.get("extra_tags") or []) + ([enr.get("cuisine")] if enr.get("cuisine") else []):
+            t = (t or "").strip()
+            if t and t not in tags:
+                tags.append(t)
+        con.execute(
+            "UPDATE restaurants SET tags=?, blurb=?, cuisine=? WHERE id=?",
+            (json.dumps(order_tags(tags), ensure_ascii=False),
+             enr.get("blurb") or None, enr.get("cuisine") or "—", r["id"]))
+        done += 1
+    con.commit()
+    remaining = con.execute(
+        "SELECT COUNT(*) AS n FROM restaurants WHERE cuisine IS NULL OR cuisine=''").fetchone()["n"]
+    con.close()
+    return {"enriched": done, "remaining": remaining}
+
+
 ADMIN_HTML = r"""<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>Admin · Restaurant-Übersicht</title>
 <style>
@@ -323,6 +358,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}td{padding:8px 6px;bord
 </div>
 
 <div class="box">
+  <div class="bar"><button class="ghost" id="enrich-all" type="button">Alle anreichern (GPT)</button><span class="msg" id="m-enrich"></span></div>
   <div class="bar"><button class="ghost" id="export" type="button">Exportieren → restaurants.js</button><span class="msg" id="m-exp"></span></div>
 </div>
 
@@ -395,6 +431,22 @@ $("export").onclick=async()=>{
   try{const r=await fetch("api/export",{method:"POST",headers:hdr()});const d=await r.json();
     $("m-exp").textContent=r.ok?(d.message+" ("+d.count+" Einträge)"):("Fehler: "+(d.detail||r.status));}
   catch(e){$("m-exp").textContent="Fehler: "+e;}
+};
+$("enrich-all").onclick=async()=>{
+  if(!confirm("Alle noch nicht angereicherten Restaurants via OpenAI anreichern? (kostet API-Aufrufe)"))return;
+  let total=0;$("enrich-all").disabled=true;$("m-enrich").textContent="…";
+  for(let i=0;i<40;i++){
+    let r,d;
+    try{r=await fetch("api/enrich-all?limit=15",{method:"POST",headers:hdr()});d=await r.json();}
+    catch(e){$("m-enrich").textContent="Fehler: "+e;break;}
+    if(!r.ok){$("m-enrich").textContent="Fehler: "+(d.detail||r.status);break;}
+    if(d.error){$("m-enrich").textContent=d.error;break;}
+    total+=d.enriched;
+    $("m-enrich").textContent="angereichert: "+total+", verbleibend: "+d.remaining;
+    if(d.remaining===0){$("m-enrich").textContent="fertig: "+total+" angereichert — jetzt „Exportieren".";break;}
+    if(d.enriched===0){$("m-enrich").textContent+=" (gestoppt — Anreicherung lieferte nichts; OpenAI/Netz prüfen)";break;}
+  }
+  $("enrich-all").disabled=false;load();
 };
 async function del(id){if(!confirm("Löschen?"))return;await fetch("api/restaurants/"+id,{method:"DELETE",headers:hdr()});load();}
 load();loadSettings();
