@@ -143,9 +143,22 @@
     card.className = "card" + ((r.tags && r.tags.length) ? "" : " untagged");
     card.dataset.key = String(r._i);
     card.style.setProperty("--i", String(Math.min(i, 14)));
+    var mk = mapsKey();
+    if (r.photo && mk) {
+      var ph = document.createElement("img");
+      ph.className = "card-photo"; ph.loading = "lazy"; ph.alt = "";
+      ph.src = "https://places.googleapis.com/v1/" + r.photo +
+               "/media?maxWidthPx=640&maxHeightPx=360&key=" + encodeURIComponent(mk);
+      card.appendChild(ph);
+    }
     var nm = document.createElement("div"); nm.className = "name"; nm.textContent = r.name; card.appendChild(nm);
     if (r.note) { var nt = document.createElement("div"); nt.className = "note"; nt.textContent = r.note; card.appendChild(nt); }
     if (r.blurb) { var bl = document.createElement("div"); bl.className = "blurb"; bl.textContent = r.blurb; card.appendChild(bl); }
+    if (r.rating) {
+      var rt = document.createElement("div"); rt.className = "rate";
+      rt.textContent = "\u2605 " + r.rating + (r.reviews ? " (" + r.reviews + ")" : "");
+      card.appendChild(rt);
+    }
     if (r.tags && r.tags.length) {
       var tw = document.createElement("div"); tw.className = "tags";
       r.tags.forEach(function (t) { tw.appendChild(tagEl(t)); });
@@ -157,7 +170,15 @@
     mb.setAttribute("aria-label", "Karte: " + r.name);
     mb.innerHTML = PIN_SVG + "<span>Karte</span>";
     mb.addEventListener("click", function (e) { e.stopPropagation(); openMap(r); });
-    foot.appendChild(mb); card.appendChild(foot);
+    foot.appendChild(mb);
+    if (r.website) {
+      var sl = document.createElement("a"); sl.className = "card-site";
+      sl.href = r.website; sl.target = "_blank"; sl.rel = "noopener";
+      sl.textContent = "Speisekarte \u2197";
+      sl.addEventListener("click", function (e) { e.stopPropagation(); });
+      foot.appendChild(sl);
+    }
+    card.appendChild(foot);
     card.style.cursor = "pointer";
     card.title = "Mit Google Maps navigieren";
     card.addEventListener("click", function () {

@@ -57,7 +57,9 @@ def init_db():
             created_at TEXT DEFAULT (datetime('now')))"""
     )
     con.execute("CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY, value TEXT)")
-    for col, decl in (("lat", "REAL"), ("lng", "REAL"), ("place_id", "TEXT")):
+    for col, decl in (("lat", "REAL"), ("lng", "REAL"), ("place_id", "TEXT"),
+                      ("photo", "TEXT"), ("rating", "REAL"), ("reviews", "INTEGER"),
+                      ("website", "TEXT"), ("resolved", "INTEGER")):
         try:
             con.execute(f"ALTER TABLE restaurants ADD COLUMN {col} {decl}")
         except sqlite3.OperationalError:
@@ -85,8 +87,11 @@ def apply_geo(con, path=None):
         return
     for k, g in geo.items():
         name, _, city = k.partition("||")
-        con.execute("UPDATE restaurants SET lat=?, lng=?, place_id=? WHERE name=? AND city=?",
-                    (g["lat"], g["lng"], g.get("placeId"), name, city))
+        con.execute(
+            "UPDATE restaurants SET lat=?, lng=?, place_id=?, photo=?, rating=?, reviews=?, website=?, "
+            "resolved=COALESCE(?,resolved) WHERE name=? AND city=?",
+            (g["lat"], g["lng"], g.get("placeId"), g.get("photo"), g.get("rating"),
+             g.get("reviews"), g.get("website"), 1 if g.get("photo") else None, name, city))
     con.commit()
 
 
@@ -144,6 +149,13 @@ def row_public(r):
         d["lat"] = r["lat"]
         d["lng"] = r["lng"]
         d["placeId"] = r["place_id"]
+    if r["photo"]:
+        d["photo"] = r["photo"]
+    if r["rating"] is not None:
+        d["rating"] = r["rating"]
+        d["reviews"] = r["reviews"] or 0
+    if r["website"]:
+        d["website"] = r["website"]
     return d
 
 
@@ -295,11 +307,17 @@ def export(x_admin_token: Optional[str] = Header(None)):
     pushed, msg = False, "geschrieben"
     if os.environ.get("GIT_PUSH") == "1":
         try:
-            for cmd in (["add", DATA_PATH, CONFIG_PATH],
-                        ["commit", "-m", "data: Update via Admin-Backend"],
-                        ["push"]):
-                subprocess.run(["git", "-C", str(BASE)] + cmd, check=True, capture_output=True)
-            pushed, msg = True, "geschrieben + gepusht"
+            subprocess.run(["git", "-C", str(BASE), "add", DATA_PATH, CONFIG_PATH, GEO_PATH],
+                           check=True, capture_output=True)
+            # nur committen, wenn es Änderungen gibt
+            staged = subprocess.run(["git", "-C", str(BASE), "diff", "--cached", "--quiet"])
+            if staged.returncode != 0:
+                subprocess.run(["git", "-C", str(BASE), "commit", "-m", "data: Update via Admin-Backend"],
+                               check=True, capture_output=True)
+                subprocess.run(["git", "-C", str(BASE), "push"], check=True, capture_output=True)
+                pushed, msg = True, "geschrieben + gepusht"
+            else:
+                pushed, msg = True, "geschrieben (keine Änderung)"
         except subprocess.CalledProcessError as e:
             msg = "geschrieben; Push-Fehler: " + (e.stderr.decode().strip() if e.stderr else str(e))
     return {"count": n, "pushed": pushed, "message": msg, "path": DATA_PATH}
@@ -357,7 +375,8 @@ def geocode_one(name, city, key, timeout=12):
         data=body, method="POST", headers={
             "Content-Type": "application/json",
             "X-Goog-Api-Key": key,
-            "X-Goog-FieldMask": "places.id,places.location",
+            "X-Goog-FieldMask": ("places.id,places.location,places.photos,"
+                                 "places.rating,places.userRatingCount,places.websiteUri"),
         })
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -373,10 +392,17 @@ def geocode_one(name, city, key, timeout=12):
     places = d.get("places") or []
     if not places:
         return None, None
-    loc = places[0].get("location") or {}
+    p = places[0]
+    loc = p.get("location") or {}
     if "latitude" not in loc:
         return None, None
-    return {"lat": loc["latitude"], "lng": loc["longitude"], "place_id": places[0].get("id")}, None
+    photos = p.get("photos") or []
+    return {
+        "lat": loc["latitude"], "lng": loc["longitude"], "place_id": p.get("id"),
+        "photo": photos[0]["name"] if photos else None,
+        "rating": p.get("rating"), "reviews": p.get("userRatingCount"),
+        "website": p.get("websiteUri"),
+    }, None
 
 
 @app.post("/api/geocode-all")
@@ -389,7 +415,7 @@ def geocode_all(limit: int = 4, x_admin_token: Optional[str] = Header(None)):
         return {"error": "Kein Maps-Key gesetzt", "geocoded": 0, "remaining": 0}
     con = db()
     rows = con.execute(
-        "SELECT * FROM restaurants WHERE lat IS NULL AND (place_id IS NULL OR place_id='') "
+        "SELECT * FROM restaurants WHERE resolved IS NULL OR resolved=0 "
         "ORDER BY id LIMIT ?", (limit,)).fetchall()
     try:
         with open(GEO_PATH, encoding="utf-8") as f:
@@ -402,13 +428,17 @@ def geocode_all(limit: int = 4, x_admin_token: Optional[str] = Header(None)):
         if err:
             last_err = err
             continue
-        if res is None:  # nicht gefunden -> Marker, damit nicht erneut versucht
-            con.execute("UPDATE restaurants SET place_id='∅' WHERE id=?", (r["id"],))
+        if res is None:  # nicht gefunden -> als erledigt markieren
+            con.execute("UPDATE restaurants SET place_id=COALESCE(place_id,'∅'), resolved=1 WHERE id=?", (r["id"],))
             continue
-        con.execute("UPDATE restaurants SET lat=?, lng=?, place_id=? WHERE id=?",
-                    (res["lat"], res["lng"], res["place_id"], r["id"]))
+        con.execute(
+            "UPDATE restaurants SET lat=?, lng=?, place_id=?, photo=?, rating=?, reviews=?, website=?, resolved=1 WHERE id=?",
+            (res["lat"], res["lng"], res["place_id"], res["photo"], res["rating"],
+             res["reviews"], res["website"], r["id"]))
         geo[r["name"] + "||" + r["city"]] = {
-            "lat": res["lat"], "lng": res["lng"], "placeId": res["place_id"]}
+            "lat": res["lat"], "lng": res["lng"], "placeId": res["place_id"],
+            "photo": res["photo"], "rating": res["rating"], "reviews": res["reviews"],
+            "website": res["website"]}
         done += 1
     con.commit()
     try:
@@ -417,7 +447,7 @@ def geocode_all(limit: int = 4, x_admin_token: Optional[str] = Header(None)):
     except OSError:
         pass
     remaining = con.execute(
-        "SELECT COUNT(*) AS n FROM restaurants WHERE lat IS NULL AND (place_id IS NULL OR place_id='')"
+        "SELECT COUNT(*) AS n FROM restaurants WHERE resolved IS NULL OR resolved=0"
     ).fetchone()["n"]
     con.close()
     out = {"geocoded": done, "remaining": remaining}
