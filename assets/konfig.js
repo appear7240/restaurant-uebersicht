@@ -67,7 +67,7 @@
     try {
       while (true) {
         msg($("m-enrich"), "Reichere an… (" + total + ")");
-        var d = await api("enrich-all?limit=15", { method: "POST" });
+        var d = await api("enrich-all?limit=2", { method: "POST" });
         if (d.error) { msg($("m-enrich"), d.error, false); break; }
         total += d.enriched || 0;
         if (!d.enriched || d.remaining === 0) {

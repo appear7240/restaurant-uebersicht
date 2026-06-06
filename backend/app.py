@@ -305,7 +305,7 @@ def export(x_admin_token: Optional[str] = Header(None)):
 
 
 @app.post("/api/enrich-all")
-def enrich_all(limit: int = 20, x_admin_token: Optional[str] = Header(None)):
+def enrich_all(limit: int = 5, x_admin_token: Optional[str] = Header(None)):
     """Reichert bis zu `limit` noch nicht angereicherte Einträge via OpenAI an.
     cuisine wird als Marker gesetzt (Sentinel '—' wenn leer), damit bereits
     verarbeitete Zeilen nicht erneut angefragt werden."""
@@ -319,7 +319,7 @@ def enrich_all(limit: int = 20, x_admin_token: Optional[str] = Header(None)):
         (limit,)).fetchall()
     done = 0
     for r in rows:
-        enr = enrich.call_openai({"name": r["name"], "city": r["city"]}, key)
+        enr = enrich.call_openai({"name": r["name"], "city": r["city"]}, key, retries=0, timeout=25)
         if not enr:
             continue
         tags = json.loads(r["tags"] or "[]")
@@ -336,7 +336,10 @@ def enrich_all(limit: int = 20, x_admin_token: Optional[str] = Header(None)):
     remaining = con.execute(
         "SELECT COUNT(*) AS n FROM restaurants WHERE cuisine IS NULL OR cuisine=''").fetchone()["n"]
     con.close()
-    return {"enriched": done, "remaining": remaining}
+    out = {"enriched": done, "remaining": remaining}
+    if done == 0 and rows:
+        out["error"] = getattr(enrich, "LAST_ERROR", None) or "Anreicherung lieferte nichts"
+    return out
 
 
 ADMIN_HTML = r"""<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">

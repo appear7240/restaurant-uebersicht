@@ -23,6 +23,7 @@ import urllib.error
 from build_data import parse_records, enrich_key
 
 CACHE = "enriched.json"
+LAST_ERROR = None
 MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
 ENDPOINT = "https://api.openai.com/v1/chat/completions"
 
@@ -59,7 +60,8 @@ def prompt(rec):
     )
 
 
-def call_openai(rec, api_key, retries=2):
+def call_openai(rec, api_key, retries=1, timeout=25):
+    global LAST_ERROR
     body = json.dumps({
         "model": MODEL,
         "temperature": 0.2,
@@ -76,10 +78,11 @@ def call_openai(rec, api_key, retries=2):
     last = None
     for attempt in range(retries + 1):
         try:
-            with urllib.request.urlopen(req, timeout=40) as r:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
                 data = json.loads(r.read().decode("utf-8"))
             content = data["choices"][0]["message"]["content"]
             obj = json.loads(content)
+            LAST_ERROR = None
             return {
                 "cuisine": str(obj.get("cuisine", "")).strip(),
                 "extra_tags": [t for t in (obj.get("extra_tags") or []) if t in ALLOWED_TAGS],
@@ -87,8 +90,14 @@ def call_openai(rec, api_key, retries=2):
             }
         except (urllib.error.HTTPError, urllib.error.URLError, KeyError, ValueError) as e:
             last = e
+            if isinstance(e, urllib.error.HTTPError):
+                try:
+                    last = "HTTP %d: %s" % (e.code, e.read().decode("utf-8", "replace")[:300])
+                except Exception:  # noqa: BLE001
+                    last = "HTTP %d" % e.code
             if attempt < retries:
                 time.sleep(2 * (attempt + 1))
+    LAST_ERROR = str(last)
     print(f"  ! Fehler bei {rec['name']} ({rec['city']}): {last}", file=sys.stderr)
     return None
 
