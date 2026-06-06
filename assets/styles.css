@@ -476,3 +476,9 @@ footer .totop { cursor: pointer; color: var(--accent); font-weight: 600; }
 .gpop .o.open { color: #2e7d32; font-weight: 700; }
 .gpop a { display: inline-block; margin-top: 6px; color: #bf4128; font-weight: 700; font-size: 13px; text-decoration: none; }
 .gpop a:hover { text-decoration: underline; }
+
+/* Konfig-Link + Speisekarte/Website + Filter-Toggle */
+.konfig { color: var(--muted); text-decoration: none; font-weight: 600; }
+.konfig:hover { color: var(--accent); }
+.gpop a.site { display: inline-block; margin-top: 8px; font-weight: 600; color: var(--accent); text-decoration: none; }
+.gpop a.site:hover { text-decoration: underline; }

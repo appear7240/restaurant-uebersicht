@@ -67,6 +67,17 @@
   var elResults = $("results"), elEmpty = $("empty"), elFoot = $("foot-count");
   var elQ = $("q"), elCity = $("city"), elChips = $("cat-chips");
 
+  // ── Filter ein-/ausblenden ─────────────────────────
+  (function () {
+    var btn = $("toggle-filters");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var hidden = elChips.hasAttribute("hidden");
+      if (hidden) { elChips.removeAttribute("hidden"); btn.textContent = "Filter ausblenden"; btn.setAttribute("aria-expanded", "true"); }
+      else { elChips.setAttribute("hidden", ""); btn.textContent = "Filter einblenden"; btn.setAttribute("aria-expanded", "false"); }
+    });
+  })();
+
   // ── Theme ──────────────────────────────────────────
   var ICON_MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8Z"/></svg>';
   var ICON_SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M22 12h-2.4M4.4 12H2M19 5l-1.7 1.7M6.7 17.3 5 19M19 19l-1.7-1.7M6.7 6.7 5 5"/></svg>';
@@ -323,7 +334,7 @@
     iw.open(map, marker);
     if (r.placeId && svc) {
       svc.getDetails({ placeId: r.placeId,
-        fields: ["photos", "rating", "user_ratings_total", "opening_hours"] },
+        fields: ["photos", "rating", "user_ratings_total", "opening_hours", "website"] },
         function (place, status) {
           if (status !== g.places.PlacesServiceStatus.OK || !place) return;
           var html = "";
@@ -339,6 +350,7 @@
                 ? '<div class="o open">Jetzt geöffnet</div>' : '<div class="o">Geschlossen</div>';
             }
           } catch (e) {}
+          if (place.website) html += '<a class="site" href="' + esc(place.website) + '" target="_blank" rel="noopener">Speisekarte / Website &#8599;</a>';
           render(html);
         });
     }
