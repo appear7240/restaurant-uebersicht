@@ -1,97 +1,113 @@
 {
- "Trattoria Momo||Bochum": {
-  "lat": 51.4889606,
-  "lng": 7.2331333,
-  "placeId": "ChIJmcmU2yTguEcRS2sItmqhRj0"
- },
- "Bassano Vinoteca e Cucina Italiana||Bochum": {
-  "lat": 51.4520477,
-  "lng": 7.2267381,
-  "placeId": "ChIJf-mbRhTguEcRZUuMdyvRw60"
- },
- "NEĀ The Deli & Urban Concept Store||Bochum": {
-  "lat": 51.4802476,
-  "lng": 7.2201924,
-  "placeId": "ChIJi6H4PufhuEcRFXXVspSR0WI"
- },
- "Café Konkret||Bochum": {
-  "lat": 51.4772757,
-  "lng": 7.2165369,
-  "placeId": "ChIJN2d_MYg0cEERa6ByNDHqBsg"
- },
- "Café Zuckersüß||Bochum": {
-  "lat": 51.4947612,
-  "lng": 7.2805529,
-  "placeId": "ChIJ1Ud04bMfuUcRuNsGaDqckRQ"
- },
- "Lokmahouse Café||Bochum": {
-  "lat": 51.4793466,
-  "lng": 7.2215522,
-  "placeId": "ChIJzTPSn2nhuEcRQhL3yunSc-A"
- },
- "Heiter & Herrlich||Bochum": {
-  "lat": 51.4712679,
-  "lng": 7.1922852,
-  "placeId": "ChIJnXj77hbhuEcRvR-Rfa28Ltk"
- },
- "Arte Italiana||Bochum": {
-  "lat": 51.4804775,
-  "lng": 7.1347729,
-  "placeId": "ChIJXWL5MbPguEcRugSU2HFK1GQ"
- },
- "Traumkuh||Bochum": {
-  "lat": 51.4764878,
-  "lng": 7.2156703,
-  "placeId": "ChIJA8BYLwDhuEcRj5s85nYVsRY"
- },
- "Takumi||Bochum": {
-  "lat": 51.4770157,
-  "lng": 7.2157535,
-  "placeId": "ChIJYWjePQDhuEcRuxz9Ki9Gn50"
- },
- "Chillers||Bochum": {
-  "lat": 51.4746998,
-  "lng": 7.1518116,
-  "placeId": "ChIJLWFJHmjhuEcR72TdjL99IKo"
- },
- "Knüppelknifte||Bochum": {
-  "lat": 51.4913203,
-  "lng": 7.2388617,
-  "placeId": "ChIJKw5UXvHhuEcRykA0zzdAgQM"
- },
- "Kleene Tocke||Bochum": {
-  "lat": 51.4726356,
-  "lng": 7.2149955,
-  "placeId": "ChIJU3qdqr_huEcRnnPskrKAgXE"
- },
- "Mufasa||Bochum": {
-  "lat": 51.4873605,
-  "lng": 7.2153247,
-  "placeId": "ChIJjYF66xTguEcRkYkoZV1tJ1M"
- },
- "Nandy's||Bochum": {
-  "lat": 51.4766153,
-  "lng": 7.2162815,
-  "placeId": "ChIJafNqNfPhuEcRnogA7Q6Uqyk"
- },
- "Cups 'n Berry||Bochum": {
-  "lat": 51.4784752,
-  "lng": 7.2161553,
-  "placeId": "ChIJwVpE1rPhuEcRaRHNqhR6JIg"
- },
- "Veeva Acai||Bochum": {
-  "lat": 51.4788535,
-  "lng": 7.2187264,
-  "placeId": "ChIJ9XJJygfhuEcRg7aTR0pO63c"
- },
- "Trattoria Puglia||Castrop-Rauxel": {
-  "lat": 51.5505175,
-  "lng": 7.3104948,
-  "placeId": "ChIJLc1mmvcduUcRt4HaGUEMklg"
- },
- "Ristorante Fratelli||Bottrop": {
-  "lat": 51.6039622,
-  "lng": 6.9222721,
-  "placeId": "ChIJAbx235HtuEcR-IZiaEx77CA"
- }
+  "Trattoria Momo||Bochum": {
+    "lat": 51.4889606,
+    "lng": 7.2331332999999995,
+    "placeId": "ChIJmcmU2yTguEcRS2sItmqhRj0",
+    "photo": "places/ChIJmcmU2yTguEcRS2sItmqhRj0/photos/AaVGc3l8aPu4t4RgNPpmQhl_DFBtnwwRwK0BDx7xQVMu2shZodG53eC0noiWxJN3Uy_e4v_KP0eGF4I9vxV5FFCdLguAq79dAXgbgIvZ8B3a0UxyeIro9Fej-qzDbjGiVatqm_RQae5vDzg2KvhfbQat29-IfTzrJzsdm5aghvWF05EPanUq_bBB9vsW058lHv-5FnIk6TzqGmV1gxYMke11AhX8d2B91donxeaXVACJNas6QDgM8IMk0ePU0O93Wg2hSgy7rS_mAYtmVgCFiistn5oaWTBdvua4qZxSQjV4CUUIp-gFgz8tk4-D_u5HLh_B_LTnpb09FDhVxNinGKCidQaTxfCVz2lb_HVwRuJgK09PQrJr6lNVmx3P-BIO3viGocUqqDYMesS4-XXZi4RkgSSpJdwJc8NFiAgMfnpr6p-n1zFC",
+    "rating": 4.7,
+    "reviews": 2371,
+    "website": "https://www.momobochum.de/"
+  },
+  "Bassano Vinoteca e Cucina Italiana||Bochum": {
+    "lat": 51.452047699999994,
+    "lng": 7.226738099999999,
+    "placeId": "ChIJf-mbRhTguEcRZUuMdyvRw60",
+    "photo": "places/ChIJf-mbRhTguEcRZUuMdyvRw60/photos/AaVGc3nkdOBORcs-j_rkXn3lPf-qaz5AF6uye64EkDfLqvBsaqvakwm9Vd-BJf8UsTkO1ZDqVqryqzL7pih7d0q9R1XuirmnQ2wqq8R4l6RwTHVHwrJXJAu_boBMuXB9heJmWVFv6FeLnf1ETnu-qXPprjlfua076AAbLqPLUOCwZeHt_9-KliHTFm3siilk7innZqKmb9tA6FBOmf-7ApjrcZlvI5gjsGVKcJwSehRBmkY04aq8G-p4VJI3hYsUXaTzWVGELh35LQkfShkTj8Sj_jFaMfGSCiIA5B7yJOUdLnnJwZy0lq_ENisNwwUrP7JKxfpxFecSPyRjx9J07WiUcpsq3EAm3W2Q_nmHYbYbXnFFfMK-zohp-jBwwX7IX5w5WhdHidP1ENohBzR3ppLU3uF1EHyhJa2ghhZZnhuWKKMO-LAY",
+    "rating": 4.7,
+    "reviews": 159,
+    "website": "http://www.bassano-bochum.de/"
+  },
+  "NEĀ The Deli & Urban Concept Store||Bochum": {
+    "lat": 51.4802476,
+    "lng": 7.220192399999999,
+    "placeId": "ChIJi6H4PufhuEcRFXXVspSR0WI",
+    "photo": "places/ChIJi6H4PufhuEcRFXXVspSR0WI/photos/AaVGc3kA1k16DkCqG9KmoRK5UfwIeLNrqHp_0BSUCZQs19-CtzTppJFaY3wjJ0F9WLeNlFAx_24XfvYK0DviF_bkgtpq7cj3fHHj9iZTQ53fdjLv-WCjsbvNUXZhTt9ditgWHFfKLliuUtaar-u_41IMO15tL-nkYW858RhRfDV_Yt3653FWg3XjhYIMTg2qi-RcH4H1UqPKLJ4_I1GdFQQGLLNHH1CfVJabFqgv8KfF4VTUo5i9pPPx6ucWOSGOCE0DeMFVduSaBjITn6BDi6zCxCvRVm9jar7KCEf3F6zNKBU7Q-Ankc1VIsyFuGHRR9piAQ9x0qzgec6zsyDUkqwYkwPIe4VT7tvrMIWTRNRY50P7ihDg9lUNBrYgDz4pvAB40R0h3p26K5QASZ14bSEAgfrotQf8y_picbYOHAAESgOSkRjRghxvKfW0gGI9ETxV",
+    "rating": 4.6,
+    "reviews": 262,
+    "website": "http://www.nea-thedeli.de/"
+  },
+  "Café Konkret||Bochum": {
+    "lat": 51.4772757,
+    "lng": 7.2165368999999995,
+    "placeId": "ChIJN2d_MYg0cEERa6ByNDHqBsg",
+    "photo": "places/ChIJN2d_MYg0cEERa6ByNDHqBsg/photos/AaVGc3mWk8EiZobWBkK7SlOArEuIGxTAZbYFZxzIl84PtPCfrVcvhu0ZvltvphbmUkKSDSq88zpF7o4FJgdr6--zyxZrFOgdbu4J-NOkugbh_NZGnj14Fq0_tbpIGEflPRkqNEWDNlPmkZ13cPTcyoD30d6bNIO-LbRfc_wr7uUBXKZDJyXFiis5rkCKNLfp4EQ2vG0FeyA9IZt0WfPvqrT-6lLjNiNgRKFZToGaMlucX7wGtYgCyN_fM8wJ2RRwgOGPVji5lHLwOW6p-l3CBBwSsHU6O8lbQBF8xE7PiuE2EgMfH0I-kqeTfjz7E9S4PGex9SoO2fZiIo26GcOWuyOvCfTdESU9eMs4sOKlJm6kGNvbDScJjo3pOUg5-fs3g5JcvVvcHaCbn3W8GhnJ50Gg3oRJ1fDP6QXU2yoS7NavO7QyUw",
+    "rating": 4.2,
+    "reviews": 979,
+    "website": "https://www.konkret-bochum.de/"
+  },
+  "Café Zuckersüß||Bochum": {
+    "lat": 51.4947612,
+    "lng": 7.2805529,
+    "placeId": "ChIJ1Ud04bMfuUcRuNsGaDqckRQ"
+  },
+  "Lokmahouse Café||Bochum": {
+    "lat": 51.4793466,
+    "lng": 7.2215522,
+    "placeId": "ChIJzTPSn2nhuEcRQhL3yunSc-A"
+  },
+  "Heiter & Herrlich||Bochum": {
+    "lat": 51.4712679,
+    "lng": 7.1922852,
+    "placeId": "ChIJnXj77hbhuEcRvR-Rfa28Ltk"
+  },
+  "Arte Italiana||Bochum": {
+    "lat": 51.4804775,
+    "lng": 7.1347729,
+    "placeId": "ChIJXWL5MbPguEcRugSU2HFK1GQ"
+  },
+  "Traumkuh||Bochum": {
+    "lat": 51.4764878,
+    "lng": 7.2156703,
+    "placeId": "ChIJA8BYLwDhuEcRj5s85nYVsRY"
+  },
+  "Takumi||Bochum": {
+    "lat": 51.4770157,
+    "lng": 7.2157535,
+    "placeId": "ChIJYWjePQDhuEcRuxz9Ki9Gn50"
+  },
+  "Chillers||Bochum": {
+    "lat": 51.4746998,
+    "lng": 7.1518116,
+    "placeId": "ChIJLWFJHmjhuEcR72TdjL99IKo"
+  },
+  "Knüppelknifte||Bochum": {
+    "lat": 51.4913203,
+    "lng": 7.2388617,
+    "placeId": "ChIJKw5UXvHhuEcRykA0zzdAgQM"
+  },
+  "Kleene Tocke||Bochum": {
+    "lat": 51.4726356,
+    "lng": 7.2149955,
+    "placeId": "ChIJU3qdqr_huEcRnnPskrKAgXE"
+  },
+  "Mufasa||Bochum": {
+    "lat": 51.4873605,
+    "lng": 7.2153247,
+    "placeId": "ChIJjYF66xTguEcRkYkoZV1tJ1M"
+  },
+  "Nandy's||Bochum": {
+    "lat": 51.4766153,
+    "lng": 7.2162815,
+    "placeId": "ChIJafNqNfPhuEcRnogA7Q6Uqyk"
+  },
+  "Cups 'n Berry||Bochum": {
+    "lat": 51.4784752,
+    "lng": 7.2161553,
+    "placeId": "ChIJwVpE1rPhuEcRaRHNqhR6JIg"
+  },
+  "Veeva Acai||Bochum": {
+    "lat": 51.4788535,
+    "lng": 7.2187264,
+    "placeId": "ChIJ9XJJygfhuEcRg7aTR0pO63c"
+  },
+  "Trattoria Puglia||Castrop-Rauxel": {
+    "lat": 51.5505175,
+    "lng": 7.3104948,
+    "placeId": "ChIJLc1mmvcduUcRt4HaGUEMklg"
+  },
+  "Ristorante Fratelli||Bottrop": {
+    "lat": 51.6039622,
+    "lng": 6.9222721,
+    "placeId": "ChIJAbx235HtuEcR-IZiaEx77CA"
+  }
 }

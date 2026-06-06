@@ -1,3 +1,2 @@
-// Wird vom Admin-Backend überschrieben (Maps-JS-Key, client-seitig).
-// Leerer Key => die Landkarte nutzt automatisch den Leaflet-Fallback.
-window.RUE_CONFIG = { mapsKey: "" };
+// AUTO-GENERIERT vom Admin-Backend. Maps-JS-Key (client-seitig).
+window.RUE_CONFIG = {"mapsKey": "AIzaSyAjZUptd_Kwh3CCDEypiATGtv1WwkxG7yM"};
