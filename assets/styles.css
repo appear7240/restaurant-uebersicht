@@ -492,3 +492,28 @@ footer .totop { cursor: pointer; color: var(--accent); font-weight: 600; }
 .konfig:hover { color: var(--accent); }
 .gpop a.site { display: inline-block; margin-top: 8px; font-weight: 600; color: var(--accent); text-decoration: none; }
 .gpop a.site:hover { text-decoration: underline; }
+
+/* Restaurant hinzufügen */
+.add-fab {
+  position: fixed; right: 18px; bottom: 18px; z-index: 40;
+  font-family: var(--sans); font-weight: 700; font-size: 14px;
+  padding: 12px 18px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--accent); background: var(--accent); color: #fff;
+  box-shadow: var(--shadow-h);
+}
+.add-fab:hover { background: var(--accent-d); border-color: var(--accent-d); }
+.add-form { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.add-form input {
+  font: inherit; font-size: 15px; padding: 11px 14px; color: var(--ink);
+  border: 1px solid var(--line); border-radius: 12px; background: var(--paper);
+}
+.add-form input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+.add-save {
+  font: inherit; font-weight: 700; font-size: 15px; padding: 12px; border-radius: 12px;
+  border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer;
+}
+.add-save:hover { background: var(--accent-d); }
+.add-save:disabled { opacity: .5; cursor: default; }
+.add-msg { font-size: 13px; font-weight: 600; margin: 4px 0 0; min-height: 1em; }
+.add-msg.ok { color: #2e7d32; } .add-msg.err { color: var(--accent); }
+[data-theme="dark"] .add-msg.ok { color: #7fd28a; }

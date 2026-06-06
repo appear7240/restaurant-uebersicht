@@ -104,6 +104,25 @@
     </div>
   </div>
 
+  <button id="add-fab" class="add-fab" type="button" aria-haspopup="dialog">+ Restaurant</button>
+
+  <div class="modal" id="addmodal" hidden role="dialog" aria-modal="true" aria-labelledby="add-title">
+    <div class="modal-scrim" data-close></div>
+    <div class="modal-card">
+      <button class="rl-x" data-close type="button" aria-label="Schlie&szlig;en">&times;</button>
+      <p class="rl-kicker">Neu</p>
+      <h3 class="map-title" id="add-title">Restaurant hinzuf&uuml;gen</h3>
+      <div class="add-form">
+        <input id="add-name" type="text" placeholder="Name" autocomplete="off" />
+        <input id="add-city" type="text" placeholder="Stadt" list="add-cities" autocomplete="off" />
+        <datalist id="add-cities"></datalist>
+        <input id="add-note" type="text" placeholder="Notiz (optional)" autocomplete="off" />
+        <button id="add-save" class="add-save" type="button">Hinzuf&uuml;gen</button>
+        <p class="add-msg" id="add-msg"></p>
+      </div>
+    </div>
+  </div>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="config.js"></script>
   <script src="data/restaurants.js"></script>

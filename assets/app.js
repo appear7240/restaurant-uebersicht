@@ -495,6 +495,36 @@
     var r = ALL[winnerKey]; closeRoulette(); openMap(r);
   });
 
+  // ── Restaurant hinzufügen (Backend nötig) ──────────
+  (function () {
+    var fab = $("add-fab"), modal = $("addmodal");
+    if (!fab || !modal) return;
+    var nm = $("add-name"), ct = $("add-city"), nt = $("add-note"),
+        save = $("add-save"), msg = $("add-msg"), dl = $("add-cities");
+    var API = "/admin/api/";
+    cities.forEach(function (c) { var o = document.createElement("option"); o.value = c; dl.appendChild(o); });
+    function setMsg(t, ok) { msg.textContent = t || ""; msg.className = "add-msg" + (ok === true ? " ok" : ok === false ? " err" : ""); }
+    function open() { setMsg(""); modal.hidden = false; document.body.style.overflow = "hidden"; nm.focus(); }
+    function close() { modal.hidden = true; document.body.style.overflow = ""; }
+    fab.addEventListener("click", open);
+    modal.addEventListener("click", function (e) { if (e.target.hasAttribute("data-close")) close(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !modal.hidden) close(); });
+    save.addEventListener("click", async function () {
+      var name = nm.value.trim(), city = ct.value.trim();
+      if (!name || !city) { setMsg("Name und Stadt nötig.", false); return; }
+      save.disabled = true; setMsg("Speichere…");
+      try {
+        var r = await fetch(API + "restaurants", { method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: name, city: city, note: nt.value.trim() }) });
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        await fetch(API + "export", { method: "POST" });
+        setMsg("Hinzugefügt + exportiert. Seite neu laden, um es zu sehen.", true);
+        nm.value = ""; nt.value = "";
+      } catch (e) { setMsg("Fehler (Backend erreichbar?): " + e.message, false); }
+      save.disabled = false;
+    });
+  })();
+
   // ── Init ───────────────────────────────────────────
   applyHash();
   syncChips();
