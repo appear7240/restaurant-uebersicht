@@ -237,6 +237,18 @@ def del_restaurant(rid: int, x_admin_token: Optional[str] = Header(None)):
     return {"deleted": rid}
 
 
+@app.get("/api/status")
+def status():
+    con = db()
+    total = con.execute("SELECT COUNT(*) AS n FROM restaurants").fetchone()["n"]
+    enriched = con.execute(
+        "SELECT COUNT(*) AS n FROM restaurants WHERE cuisine IS NOT NULL AND cuisine!=''").fetchone()["n"]
+    geocoded = con.execute(
+        "SELECT COUNT(*) AS n FROM restaurants WHERE lat IS NOT NULL").fetchone()["n"]
+    con.close()
+    return {"total": total, "enriched": enriched, "geocoded": geocoded}
+
+
 @app.get("/api/settings")
 def get_settings(x_admin_token: Optional[str] = Header(None)):
     check_auth(x_admin_token)
@@ -350,6 +362,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}td{padding:8px 6px;bord
 </style></head><body><div class="wrap">
 <h1>Restaurant-Übersicht — Admin</h1>
 <p class="sub">Schlüssel pflegen · Restaurants hinzufügen (+ Anreicherung) · Export → restaurants.js</p>
+<div id="status" class="count" style="margin:0 0 18px;font-weight:700">Stand wird geladen…</div>
 
 <div class="box">
   <label>Admin-Token (falls gesetzt)</label><input id="f-token" type="password" placeholder="leer lassen, wenn keiner">
@@ -405,6 +418,12 @@ async function load(){
   $("cities").innerHTML=cs.map(c=>`<option value="${esc(c)}">`).join("");
   $("list").innerHTML=d.map(x=>`<tr><td><b>${esc(x.name)}</b><br><span class="count">${esc(x.city)}</span>${x.blurb?'<br><span class="count">'+esc(x.blurb)+'</span>':''}</td><td>${(x.tags||[]).map(t=>'<span class="tag">'+esc(t)+'</span>').join("")}</td><td style="text-align:right"><button class="del" data-id="${x.id}" title="Löschen">×</button></td></tr>`).join("");
   document.querySelectorAll(".del").forEach(b=>b.onclick=()=>del(b.dataset.id));
+  refreshStatus();
+}
+async function refreshStatus(){
+  try{const r=await fetch("api/status");const d=await r.json();
+    $("status").textContent="Stand: "+d.total+" Restaurants · angereichert "+d.enriched+"/"+d.total+" · Koordinaten "+d.geocoded+"/"+d.total;}
+  catch(e){}
 }
 async function loadSettings(){
   const r=await fetch("api/settings",{headers:hdr()});if(!r.ok)return;const d=await r.json();
@@ -469,6 +488,7 @@ $("enrich-all").onclick=async()=>{
     if(d.error){$("m-enrich").textContent=d.error;break;}
     total+=d.enriched;
     $("m-enrich").textContent="angereichert: "+total+", verbleibend: "+d.remaining;
+    refreshStatus();
     if(d.remaining===0){$("m-enrich").textContent="fertig: "+total+" angereichert — jetzt „Exportieren".";break;}
     if(d.enriched===0){$("m-enrich").textContent+=" (gestoppt — Anreicherung lieferte nichts; OpenAI/Netz prüfen)";break;}
   }
