@@ -2,27 +2,23 @@
 # -*- coding: utf-8 -*-
 """Admin-Backend (Option A) – Pflege-Tool, Seite bleibt statisch.
 
-Speichert Restaurants in SQLite, reichert neue Einträge via OpenAI an
-(optional, nur wenn OPENAI_API_KEY gesetzt) und EXPORTIERT den Datensatz
-nach data/restaurants.js (optional mit git push). Die statische Seite liest
-weiterhin nur diese Datei – kein öffentliches API nötig.
+- Restaurants hinzufügen/löschen (SQLite), neue Einträge optional via OpenAI anreichern.
+- API-Keys (OpenAI + Maps-JS) werden über die Oberfläche gepflegt (DB), je mit Test-Button.
+- Export schreibt data/restaurants.js; der Maps-Key wird in config.js propagiert.
 
-Start:
-    pip install -r backend/requirements.txt --break-system-packages
-    OPENAI_API_KEY=sk-... uvicorn app:app --host 0.0.0.0 --port 8080   # aus backend/
-Env:
-    OPENAI_API_KEY  optionale GPT-Anreicherung beim Hinzufügen
-    OPENAI_MODEL    Default gpt-4o-mini
-    ADMIN_TOKEN     wenn gesetzt: X-Admin-Token-Header für Schreibrouten nötig
-    GIT_PUSH=1      beim Export zusätzlich git add/commit/push
-    RUE_DB          DB-Pfad (Default backend/restaurants.db)
-    RUE_DATA        Ziel der Exportdatei (Default data/restaurants.js)
+Start (aus backend/):
+    pip install -r requirements.txt --break-system-packages
+    uvicorn app:app --host 0.0.0.0 --port 8080
+Env: ADMIN_TOKEN (Schreibschutz), GIT_PUSH=1 (Export pusht), RUE_DB/RUE_DATA/RUE_CONFIG.
+OpenAI/Maps-Keys werden bevorzugt aus der DB gelesen (Oberfläche), sonst aus ENV.
 """
 import json
 import os
 import sqlite3
 import subprocess
 import sys
+import urllib.error
+import urllib.request
 from datetime import date
 from pathlib import Path
 from typing import Optional
@@ -38,6 +34,7 @@ import enrich       # noqa: E402
 
 DB_PATH = os.environ.get("RUE_DB", str(BASE / "backend" / "restaurants.db"))
 DATA_PATH = os.environ.get("RUE_DATA", str(BASE / "data" / "restaurants.js"))
+CONFIG_PATH = os.environ.get("RUE_CONFIG", str(BASE / "config.js"))
 ADMIN_TOKEN = os.environ.get("ADMIN_TOKEN", "")
 
 
@@ -58,6 +55,7 @@ def init_db():
             note TEXT, blurb TEXT, cuisine TEXT,
             created_at TEXT DEFAULT (datetime('now')))"""
     )
+    con.execute("CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY, value TEXT)")
     con.commit()
     if con.execute("SELECT COUNT(*) AS n FROM restaurants").fetchone()["n"] == 0:
         for r in build_data.parse_records():
@@ -67,6 +65,44 @@ def init_db():
             )
         con.commit()
     con.close()
+
+
+# ── Settings / Keys ─────────────────────────────────────
+def get_setting(k, default=None):
+    con = db()
+    row = con.execute("SELECT value FROM settings WHERE key=?", (k,)).fetchone()
+    con.close()
+    return row["value"] if row and row["value"] else default
+
+
+def set_setting(k, v):
+    con = db()
+    con.execute(
+        "INSERT INTO settings(key,value) VALUES(?,?) "
+        "ON CONFLICT(key) DO UPDATE SET value=excluded.value", (k, v))
+    con.commit()
+    con.close()
+
+
+def get_openai_key():
+    return get_setting("openai_key") or os.environ.get("OPENAI_API_KEY")
+
+
+def get_maps_key():
+    return get_setting("maps_key") or os.environ.get("MAPS_API_KEY", "")
+
+
+def mask(s):
+    if not s:
+        return ""
+    return "…" + s[-4:] if len(s) >= 4 else "…"
+
+
+def write_config_file():
+    js = ("// AUTO-GENERIERT vom Admin-Backend. Maps-JS-Key (client-seitig).\n"
+          "window.RUE_CONFIG = " + json.dumps({"mapsKey": get_maps_key() or ""}, ensure_ascii=False) + ";\n")
+    Path(CONFIG_PATH).parent.mkdir(parents=True, exist_ok=True)
+    Path(CONFIG_PATH).write_text(js, encoding="utf-8")
 
 
 def order_tags(tags):
@@ -89,10 +125,8 @@ def write_data_file():
     rows = con.execute("SELECT * FROM restaurants ORDER BY city, name").fetchall()
     con.close()
     payload = {"updated": date.today().isoformat(), "restaurants": [row_public(r) for r in rows]}
-    js = (
-        "// AUTO-GENERIERT vom Admin-Backend (Export). Nicht von Hand editieren.\n"
-        "window.RESTAURANT_DATA = " + json.dumps(payload, ensure_ascii=False, indent=2) + ";\n"
-    )
+    js = ("// AUTO-GENERIERT vom Admin-Backend (Export). Nicht von Hand editieren.\n"
+          "window.RESTAURANT_DATA = " + json.dumps(payload, ensure_ascii=False, indent=2) + ";\n")
     Path(DATA_PATH).parent.mkdir(parents=True, exist_ok=True)
     Path(DATA_PATH).write_text(js, encoding="utf-8")
     return len(rows)
@@ -111,6 +145,15 @@ class NewRestaurant(BaseModel):
     name: str
     city: str
     note: Optional[str] = None
+
+
+class SettingsIn(BaseModel):
+    openai_key: Optional[str] = None
+    maps_key: Optional[str] = None
+
+
+class TestKey(BaseModel):
+    openai_key: Optional[str] = None
 
 
 @app.get("/api/restaurants")
@@ -132,7 +175,7 @@ def add_restaurant(item: NewRestaurant, x_admin_token: Optional[str] = Header(No
 
     cuisine = blurb = ""
     extra = []
-    key = os.environ.get("OPENAI_API_KEY")
+    key = get_openai_key()
     if key:
         enr = enrich.call_openai({"name": name, "city": city}, key)
         if enr:
@@ -151,8 +194,7 @@ def add_restaurant(item: NewRestaurant, x_admin_token: Optional[str] = Header(No
     con = db()
     cur = con.execute(
         "INSERT INTO restaurants(name,city,tags,note,blurb,cuisine) VALUES(?,?,?,?,?,?)",
-        (name, city, json.dumps(tags, ensure_ascii=False), keepnote, blurb or None, cuisine or None),
-    )
+        (name, city, json.dumps(tags, ensure_ascii=False), keepnote, blurb or None, cuisine or None))
     con.commit()
     row = con.execute("SELECT * FROM restaurants WHERE id=?", (cur.lastrowid,)).fetchone()
     con.close()
@@ -169,14 +211,52 @@ def del_restaurant(rid: int, x_admin_token: Optional[str] = Header(None)):
     return {"deleted": rid}
 
 
+@app.get("/api/settings")
+def get_settings(x_admin_token: Optional[str] = Header(None)):
+    check_auth(x_admin_token)
+    ok, mk = get_openai_key(), get_maps_key()
+    return {"openai": {"set": bool(ok), "hint": mask(ok)},
+            "maps": {"set": bool(mk), "hint": mask(mk)}}
+
+
+@app.post("/api/settings")
+def save_settings(s: SettingsIn, x_admin_token: Optional[str] = Header(None)):
+    check_auth(x_admin_token)
+    if s.openai_key is not None:
+        set_setting("openai_key", s.openai_key.strip())
+    if s.maps_key is not None:
+        set_setting("maps_key", s.maps_key.strip())
+        write_config_file()  # Maps-Key sofort in config.js propagieren
+    return {"saved": True}
+
+
+@app.post("/api/test/openai")
+def test_openai(body: Optional[TestKey] = None, x_admin_token: Optional[str] = Header(None)):
+    check_auth(x_admin_token)
+    key = (body.openai_key.strip() if (body and body.openai_key) else None) or get_openai_key()
+    if not key:
+        return {"ok": False, "error": "Kein OpenAI-Key gesetzt"}
+    req = urllib.request.Request("https://api.openai.com/v1/models",
+                                 headers={"Authorization": "Bearer " + key})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            data = json.loads(r.read().decode())
+        return {"ok": True, "message": "OK – %d Modelle erreichbar" % len(data.get("data", []))}
+    except urllib.error.HTTPError as e:
+        return {"ok": False, "error": "HTTP %d (Key ungültig/keine Berechtigung)" % e.code}
+    except Exception as e:  # noqa: BLE001
+        return {"ok": False, "error": str(e)}
+
+
 @app.post("/api/export")
 def export(x_admin_token: Optional[str] = Header(None)):
     check_auth(x_admin_token)
     n = write_data_file()
+    write_config_file()
     pushed, msg = False, "geschrieben"
     if os.environ.get("GIT_PUSH") == "1":
         try:
-            for cmd in (["add", DATA_PATH],
+            for cmd in (["add", DATA_PATH, CONFIG_PATH],
                         ["commit", "-m", "data: Update via Admin-Backend"],
                         ["push"]):
                 subprocess.run(["git", "-C", str(BASE)] + cmd, check=True, capture_output=True)
@@ -186,41 +266,64 @@ def export(x_admin_token: Optional[str] = Header(None)):
     return {"count": n, "pushed": pushed, "message": msg, "path": DATA_PATH}
 
 
-ADMIN_HTML = """<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+ADMIN_HTML = r"""<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>Admin · Restaurant-Übersicht</title>
 <style>
 :root{--ac:#bf4128;--ink:#211a11;--mut:#82715c;--line:#e7dac6;--bg:#f6efe3;--card:#fffaf1}
 *{box-sizing:border-box}body{margin:0;font:15px/1.5 system-ui,sans-serif;background:var(--bg);color:var(--ink)}
-.wrap{max-width:760px;margin:0 auto;padding:28px 20px 60px}
-h1{font-size:26px;margin:0 0 4px}p.sub{color:var(--mut);margin:0 0 22px}
+.wrap{max-width:780px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:26px;margin:0 0 4px}h2{font-size:16px;margin:0 0 8px}p.sub{color:var(--mut);margin:0 0 22px}
 .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:18px}
 label{display:block;font-weight:700;font-size:13px;margin:10px 0 4px}
 input{width:100%;padding:10px 12px;border:1px solid #d8c7ac;border-radius:9px;font:inherit;background:#fff}
-.row{display:flex;gap:10px;flex-wrap:wrap}.row>div{flex:1;min-width:160px}
+.row{display:flex;gap:14px;flex-wrap:wrap}.row>div{flex:1;min-width:200px}
 button{font:inherit;font-weight:700;border:none;border-radius:999px;padding:11px 18px;cursor:pointer}
 .primary{background:var(--ac);color:#fff}.ghost{background:transparent;border:1px solid #d8c7ac;color:var(--ink)}
-.bar{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
+.bar{display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap}
 .msg{font-size:13px;color:var(--mut);min-height:1.2em}
 table{width:100%;border-collapse:collapse;font-size:14px}td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 .tag{display:inline-block;background:#efe6d5;color:#5c4a30;border-radius:6px;padding:2px 7px;font-size:11px;font-weight:700;margin:1px}
 .del{background:transparent;border:none;color:var(--mut);cursor:pointer;font-size:18px;padding:0 6px}
 .del:hover{color:var(--ac)}.count{color:var(--mut);font-size:13px}
+.hint{color:var(--mut);font-size:12px;margin:8px 0 0}
 </style></head><body><div class="wrap">
 <h1>Restaurant-Übersicht — Admin</h1>
-<p class="sub">Hinzufügen + GPT-Anreicherung. Danach „Exportieren" schreibt data/restaurants.js.</p>
+<p class="sub">Schlüssel pflegen · Restaurants hinzufügen (+ Anreicherung) · Export → restaurants.js</p>
 
 <div class="box">
+  <label>Admin-Token (falls gesetzt)</label><input id="f-token" type="password" placeholder="leer lassen, wenn keiner">
+</div>
+
+<div class="box">
+  <h2>Schlüssel</h2>
+  <div class="row">
+    <div>
+      <label>OpenAI-Key <span class="count" id="s-openai"></span></label>
+      <input id="f-openai" type="password" placeholder="sk-…">
+      <div class="bar"><button class="ghost" id="t-openai" type="button">OpenAI testen</button><span class="msg" id="m-openai"></span></div>
+    </div>
+    <div>
+      <label>Maps-JS-Key <span class="count" id="s-maps"></span></label>
+      <input id="f-maps" type="password" placeholder="AIza…">
+      <div class="bar"><button class="ghost" id="t-maps" type="button">Maps testen</button><span class="msg" id="m-maps"></span></div>
+    </div>
+  </div>
+  <div class="bar"><button class="primary" id="save-keys" type="button">Schlüssel speichern</button><span class="msg" id="m-keys"></span></div>
+  <p class="hint">OpenAI-Test läuft serverseitig (testet eingegebenen oder gespeicherten Key). Maps-Test lädt den eingegebenen Key im Browser — bei Referrer-Beschränkung kann er hier fehlschlagen, maßgeblich ist die Live-Domain.</p>
+</div>
+
+<div class="box">
+  <h2>Restaurant hinzufügen</h2>
   <div class="row">
     <div><label>Name</label><input id="f-name" placeholder="z. B. Trattoria Neu"></div>
     <div><label>Stadt</label><input id="f-city" list="cities" placeholder="z. B. Bochum"><datalist id="cities"></datalist></div>
   </div>
   <label>Notiz (optional)</label><input id="f-note" placeholder="z. B. Trüffelpasta">
-  <label>Admin-Token (falls gesetzt)</label><input id="f-token" type="password" placeholder="leer lassen, wenn keiner">
-  <div class="bar"><button class="primary" id="add">Hinzufügen + anreichern</button><span class="msg" id="m-add"></span></div>
+  <div class="bar"><button class="primary" id="add" type="button">Hinzufügen + anreichern</button><span class="msg" id="m-add"></span></div>
 </div>
 
 <div class="box">
-  <div class="bar"><button class="ghost" id="export">Exportieren → restaurants.js</button><span class="msg" id="m-exp"></span></div>
+  <div class="bar"><button class="ghost" id="export" type="button">Exportieren → restaurants.js</button><span class="msg" id="m-exp"></span></div>
 </div>
 
 <div class="box">
@@ -231,15 +334,50 @@ table{width:100%;border-collapse:collapse;font-size:14px}td{padding:8px 6px;bord
 const $=id=>document.getElementById(id);
 const tok=()=>$("f-token").value.trim();
 const hdr=()=>{const h={"Content-Type":"application/json"};if(tok())h["X-Admin-Token"]=tok();return h;};
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
 async function load(){
   const r=await fetch("api/restaurants");const d=await r.json();
   $("count").textContent=d.length+" Restaurants";
   const cs=[...new Set(d.map(x=>x.city))].sort();
-  $("cities").innerHTML=cs.map(c=>`<option value="${c}">`).join("");
+  $("cities").innerHTML=cs.map(c=>`<option value="${esc(c)}">`).join("");
   $("list").innerHTML=d.map(x=>`<tr><td><b>${esc(x.name)}</b><br><span class="count">${esc(x.city)}</span>${x.blurb?'<br><span class="count">'+esc(x.blurb)+'</span>':''}</td><td>${(x.tags||[]).map(t=>'<span class="tag">'+esc(t)+'</span>').join("")}</td><td style="text-align:right"><button class="del" data-id="${x.id}" title="Löschen">×</button></td></tr>`).join("");
   document.querySelectorAll(".del").forEach(b=>b.onclick=()=>del(b.dataset.id));
 }
-function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+async function loadSettings(){
+  const r=await fetch("api/settings",{headers:hdr()});if(!r.ok)return;const d=await r.json();
+  $("s-openai").textContent=d.openai.set?("gesetzt "+d.openai.hint):"nicht gesetzt";
+  $("s-maps").textContent=d.maps.set?("gesetzt "+d.maps.hint):"nicht gesetzt";
+}
+$("save-keys").onclick=async()=>{
+  const body={};const o=$("f-openai").value.trim(),m=$("f-maps").value.trim();
+  if(o)body.openai_key=o;if(m)body.maps_key=m;
+  if(!Object.keys(body).length){$("m-keys").textContent="Nichts eingegeben.";return;}
+  $("m-keys").textContent="…";
+  const r=await fetch("api/settings",{method:"POST",headers:hdr(),body:JSON.stringify(body)});
+  $("m-keys").textContent=r.ok?"gespeichert":("Fehler "+r.status);
+  $("f-openai").value="";$("f-maps").value="";loadSettings();
+};
+$("t-openai").onclick=async()=>{
+  $("m-openai").textContent="…";
+  const o=$("f-openai").value.trim();
+  const r=await fetch("api/test/openai",{method:"POST",headers:hdr(),body:JSON.stringify(o?{openai_key:o}:{})});
+  const d=await r.json();
+  $("m-openai").textContent=d.ok?("✓ "+(d.message||"OK")):("✗ "+(d.error||"Fehler"));
+};
+let mapsTried=false;
+$("t-maps").onclick=()=>{
+  const key=$("f-maps").value.trim();
+  if(!key){$("m-maps").textContent="Key ins Feld eingeben zum Testen.";return;}
+  if(mapsTried){$("m-maps").textContent="Seite neu laden, um erneut zu testen.";return;}
+  mapsTried=true;$("m-maps").textContent="…";
+  window.gm_authFailure=()=>{$("m-maps").textContent="✗ Auth-Fehler (Key / Restriction / Billing)";};
+  window.__mapsOk=()=>{$("m-maps").textContent="✓ Maps geladen";};
+  const s=document.createElement("script");
+  s.onerror=()=>{$("m-maps").textContent="✗ Script konnte nicht geladen werden";};
+  s.src="https://maps.googleapis.com/maps/api/js?key="+encodeURIComponent(key)+"&callback=__mapsOk&loading=async";
+  document.head.appendChild(s);
+};
 $("add").onclick=async()=>{
   const name=$("f-name").value.trim(),city=$("f-city").value.trim();
   if(!name||!city){$("m-add").textContent="Name und Stadt nötig.";return;}
@@ -258,8 +396,8 @@ $("export").onclick=async()=>{
     $("m-exp").textContent=r.ok?(d.message+" ("+d.count+" Einträge)"):("Fehler: "+(d.detail||r.status));}
   catch(e){$("m-exp").textContent="Fehler: "+e;}
 };
-$("del-x");async function del(id){if(!confirm("Löschen?"))return;await fetch("api/restaurants/"+id,{method:"DELETE",headers:hdr()});load();}
-load();
+async function del(id){if(!confirm("Löschen?"))return;await fetch("api/restaurants/"+id,{method:"DELETE",headers:hdr()});load();}
+load();loadSettings();
 </script></body></html>"""
 
 
