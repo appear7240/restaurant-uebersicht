@@ -148,9 +148,19 @@ a { color: inherit; }
 }
 
 .chips {
-  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+  display: flex; flex-wrap: nowrap; gap: 8px; margin-top: 12px;
+  overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px; scrollbar-width: none; -ms-overflow-style: none;
+  scroll-snap-type: x proximity;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 14px, #000 calc(100% - 14px), transparent);
+          mask-image: linear-gradient(to right, transparent, #000 14px, #000 calc(100% - 14px), transparent);
+}
+.chips::-webkit-scrollbar { display: none; }
+@media (min-width: 720px) {
+  .chips { flex-wrap: wrap; overflow: visible; -webkit-mask-image: none; mask-image: none; }
 }
 .chip {
+  flex: 0 0 auto; scroll-snap-align: start;
   font-family: var(--sans); font-size: 13px; font-weight: 600;
   padding: 7px 13px; border-radius: 999px; cursor: pointer; user-select: none;
   border: 1px solid var(--line-2); background: var(--card); color: var(--ink-2);
