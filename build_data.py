@@ -243,7 +243,8 @@ def keep_note(note: str) -> bool:
     return any(t not in COVERED for t in toks)
 
 
-def main():
+def parse_records():
+    """Rohliste -> Liste strukturierter Records (ohne Anreicherung)."""
     records = []
     city = None
     for line in RAW.splitlines():
@@ -261,19 +262,57 @@ def main():
             name = body[: m.start()].strip()
         else:
             name = body
-        tags = derive_tags(name, note)
-        rec = {"name": name, "city": city, "tags": tags}
+        rec = {"name": name, "city": city, "tags": derive_tags(name, note)}
         if keep_note(note):
             rec["note"] = note
         records.append(rec)
+    return records
 
-    payload = {
-        "updated": date.today().isoformat(),
-        "restaurants": records,
-    }
+
+def enrich_key(rec):
+    return rec["name"] + "||" + rec["city"]
+
+
+def merge_enrichment(records, path="enriched.json"):
+    """Falls vorhanden, GPT-Anreicherung (cuisine/extra_tags/blurb) einmischen.
+    Fehlt die Datei, bleiben die Records unverändert (Pipeline degradiert sauber)."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            cache = json.load(f)
+    except FileNotFoundError:
+        return 0
+    n = 0
+    for rec in records:
+        e = cache.get(enrich_key(rec))
+        if not e:
+            continue
+        n += 1
+        if e.get("blurb"):
+            rec["blurb"] = e["blurb"]
+        extra = list(e.get("extra_tags") or [])
+        if e.get("cuisine"):
+            extra.append(e["cuisine"])
+        merged = list(rec["tags"])
+        for t in extra:
+            t = (t or "").strip()
+            if t and t not in merged:
+                merged.append(t)
+        # bekannte Tags in fester Reihenfolge zuerst, Rest in Fundreihenfolge
+        known = [t for t in TAG_ORDER if t in merged]
+        rest = [t for t in merged if t not in TAG_ORDER]
+        rec["tags"] = known + rest
+    return n
+
+
+def main():
+    records = parse_records()
+    enriched = merge_enrichment(records)
+
+    payload = {"updated": date.today().isoformat(), "restaurants": records}
     js = (
         "// AUTO-GENERIERT von build_data.py – nicht von Hand editieren.\n"
-        "// Quelle: kuratierte Liste. Neu generieren: python3 build_data.py\n"
+        "// Quelle: kuratierte Liste (+ optionale GPT-Anreicherung aus enriched.json).\n"
+        "// Neu generieren: python3 build_data.py\n"
         "window.RESTAURANT_DATA = "
         + json.dumps(payload, ensure_ascii=False, indent=2)
         + ";\n"
@@ -287,13 +326,13 @@ def main():
     tagc = Counter(t for r in records for t in r["tags"])
     untagged = [r["name"] for r in records if not r["tags"]]
     print(f"Total: {len(records)} Restaurants in {len(cities)} Städten")
+    print(f"Angereichert: {enriched}/{len(records)}")
     print("--- Pro Stadt ---")
     for c, n in cities.items():
         print(f"{c}: {n}")
     print("--- Tags ---")
-    for t in TAG_ORDER:
-        if tagc[t]:
-            print(f"{t}: {tagc[t]}")
+    for t, n in tagc.most_common():
+        print(f"{t}: {n}")
     print(f"--- Ohne Tag ({len(untagged)}) ---")
     print(", ".join(untagged))
 

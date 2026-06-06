@@ -11,6 +11,8 @@ Kuratierte, statische Restaurant-Übersicht (NRW + Hamburg). Filterbar nach
   Default nach `prefers-color-scheme`.
 - **Teilbare Filter** – Stadt/Kategorie/Suche werden in die URL (`#…`) geschrieben;
   Link teilen oder bookmarken stellt den Filterzustand wieder her.
+- **Landkarte** – Umschalter Liste/Landkarte; Städte als Blasen (Größe = Anzahl),
+  Klick → Stadt-Filter. Karten via Leaflet/OpenStreetMap, kein API-Key.
 - Diakritik-unempfindliche Suche (`dusseldorf` findet „Düsseldorf").
 - Reduced-Motion-tauglich, tastaturbedienbar.
 
@@ -44,6 +46,21 @@ Tags werden konservativ abgeleitet (explizite Klammer-Angabe + eindeutige
 lexikalische Signale im Namen, z. B. `Trattoria` → Italienisch, `Sushi` →
 Sushi). Keine geratenen Kategorien; nicht eindeutige Einträge bleiben ohne Tag
 und sind weiterhin über Stadt/Suche auffindbar.
+
+## Daten anreichern (optional, GPT)
+
+`enrich.py` reichert je Restaurant **einmalig** Küche/Kategorie/Kurztext an
+(Cache in `enriched.json`, nur fehlende Einträge kosten). GPT liefert nur
+Semantik – **keine** Fakten (Adresse/Öffnungszeiten/Preise).
+
+```bash
+OPENAI_API_KEY=sk-... python3 enrich.py          # nur neue/fehlende
+OPENAI_API_KEY=sk-... python3 enrich.py --force   # alles neu
+python3 build_data.py                             # enriched.json -> restaurants.js
+```
+
+Modell via `OPENAI_MODEL` (Default `gpt-4o-mini`). `enriched.json` mit committen,
+damit der Build ohne erneute API-Calls reproduzierbar bleibt.
 
 ## Deploy
 

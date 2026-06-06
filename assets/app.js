@@ -12,6 +12,19 @@
     "Bar", "Shisha", "Käsefondue"
   ];
 
+  // Stadt-Mittelpunkte (verlässlich) für die Übersichts-Landkarte
+  var CITY_COORDS = {
+    "Bochum": [51.4818, 7.2162], "Castrop-Rauxel": [51.5497, 7.3110],
+    "Bottrop": [51.5235, 6.9286], "Dortmund": [51.5136, 7.4653],
+    "Dinslaken": [51.5601, 6.7670], "Duisburg": [51.4344, 6.7623],
+    "Düsseldorf": [51.2277, 6.7735], "Essen": [51.4556, 7.0116],
+    "Moers": [51.4517, 6.6406], "Mülheim": [51.4275, 6.8825],
+    "Gelsenkirchen": [51.5177, 7.0857], "Hamburg": [53.5511, 9.9937],
+    "Herten": [51.5938, 7.1357], "Köln": [50.9375, 6.9603],
+    "Krefeld": [51.3388, 6.5853], "Oberhausen": [51.4963, 6.8638],
+    "Recklinghausen": [51.6142, 7.1979], "Wuppertal": [51.2562, 7.1508]
+  };
+
   var reduceMotion = !!(window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
@@ -24,7 +37,7 @@
   // Index + Suchstring vorberechnen
   ALL.forEach(function (r, i) {
     r._i = i;
-    r._s = fold([r.name, r.city, (r.tags || []).join(" "), r.note || ""].join(" "));
+    r._s = fold([r.name, r.city, (r.tags || []).join(" "), r.note || "", r.blurb || ""].join(" "));
   });
 
   // Zählungen
@@ -37,10 +50,18 @@
     if (cityCount[b] !== cityCount[a]) return cityCount[b] - cityCount[a];
     return a.localeCompare(b, "de");
   });
-  var presentTags = TAG_ORDER.filter(function (t) { return catCount[t]; });
+  var knownTags = TAG_ORDER.filter(function (t) { return catCount[t]; });
+  var extraTags = Object.keys(catCount)
+    .filter(function (t) { return TAG_ORDER.indexOf(t) === -1; })
+    .sort(function (a, b) {
+      if (catCount[b] !== catCount[a]) return catCount[b] - catCount[a];
+      return a.localeCompare(b, "de");
+    });
+  var presentTags = knownTags.concat(extraTags);
 
   // State
   var state = { q: "", qRaw: "", cats: new Set(), city: "" };
+  var view = "list";
 
   var $ = function (id) { return document.getElementById(id); };
   var elResults = $("results"), elEmpty = $("empty"), elFoot = $("foot-count");
@@ -94,14 +115,14 @@
     return b;
   }
   var resetChip = makeChip({ label: "Alle", n: ALL.length, reset: true,
-    onClick: function () { state.cats.clear(); syncChips(); render(); } });
+    onClick: function () { state.cats.clear(); syncChips(); refresh(); } });
   elChips.appendChild(resetChip);
   var tagChips = {};
   presentTags.forEach(function (t) {
     var c = makeChip({ label: t, n: catCount[t], tag: t, dot: true,
       onClick: function () {
         if (state.cats.has(t)) state.cats.delete(t); else state.cats.add(t);
-        syncChips(); render();
+        syncChips(); refresh();
       } });
     tagChips[t] = c; elChips.appendChild(c);
   });
@@ -124,6 +145,7 @@
     card.style.setProperty("--i", String(Math.min(i, 14)));
     var nm = document.createElement("div"); nm.className = "name"; nm.textContent = r.name; card.appendChild(nm);
     if (r.note) { var nt = document.createElement("div"); nt.className = "note"; nt.textContent = r.note; card.appendChild(nt); }
+    if (r.blurb) { var bl = document.createElement("div"); bl.className = "blurb"; bl.textContent = r.blurb; card.appendChild(bl); }
     if (r.tags && r.tags.length) {
       var tw = document.createElement("div"); tw.className = "tags";
       r.tags.forEach(function (t) { tw.appendChild(tagEl(t)); });
@@ -197,8 +219,12 @@
     elResults.replaceChildren(frag);
 
     var none = list.length === 0;
-    elEmpty.hidden = !none;
-    elResults.style.display = none ? "none" : "";
+    if (view === "map") {
+      elResults.style.display = "none"; elEmpty.hidden = true;
+    } else {
+      elResults.style.display = none ? "none" : "";
+      elEmpty.hidden = !none;
+    }
     elFoot.textContent = none
       ? "0 von " + ALL.length + " angezeigt"
       : list.length + " von " + ALL.length + " angezeigt · " + shownCities + (shownCities === 1 ? " Stadt" : " Städte");
@@ -206,18 +232,68 @@
     writeHash();
   }
 
+  // ── Ansicht: Liste / Landkarte ─────────────────────
+  var elMapView = $("map"), elViewList = $("view-list"), elViewMap = $("view-map");
+  var mapInited = false, mapObj = null;
+
+  function initMap() {
+    if (mapInited) return; mapInited = true;
+    if (!window.L) { elMapView.innerHTML = '<div class="map-msg">Karte konnte nicht geladen werden (Leaflet/Netz).</div>'; return; }
+    var L = window.L;
+    mapObj = L.map(elMapView, { scrollWheelZoom: false }).setView([51.45, 7.2], 9);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      { maxZoom: 19, attribution: "© OpenStreetMap" }).addTo(mapObj);
+    var pts = [];
+    cities.forEach(function (c) {
+      var co = CITY_COORDS[c]; if (!co) return;
+      var n = cityCount[c];
+      var mk = L.circleMarker(co, { radius: 8 + Math.sqrt(n) * 4, color: "#bf4128",
+        weight: 2, fillColor: "#bf4128", fillOpacity: 0.5 }).addTo(mapObj);
+      var box = document.createElement("div"); box.className = "pin-pop";
+      box.innerHTML = "<b>" + c + "</b><br>" + n + (n === 1 ? " Adresse" : " Adressen") + "<br>";
+      var b = document.createElement("button"); b.type = "button"; b.textContent = "Hier ansehen";
+      b.addEventListener("click", function () { showCity(c); });
+      box.appendChild(b); mk.bindPopup(box);
+      pts.push(co);
+    });
+    if (pts.length) mapObj.fitBounds(pts, { padding: [40, 40] });
+  }
+
+  function setView(v) {
+    view = v;
+    var isMap = v === "map";
+    elViewMap.classList.toggle("on", isMap); elViewList.classList.toggle("on", !isMap);
+    elViewMap.setAttribute("aria-selected", isMap ? "true" : "false");
+    elViewList.setAttribute("aria-selected", isMap ? "false" : "true");
+    elMapView.hidden = !isMap;
+    if (isMap) {
+      elResults.style.display = "none"; elEmpty.hidden = true;
+      initMap();
+      if (mapObj) setTimeout(function () { mapObj.invalidateSize(); }, 0);
+    } else {
+      render();
+    }
+  }
+  function refresh() { if (view !== "list") setView("list"); else render(); }
+  function showCity(c) {
+    state.city = c; elCity.value = c; setView("list");
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  }
+  elViewList.addEventListener("click", function () { setView("list"); });
+  elViewMap.addEventListener("click", function () { setView("map"); });
+
   // ── Filter-Events ──────────────────────────────────
   var dq;
   elQ.addEventListener("input", function () {
     clearTimeout(dq);
     dq = setTimeout(function () {
-      state.qRaw = elQ.value.trim(); state.q = fold(state.qRaw); render();
+      state.qRaw = elQ.value.trim(); state.q = fold(state.qRaw); refresh();
     }, 110);
   });
-  elCity.addEventListener("change", function () { state.city = elCity.value; render(); });
+  elCity.addEventListener("change", function () { state.city = elCity.value; refresh(); });
   function resetAll() {
     state.q = ""; state.qRaw = ""; state.cats.clear(); state.city = "";
-    elQ.value = ""; elCity.value = ""; syncChips(); render();
+    elQ.value = ""; elCity.value = ""; syncChips(); refresh();
     window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
   }
   $("reset-empty").addEventListener("click", resetAll);

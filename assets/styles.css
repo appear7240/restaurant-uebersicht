@@ -432,3 +432,35 @@ footer .totop { cursor: pointer; color: var(--accent); font-weight: 600; }
 @media (prefers-reduced-motion: reduce) {
   .modal-scrim, .modal-card { animation: none; }
 }
+
+/* ── Ansicht-Umschalter + Landkarte ─────────────────── */
+.viewtoggle {
+  display: inline-flex; gap: 4px; margin-top: 12px;
+  background: var(--card); border: 1px solid var(--line-2); border-radius: 999px; padding: 3px;
+}
+.vt {
+  font-family: var(--sans); font-weight: 700; font-size: 13px;
+  padding: 7px 16px; border-radius: 999px; border: none;
+  background: transparent; color: var(--ink-2); cursor: pointer;
+  transition: background .14s, color .14s;
+}
+.vt:hover { color: var(--ink); }
+.vt.on { background: var(--accent); color: #fff; }
+
+#map {
+  height: min(70vh, 560px); margin: 18px 0 8px;
+  border-radius: 18px; border: 1px solid var(--line); overflow: hidden;
+  background: var(--paper-2); box-shadow: var(--shadow);
+}
+#map[hidden] { display: none; }
+.map-msg { padding: 48px 20px; text-align: center; color: var(--muted); }
+
+.pin-pop { font-family: var(--sans); font-size: 13px; color: #211a11; text-align: center; }
+.pin-pop b { font-family: var(--serif); font-size: 17px; }
+.pin-pop button {
+  margin-top: 9px; font-family: var(--sans); font-weight: 700; font-size: 13px;
+  padding: 7px 14px; border-radius: 8px; border: none; background: #bf4128; color: #fff; cursor: pointer;
+}
+.pin-pop button:hover { background: #8f2e1a; }
+
+.card .blurb { font-size: 13.5px; color: var(--ink-2); margin-top: -2px; }

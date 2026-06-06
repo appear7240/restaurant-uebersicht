@@ -1,7 +1,8 @@
 // AUTO-GENERIERT von build_data.py – nicht von Hand editieren.
-// Quelle: kuratierte Liste. Neu generieren: python3 build_data.py
+// Quelle: kuratierte Liste (+ optionale GPT-Anreicherung aus enriched.json).
+// Neu generieren: python3 build_data.py
 window.RESTAURANT_DATA = {
-  "updated": "2026-06-04",
+  "updated": "2026-06-06",
   "restaurants": [
     {
       "name": "Trattoria Momo",

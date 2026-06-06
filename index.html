@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..650;1,9..144,400..600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
@@ -39,11 +40,16 @@
         <button id="theme" class="btn-icon" type="button" aria-label="Hell/Dunkel umschalten" aria-pressed="false"></button>
       </div>
       <div class="chips" id="cat-chips" role="group" aria-label="Kategorie filtern"></div>
+      <div class="viewtoggle" role="tablist" aria-label="Ansicht">
+        <button id="view-list" class="vt on" type="button" role="tab" aria-selected="true">Liste</button>
+        <button id="view-map" class="vt" type="button" role="tab" aria-selected="false">Landkarte</button>
+      </div>
     </div>
   </div>
 
   <main>
     <div class="wrap">
+      <div id="map" hidden aria-label="Landkarte der Restaurants"></div>
       <div id="results"></div>
       <div class="empty" id="empty" hidden>
         <h3>Nichts gefunden</h3>
@@ -95,6 +101,7 @@
     </div>
   </div>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="data/restaurants.js"></script>
   <script src="assets/app.js"></script>
 </body>
