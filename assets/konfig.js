@@ -7,7 +7,7 @@
   } catch (e) {}
 
   var $ = function (id) { return document.getElementById(id); };
-  var API = "/api/";
+  var API = "/admin/api/";
 
   function msg(el, text, ok) {
     el.textContent = text || "";
