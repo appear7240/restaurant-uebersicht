@@ -448,7 +448,7 @@ footer .totop { cursor: pointer; color: var(--accent); font-weight: 600; }
 .vt.on { background: var(--accent); color: #fff; }
 
 #map {
-  height: min(70vh, 560px); margin: 18px 0 8px;
+  height: min(85vh, 820px); margin: 18px 0 8px;
   border-radius: 18px; border: 1px solid var(--line); overflow: hidden;
   background: var(--paper-2); box-shadow: var(--shadow);
 }
