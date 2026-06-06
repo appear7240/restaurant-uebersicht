@@ -1,0 +1,15 @@
+{
+  "name": "Restaurant-Übersicht",
+  "short_name": "Restaurants",
+  "description": "Kuratierte Restaurant-Übersicht für NRW & Hamburg – filterbar nach Stadt, Kategorie, Bewertung und Nähe.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6efe3",
+  "theme_color": "#bf4128",
+  "lang": "de",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
