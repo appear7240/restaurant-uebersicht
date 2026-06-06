@@ -115,6 +115,8 @@
     var s = document.createElement("span");
     s.className = "tag"; s.dataset.tag = t; s.textContent = t; return s;
   }
+  var PIN_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10Z"/><circle cx="12" cy="11" r="2"/></svg>';
+
   function cardEl(r, i) {
     var card = document.createElement("article");
     card.className = "card" + ((r.tags && r.tags.length) ? "" : " untagged");
@@ -127,6 +129,13 @@
       r.tags.forEach(function (t) { tw.appendChild(tagEl(t)); });
       card.appendChild(tw);
     }
+    var foot = document.createElement("div"); foot.className = "card-foot";
+    var mb = document.createElement("button");
+    mb.type = "button"; mb.className = "card-map";
+    mb.setAttribute("aria-label", "Karte: " + r.name);
+    mb.innerHTML = PIN_SVG + "<span>Karte</span>";
+    mb.addEventListener("click", function () { openMap(r); });
+    foot.appendChild(mb); card.appendChild(foot);
     return card;
   }
 
@@ -241,13 +250,13 @@
     (w.tags || []).forEach(function (t) { elRTags.appendChild(tagEl(t)); });
     elWin.hidden = false;
     elWin.classList.remove("show"); void elWin.offsetWidth; elWin.classList.add("show");
-    elGoto.hidden = false;
+    elGoto.hidden = false; elRMap.hidden = false;
     elAgain.focus();
   }
   function spin() {
     clearTimers(); spinning = true;
     elWin.hidden = true; elWin.classList.remove("show");
-    elReel.style.display = ""; elGoto.hidden = true;
+    elReel.style.display = ""; elGoto.hidden = true; elRMap.hidden = true;
     var winner = pick();
     if (reduceMotion || pool.length === 1) {
       elReel.textContent = winner.name; reveal(winner); spinning = false; return;
@@ -273,7 +282,7 @@
     if (pool.length === 0) {
       elWin.hidden = true; elWin.classList.remove("show");
       elReel.style.display = ""; elReel.textContent = "–";
-      elAgain.disabled = true; elGoto.hidden = true; elAgain.focus(); return;
+      elAgain.disabled = true; elGoto.hidden = true; elRMap.hidden = true; elAgain.focus(); return;
     }
     elAgain.disabled = false; spin();
   }
@@ -299,6 +308,29 @@
   });
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && !elRoulette.hidden) closeRoulette();
+  });
+
+  // ── Karte (Standort-Modal, keyless Google-Embed) ───
+  var elMap = $("mapmodal"), elFrame = $("map-frame"),
+      elMapTitle = $("map-title"), elMapLink = $("map-link"), elRMap = $("rl-map");
+  var mapLastFocus = null;
+  function openMap(r) {
+    var q = encodeURIComponent(r.name + ", " + r.city + ", Deutschland");
+    mapLastFocus = document.activeElement;
+    elMapTitle.textContent = r.name + " · " + r.city;
+    elFrame.src = "https://maps.google.com/maps?q=" + q + "&z=16&output=embed";
+    elMapLink.href = "https://www.google.com/maps/search/?api=1&query=" + q;
+    elMap.hidden = false; document.body.style.overflow = "hidden";
+  }
+  function closeMap() {
+    elMap.hidden = true; elFrame.src = "about:blank"; document.body.style.overflow = "";
+    if (mapLastFocus && mapLastFocus.focus) mapLastFocus.focus();
+  }
+  elMap.addEventListener("click", function (e) { if (e.target.hasAttribute("data-close")) closeMap(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !elMap.hidden) closeMap(); });
+  elRMap.addEventListener("click", function () {
+    if (winnerKey == null) return;
+    var r = ALL[winnerKey]; closeRoulette(); openMap(r);
   });
 
   // ── Init ───────────────────────────────────────────

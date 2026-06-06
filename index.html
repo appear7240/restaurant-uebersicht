@@ -78,8 +78,20 @@
       </div>
       <div class="rl-actions">
         <button class="rl-again" id="rl-again" type="button">Nochmal</button>
+        <button class="rl-goto" id="rl-map" type="button" hidden>Karte</button>
         <button class="rl-goto" id="rl-goto" type="button" hidden>Im Verzeichnis zeigen</button>
       </div>
+    </div>
+  </div>
+
+  <div class="modal" id="mapmodal" hidden role="dialog" aria-modal="true" aria-labelledby="map-title">
+    <div class="modal-scrim" data-close></div>
+    <div class="modal-card">
+      <button class="rl-x" data-close type="button" aria-label="Schlie&szlig;en">&times;</button>
+      <p class="rl-kicker">Standort</p>
+      <h3 class="map-title" id="map-title"></h3>
+      <div class="map-embed"><iframe id="map-frame" title="Karte" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+      <a class="map-link" id="map-link" href="#" target="_blank" rel="noopener">In Google Maps öffnen &#8599;</a>
     </div>
   </div>
 

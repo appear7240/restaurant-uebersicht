@@ -219,7 +219,7 @@ main { padding: 8px 0 80px; }
 .card .note {
   font-size: 13.5px; color: var(--muted); font-style: italic; margin-top: -4px;
 }
-.card .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.card .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
 .tag {
   font-size: 11.5px; font-weight: 700; letter-spacing: .01em;
   padding: 4px 9px; border-radius: 7px;
@@ -392,3 +392,43 @@ footer .totop { cursor: pointer; color: var(--accent); font-weight: 600; }
 }
 
 .rl-again:disabled { opacity: .45; cursor: not-allowed; }
+
+/* ── Generisches Modal (Karte) ──────────────────────── */
+.modal { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 20px; }
+.modal[hidden] { display: none; }
+.modal-scrim {
+  position: absolute; inset: 0; background: rgba(20,14,9,.55);
+  backdrop-filter: blur(6px) saturate(120%); animation: fade .2s both;
+}
+.modal-card {
+  position: relative; z-index: 1; width: min(680px, 100%);
+  background: var(--card); border: 1px solid var(--line-2); border-radius: 24px;
+  padding: 26px 24px 22px; box-shadow: 0 40px 90px -34px rgba(0,0,0,.7);
+  animation: rise .28s both;
+}
+.map-title {
+  font-family: var(--serif); font-weight: 600; font-size: clamp(22px, 5vw, 30px);
+  line-height: 1.1; letter-spacing: -.01em; color: var(--ink); margin: 2px 0 16px;
+}
+.map-embed {
+  border-radius: 14px; overflow: hidden; border: 1px solid var(--line);
+  background: var(--paper-2); aspect-ratio: 16 / 10;
+}
+.map-embed iframe { display: block; width: 100%; height: 100%; border: 0; }
+.map-link { display: inline-block; margin-top: 14px; font-weight: 700; font-size: 14px; color: var(--accent); text-decoration: none; }
+.map-link:hover { color: var(--accent-d); text-decoration: underline; }
+
+/* ── Karten-Footer + „Karte"-Button ─────────────────── */
+.card-foot { margin-top: auto; padding-top: 12px; display: flex; justify-content: flex-end; }
+.card-map {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--sans); font-weight: 700; font-size: 12.5px;
+  color: var(--muted); background: transparent; border: none; cursor: pointer;
+  padding: 4px 7px; border-radius: 8px; transition: color .14s, background .14s;
+}
+.card-map:hover { color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, transparent); }
+.card-map svg { width: 14px; height: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-scrim, .modal-card { animation: none; }
+}
