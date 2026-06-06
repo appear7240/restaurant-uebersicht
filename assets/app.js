@@ -180,13 +180,8 @@
     }
     card.appendChild(foot);
     card.style.cursor = "pointer";
-    card.title = "Mit Google Maps navigieren";
-    card.addEventListener("click", function () {
-      var q = encodeURIComponent(r.name + ", " + r.city + ", Deutschland");
-      var url = "https://www.google.com/maps/dir/?api=1&destination=" + q;
-      if (r.placeId) url += "&destination_place_id=" + encodeURIComponent(r.placeId);
-      window.open(url, "_blank", "noopener");
-    });
+    card.title = "Details anzeigen";
+    card.addEventListener("click", function () { openMap(r); });
     return card;
   }
 
@@ -502,15 +497,37 @@
 
   // ── Karte (Standort-Modal, keyless Google-Embed) ───
   var elMap = $("mapmodal"), elFrame = $("map-frame"),
-      elMapTitle = $("map-title"), elMapLink = $("map-link"), elRMap = $("rl-map");
+      elMapTitle = $("map-title"), elMapLink = $("map-link"), elRMap = $("rl-map"),
+      elDPhoto = $("d-photo"), elDCity = $("d-city"), elDRate = $("d-rate"),
+      elDBlurb = $("d-blurb"), elDNote = $("d-note"), elDTags = $("d-tags"),
+      elDNav = $("d-nav"), elDSite = $("d-site");
   var mapLastFocus = null;
   function openMap(r) {
     var q = encodeURIComponent(r.name + ", " + r.city + ", Deutschland");
+    var qs = encodeURIComponent(r.name + ", " + r.city);
+    var pid = r.placeId ? "&destination_place_id=" + encodeURIComponent(r.placeId) : "";
+    var mk = mapsKey();
     mapLastFocus = document.activeElement;
-    elMapTitle.textContent = r.name + " · " + r.city;
+    if (r.photo && mk) {
+      elDPhoto.src = "https://places.googleapis.com/v1/" + r.photo +
+                     "/media?maxWidthPx=900&maxHeightPx=440&key=" + encodeURIComponent(mk);
+      elDPhoto.hidden = false;
+    } else { elDPhoto.hidden = true; elDPhoto.removeAttribute("src"); }
+    elDCity.textContent = r.city;
+    elMapTitle.textContent = r.name;
+    if (r.rating) { elDRate.textContent = "\u2605 " + r.rating + (r.reviews ? " (" + r.reviews + ")" : ""); elDRate.hidden = false; }
+    else elDRate.hidden = true;
+    if (r.blurb) { elDBlurb.textContent = r.blurb; elDBlurb.hidden = false; } else elDBlurb.hidden = true;
+    if (r.note) { elDNote.textContent = r.note; elDNote.hidden = false; } else elDNote.hidden = true;
+    elDTags.replaceChildren();
+    (r.tags || []).forEach(function (t) { elDTags.appendChild(tagEl(t)); });
     elFrame.src = "https://maps.google.com/maps?q=" + q + "&z=16&output=embed";
-    elMapLink.href = "https://www.google.com/maps/search/?api=1&query=" + q;
+    elDNav.href = "https://www.google.com/maps/dir/?api=1&destination=" + q + pid;
+    elMapLink.href = "https://www.google.com/maps/search/?api=1&query=" + qs +
+                     (r.placeId ? "&query_place_id=" + encodeURIComponent(r.placeId) : "");
+    if (r.website) { elDSite.href = r.website; elDSite.hidden = false; } else elDSite.hidden = true;
     elMap.hidden = false; document.body.style.overflow = "hidden";
+    elMap.querySelector(".modal-card").scrollTop = 0;
   }
   function closeMap() {
     elMap.hidden = true; elFrame.src = "about:blank"; document.body.style.overflow = "";

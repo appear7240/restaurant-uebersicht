@@ -97,10 +97,19 @@
     <div class="modal-scrim" data-close></div>
     <div class="modal-card">
       <button class="rl-x" data-close type="button" aria-label="Schlie&szlig;en">&times;</button>
-      <p class="rl-kicker">Standort</p>
+      <img class="d-photo" id="d-photo" alt="" hidden />
+      <p class="rl-kicker" id="d-city"></p>
       <h3 class="map-title" id="map-title"></h3>
+      <div class="d-rate" id="d-rate" hidden></div>
+      <p class="d-blurb" id="d-blurb" hidden></p>
+      <div class="d-note" id="d-note" hidden></div>
+      <div class="d-tags" id="d-tags"></div>
       <div class="map-embed"><iframe id="map-frame" title="Karte" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
-      <a class="map-link" id="map-link" href="#" target="_blank" rel="noopener">In Google Maps öffnen &#8599;</a>
+      <div class="d-actions">
+        <a class="d-btn" id="d-nav" href="#" target="_blank" rel="noopener">&#129517; Navigation</a>
+        <a class="d-btn ghost" id="d-site" href="#" target="_blank" rel="noopener" hidden>Speisekarte / Website &#8599;</a>
+        <a class="map-link" id="map-link" href="#" target="_blank" rel="noopener">In Google Maps öffnen &#8599;</a>
+      </div>
     </div>
   </div>
 
