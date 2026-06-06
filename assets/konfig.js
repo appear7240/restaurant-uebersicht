@@ -79,6 +79,24 @@
     btn.disabled = false; loadStatus();
   });
 
+  $("b-geocode").addEventListener("click", async function () {
+    var btn = this; btn.disabled = true;
+    var total = 0;
+    try {
+      while (true) {
+        msg($("m-geocode"), "Geocodiere… (" + total + ")");
+        var d = await api("geocode-all?limit=4", { method: "POST" });
+        if (d.error && !d.geocoded) { msg($("m-geocode"), d.error, false); break; }
+        total += d.geocoded || 0;
+        if (!d.geocoded || d.remaining === 0) {
+          msg($("m-geocode"), "Fertig: " + total + " geocodiert, " + (d.remaining || 0) + " offen.", true);
+          break;
+        }
+      }
+    } catch (e) { msg($("m-geocode"), "Fehler: " + e.message, false); }
+    btn.disabled = false; loadStatus();
+  });
+
   $("b-export").addEventListener("click", async function () {
     var btn = this; btn.disabled = true;
     msg($("m-export"), "Exportiere…");

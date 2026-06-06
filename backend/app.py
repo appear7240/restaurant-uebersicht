@@ -18,6 +18,7 @@ import sqlite3
 import subprocess
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import date
 from pathlib import Path
@@ -339,6 +340,76 @@ def enrich_all(limit: int = 5, x_admin_token: Optional[str] = Header(None)):
     out = {"enriched": done, "remaining": remaining}
     if done == 0 and rows:
         out["error"] = getattr(enrich, "LAST_ERROR", None) or "Anreicherung lieferte nichts"
+    return out
+
+
+GEO_PATH = str(BASE / "geo.json")
+
+
+def geocode_one(name, city, key, timeout=12):
+    """Places Text Search -> (dict|None, error|None). (None,None)=nicht gefunden."""
+    q = urllib.parse.quote(f"{name} {city} Deutschland")
+    url = ("https://maps.googleapis.com/maps/api/place/textsearch/json"
+           f"?query={q}&region=de&language=de&key={key}")
+    try:
+        with urllib.request.urlopen(url, timeout=timeout) as r:
+            d = json.loads(r.read().decode("utf-8"))
+    except Exception as e:  # noqa: BLE001
+        return None, str(e)
+    st = d.get("status")
+    if st == "ZERO_RESULTS":
+        return None, None
+    if st != "OK" or not d.get("results"):
+        return None, (f"{st}: {d.get('error_message', '')}").strip()[:200]
+    res = d["results"][0]
+    loc = res["geometry"]["location"]
+    return {"lat": loc["lat"], "lng": loc["lng"], "place_id": res.get("place_id")}, None
+
+
+@app.post("/api/geocode-all")
+def geocode_all(limit: int = 4, x_admin_token: Optional[str] = Header(None)):
+    """Geocodiert fehlende Restaurants via Maps-Key (Places Text Search).
+    Schreibt lat/lng/place_id in DB + geo.json. Nicht gefundene -> Marker '∅'."""
+    check_auth(x_admin_token)
+    key = get_maps_key()
+    if not key:
+        return {"error": "Kein Maps-Key gesetzt", "geocoded": 0, "remaining": 0}
+    con = db()
+    rows = con.execute(
+        "SELECT * FROM restaurants WHERE lat IS NULL AND (place_id IS NULL OR place_id='') "
+        "ORDER BY id LIMIT ?", (limit,)).fetchall()
+    try:
+        with open(GEO_PATH, encoding="utf-8") as f:
+            geo = json.load(f)
+    except (FileNotFoundError, ValueError):
+        geo = {}
+    done, last_err = 0, None
+    for r in rows:
+        res, err = geocode_one(r["name"], r["city"], key)
+        if err:
+            last_err = err
+            continue
+        if res is None:  # nicht gefunden -> Marker, damit nicht erneut versucht
+            con.execute("UPDATE restaurants SET place_id='∅' WHERE id=?", (r["id"],))
+            continue
+        con.execute("UPDATE restaurants SET lat=?, lng=?, place_id=? WHERE id=?",
+                    (res["lat"], res["lng"], res["place_id"], r["id"]))
+        geo[r["name"] + "||" + r["city"]] = {
+            "lat": res["lat"], "lng": res["lng"], "placeId": res["place_id"]}
+        done += 1
+    con.commit()
+    try:
+        with open(GEO_PATH, "w", encoding="utf-8") as f:
+            json.dump(geo, f, ensure_ascii=False, indent=2)
+    except OSError:
+        pass
+    remaining = con.execute(
+        "SELECT COUNT(*) AS n FROM restaurants WHERE lat IS NULL AND (place_id IS NULL OR place_id='')"
+    ).fetchone()["n"]
+    con.close()
+    out = {"geocoded": done, "remaining": remaining}
+    if done == 0 and rows:
+        out["error"] = last_err or "Keine Treffer"
     return out
 
 

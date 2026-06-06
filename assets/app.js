@@ -156,8 +156,16 @@
     mb.type = "button"; mb.className = "card-map";
     mb.setAttribute("aria-label", "Karte: " + r.name);
     mb.innerHTML = PIN_SVG + "<span>Karte</span>";
-    mb.addEventListener("click", function () { openMap(r); });
+    mb.addEventListener("click", function (e) { e.stopPropagation(); openMap(r); });
     foot.appendChild(mb); card.appendChild(foot);
+    card.style.cursor = "pointer";
+    card.title = "Mit Google Maps navigieren";
+    card.addEventListener("click", function () {
+      var q = encodeURIComponent(r.name + ", " + r.city + ", Deutschland");
+      var url = "https://www.google.com/maps/dir/?api=1&destination=" + q;
+      if (r.placeId) url += "&destination_place_id=" + encodeURIComponent(r.placeId);
+      window.open(url, "_blank", "noopener");
+    });
     return card;
   }
 
