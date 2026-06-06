@@ -464,3 +464,15 @@ footer .totop { cursor: pointer; color: var(--accent); font-weight: 600; }
 .pin-pop button:hover { background: #8f2e1a; }
 
 .card .blurb { font-size: 13.5px; color: var(--ink-2); margin-top: -2px; }
+
+/* ── Google-Maps InfoWindow ─────────────────────────── */
+.gpop { font-family: var(--sans); max-width: 264px; color: #211a11; }
+.gpop b { font-family: var(--serif); font-size: 16px; }
+.gpop .c { color: #82715c; font-size: 12px; margin-bottom: 4px; }
+.gpop .ph { display: flex; gap: 4px; margin: 6px 0; }
+.gpop .ph img { width: 50%; height: 80px; object-fit: cover; border-radius: 6px; display: block; }
+.gpop .r { font-size: 13px; font-weight: 700; margin: 4px 0; }
+.gpop .o { font-size: 12px; }
+.gpop .o.open { color: #2e7d32; font-weight: 700; }
+.gpop a { display: inline-block; margin-top: 6px; color: #bf4128; font-weight: 700; font-size: 13px; text-decoration: none; }
+.gpop a:hover { text-decoration: underline; }

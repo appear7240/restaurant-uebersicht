@@ -56,6 +56,11 @@ def init_db():
             created_at TEXT DEFAULT (datetime('now')))"""
     )
     con.execute("CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY, value TEXT)")
+    for col, decl in (("lat", "REAL"), ("lng", "REAL"), ("place_id", "TEXT")):
+        try:
+            con.execute(f"ALTER TABLE restaurants ADD COLUMN {col} {decl}")
+        except sqlite3.OperationalError:
+            pass  # Spalte existiert bereits
     con.commit()
     if con.execute("SELECT COUNT(*) AS n FROM restaurants").fetchone()["n"] == 0:
         for r in build_data.parse_records():
@@ -64,7 +69,24 @@ def init_db():
                 (r["name"], r["city"], json.dumps(r["tags"], ensure_ascii=False), r.get("note")),
             )
         con.commit()
+    apply_geo(con)
     con.close()
+
+
+def apply_geo(con, path=None):
+    """geo.json -> lat/lng/place_id der vorhandenen Zeilen (idempotent).
+    So holt ein Redeploy neue Koordinaten in die bestehende DB."""
+    path = path or str(BASE / "geo.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            geo = json.load(f)
+    except FileNotFoundError:
+        return
+    for k, g in geo.items():
+        name, _, city = k.partition("||")
+        con.execute("UPDATE restaurants SET lat=?, lng=?, place_id=? WHERE name=? AND city=?",
+                    (g["lat"], g["lng"], g.get("placeId"), name, city))
+    con.commit()
 
 
 # ── Settings / Keys ─────────────────────────────────────
@@ -117,6 +139,10 @@ def row_public(r):
         d["note"] = r["note"]
     if r["blurb"]:
         d["blurb"] = r["blurb"]
+    if r["lat"] is not None:
+        d["lat"] = r["lat"]
+        d["lng"] = r["lng"]
+        d["placeId"] = r["place_id"]
     return d
 
 

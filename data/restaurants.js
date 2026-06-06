@@ -10,7 +10,10 @@ window.RESTAURANT_DATA = {
       "tags": [
         "Trüffelpasta",
         "Italienisch"
-      ]
+      ],
+      "lat": 51.4889606,
+      "lng": 7.2331333,
+      "placeId": "ChIJmcmU2yTguEcRS2sItmqhRj0"
     },
     {
       "name": "Bassano Vinoteca e Cucina Italiana",
@@ -18,14 +21,20 @@ window.RESTAURANT_DATA = {
       "tags": [
         "Trüffelpasta",
         "Italienisch"
-      ]
+      ],
+      "lat": 51.4520477,
+      "lng": 7.2267381,
+      "placeId": "ChIJf-mbRhTguEcRZUuMdyvRw60"
     },
     {
       "name": "NEĀ The Deli & Urban Concept Store",
       "city": "Bochum",
       "tags": [
         "Frühstück"
-      ]
+      ],
+      "lat": 51.4802476,
+      "lng": 7.2201924,
+      "placeId": "ChIJi6H4PufhuEcRFXXVspSR0WI"
     },
     {
       "name": "Café Konkret",
@@ -33,7 +42,10 @@ window.RESTAURANT_DATA = {
       "tags": [
         "Frühstück",
         "Café"
-      ]
+      ],
+      "lat": 51.4772757,
+      "lng": 7.2165369,
+      "placeId": "ChIJN2d_MYg0cEERa6ByNDHqBsg"
     },
     {
       "name": "Café Zuckersüß",
@@ -41,7 +53,10 @@ window.RESTAURANT_DATA = {
       "tags": [
         "Frühstück",
         "Café"
-      ]
+      ],
+      "lat": 51.4947612,
+      "lng": 7.2805529,
+      "placeId": "ChIJ1Ud04bMfuUcRuNsGaDqckRQ"
     },
     {
       "name": "Lokmahouse Café",
@@ -49,17 +64,26 @@ window.RESTAURANT_DATA = {
       "tags": [
         "Café"
       ],
-      "note": "Café"
+      "note": "Café",
+      "lat": 51.4793466,
+      "lng": 7.2215522,
+      "placeId": "ChIJzTPSn2nhuEcRQhL3yunSc-A"
     },
     {
       "name": "Chillers",
       "city": "Bochum",
-      "tags": []
+      "tags": [],
+      "lat": 51.4746998,
+      "lng": 7.1518116,
+      "placeId": "ChIJLWFJHmjhuEcR72TdjL99IKo"
     },
     {
       "name": "Heiter & Herrlich",
       "city": "Bochum",
-      "tags": []
+      "tags": [],
+      "lat": 51.4712679,
+      "lng": 7.1922852,
+      "placeId": "ChIJnXj77hbhuEcRvR-Rfa28Ltk"
     },
     {
       "name": "Arte Italiana",
@@ -67,66 +91,96 @@ window.RESTAURANT_DATA = {
       "tags": [
         "Trüffelpasta",
         "Italienisch"
-      ]
+      ],
+      "lat": 51.4804775,
+      "lng": 7.1347729,
+      "placeId": "ChIJXWL5MbPguEcRugSU2HFK1GQ"
     },
     {
       "name": "Knüppelknifte",
       "city": "Bochum",
-      "tags": []
+      "tags": [],
+      "lat": 51.4913203,
+      "lng": 7.2388617,
+      "placeId": "ChIJKw5UXvHhuEcRykA0zzdAgQM"
     },
     {
       "name": "Kleene Tocke",
       "city": "Bochum",
-      "tags": []
+      "tags": [],
+      "lat": 51.4726356,
+      "lng": 7.2149955,
+      "placeId": "ChIJU3qdqr_huEcRnnPskrKAgXE"
     },
     {
       "name": "Traumkuh",
       "city": "Bochum",
       "tags": [
         "Burger"
-      ]
+      ],
+      "lat": 51.4764878,
+      "lng": 7.2156703,
+      "placeId": "ChIJA8BYLwDhuEcRj5s85nYVsRY"
     },
     {
       "name": "Mufasa",
       "city": "Bochum",
       "tags": [
         "Frühstück"
-      ]
+      ],
+      "lat": 51.4873605,
+      "lng": 7.2153247,
+      "placeId": "ChIJjYF66xTguEcRkYkoZV1tJ1M"
     },
     {
       "name": "Takumi",
       "city": "Bochum",
       "tags": [
         "Ramen"
-      ]
+      ],
+      "lat": 51.4770157,
+      "lng": 7.2157535,
+      "placeId": "ChIJYWjePQDhuEcRuxz9Ki9Gn50"
     },
     {
       "name": "Nandy's",
       "city": "Bochum",
       "tags": [
         "Indisch"
-      ]
+      ],
+      "lat": 51.4766153,
+      "lng": 7.2162815,
+      "placeId": "ChIJafNqNfPhuEcRnogA7Q6Uqyk"
     },
     {
       "name": "Cups 'n Berry",
       "city": "Bochum",
       "tags": [
         "Frühstück"
-      ]
+      ],
+      "lat": 51.4784752,
+      "lng": 7.2161553,
+      "placeId": "ChIJwVpE1rPhuEcRaRHNqhR6JIg"
     },
     {
       "name": "Veeva Acai",
       "city": "Bochum",
       "tags": [
         "Frühstück"
-      ]
+      ],
+      "lat": 51.4788535,
+      "lng": 7.2187264,
+      "placeId": "ChIJ9XJJygfhuEcRg7aTR0pO63c"
     },
     {
       "name": "Trattoria Puglia",
       "city": "Castrop-Rauxel",
       "tags": [
         "Italienisch"
-      ]
+      ],
+      "lat": 51.5505175,
+      "lng": 7.3104948,
+      "placeId": "ChIJLc1mmvcduUcRt4HaGUEMklg"
     },
     {
       "name": "Ristorante Fratelli",
@@ -134,7 +188,10 @@ window.RESTAURANT_DATA = {
       "tags": [
         "Trüffelpasta",
         "Italienisch"
-      ]
+      ],
+      "lat": 51.6039622,
+      "lng": 6.9222721,
+      "placeId": "ChIJAbx235HtuEcR-IZiaEx77CA"
     },
     {
       "name": "AMI Restaurant",

@@ -304,9 +304,29 @@ def merge_enrichment(records, path="enriched.json"):
     return n
 
 
+def merge_geo(records, path="geo.json"):
+    """Koordinaten + place_id aus geo.json einmischen (für die Google-Karte)."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            geo = json.load(f)
+    except FileNotFoundError:
+        return 0
+    n = 0
+    for rec in records:
+        g = geo.get(enrich_key(rec))
+        if not g:
+            continue
+        rec["lat"] = g["lat"]
+        rec["lng"] = g["lng"]
+        rec["placeId"] = g.get("placeId")
+        n += 1
+    return n
+
+
 def main():
     records = parse_records()
     enriched = merge_enrichment(records)
+    geocoded = merge_geo(records)
 
     payload = {"updated": date.today().isoformat(), "restaurants": records}
     js = (
@@ -326,7 +346,7 @@ def main():
     tagc = Counter(t for r in records for t in r["tags"])
     untagged = [r["name"] for r in records if not r["tags"]]
     print(f"Total: {len(records)} Restaurants in {len(cities)} Städten")
-    print(f"Angereichert: {enriched}/{len(records)}")
+    print(f"Angereichert: {enriched}/{len(records)} · Koordinaten: {geocoded}/{len(records)}")
     print("--- Pro Stadt ---")
     for c, n in cities.items():
         print(f"{c}: {n}")

@@ -234,12 +234,27 @@
 
   // ── Ansicht: Liste / Landkarte ─────────────────────
   var elMapView = $("map"), elViewList = $("view-list"), elViewMap = $("view-map");
-  var mapInited = false, mapObj = null;
+  var mapInited = false, mapObj = null, googleReady = false;
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+  function mapsKey() { return (window.RUE_CONFIG && window.RUE_CONFIG.mapsKey) || ""; }
 
   function initMap() {
     if (mapInited) return; mapInited = true;
-    if (!window.L) { elMapView.innerHTML = '<div class="map-msg">Karte konnte nicht geladen werden (Leaflet/Netz).</div>'; return; }
+    if (mapsKey()) initGoogle();
+    else if (window.L) initLeaflet();
+    else elMapView.innerHTML = '<div class="map-msg">Karte nicht verfügbar.</div>';
+  }
+
+  // Leaflet-Fallback: Städte-Übersicht (keyless)
+  function initLeaflet() {
+    if (!window.L) { elMapView.innerHTML = '<div class="map-msg">Karte nicht verfügbar.</div>'; return; }
     var L = window.L;
+    elMapView.innerHTML = "";
     mapObj = L.map(elMapView, { scrollWheelZoom: false }).setView([51.45, 7.2], 9);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       { maxZoom: 19, attribution: "© OpenStreetMap" }).addTo(mapObj);
@@ -250,13 +265,83 @@
       var mk = L.circleMarker(co, { radius: 8 + Math.sqrt(n) * 4, color: "#bf4128",
         weight: 2, fillColor: "#bf4128", fillOpacity: 0.5 }).addTo(mapObj);
       var box = document.createElement("div"); box.className = "pin-pop";
-      box.innerHTML = "<b>" + c + "</b><br>" + n + (n === 1 ? " Adresse" : " Adressen") + "<br>";
+      box.innerHTML = "<b>" + esc(c) + "</b><br>" + n + (n === 1 ? " Adresse" : " Adressen") + "<br>";
       var b = document.createElement("button"); b.type = "button"; b.textContent = "Hier ansehen";
       b.addEventListener("click", function () { showCity(c); });
       box.appendChild(b); mk.bindPopup(box);
       pts.push(co);
     });
     if (pts.length) mapObj.fitBounds(pts, { padding: [40, 40] });
+  }
+
+  // Google Maps: echte Pins pro Restaurant
+  function initGoogle() {
+    window.__rueGmaps = buildGoogle;
+    window.gm_authFailure = function () {
+      // Key/Restriction/Billing -> sauberer Fallback
+      if (window.L && !googleReady) initLeaflet();
+      else if (!googleReady) elMapView.innerHTML = '<div class="map-msg">Google-Karte fehlgeschlagen (Key/Restriction/Billing).</div>';
+    };
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(mapsKey()) +
+            "&libraries=places&loading=async&callback=__rueGmaps";
+    s.onerror = function () { if (window.L) initLeaflet(); };
+    document.head.appendChild(s);
+  }
+
+  function buildGoogle() {
+    var g = window.google && window.google.maps;
+    if (!g) { if (window.L) initLeaflet(); return; }
+    googleReady = true;
+    var map = new g.Map(elMapView, {
+      center: { lat: 51.3, lng: 7.1 }, zoom: 8,
+      streetViewControl: false, mapTypeControl: false, fullscreenControl: true
+    });
+    var svc = new g.places.PlacesService(map);
+    var iw = new g.InfoWindow();
+    var bounds = new g.LatLngBounds();
+    var withGeo = ALL.filter(function (r) { return typeof r.lat === "number"; });
+    withGeo.forEach(function (r) {
+      var pos = { lat: r.lat, lng: r.lng };
+      bounds.extend(pos);
+      var m = new g.Marker({ position: pos, map: map, title: r.name });
+      m.addListener("click", function () { openInfo(r, m, map, svc, iw, g); });
+    });
+    if (withGeo.length) map.fitBounds(bounds);
+  }
+
+  function openInfo(r, marker, map, svc, iw, g) {
+    var q = encodeURIComponent(r.name + ", " + r.city);
+    var maps = "https://www.google.com/maps/search/?api=1&query=" + q +
+               (r.placeId ? "&query_place_id=" + r.placeId : "");
+    function render(extra) {
+      iw.setContent('<div class="gpop"><b>' + esc(r.name) + '</b><div class="c">' + esc(r.city) +
+        '</div>' + (extra || "") + '<a href="' + maps + '" target="_blank" rel="noopener">In Google Maps öffnen &#8599;</a></div>');
+    }
+    render("");
+    iw.open(map, marker);
+    if (r.placeId && svc) {
+      svc.getDetails({ placeId: r.placeId,
+        fields: ["photos", "rating", "user_ratings_total", "opening_hours"] },
+        function (place, status) {
+          if (status !== g.places.PlacesServiceStatus.OK || !place) return;
+          var html = "";
+          if (place.photos && place.photos.length) {
+            html += '<div class="ph">' + place.photos.slice(0, 2).map(function (p) {
+              return '<img loading="lazy" src="' + p.getUrl({ maxWidth: 320, maxHeight: 200 }) + '" alt="">';
+            }).join("") + '</div>';
+          }
+          if (place.rating) html += '<div class="r">★ ' + place.rating + ' (' + (place.user_ratings_total || 0) + ')</div>';
+          try {
+            if (place.opening_hours && place.opening_hours.isOpen) {
+              html += place.opening_hours.isOpen()
+                ? '<div class="o open">Jetzt geöffnet</div>' : '<div class="o">Geschlossen</div>';
+            }
+          } catch (e) {}
+          render(html);
+        });
+    }
   }
 
   function setView(v) {
