@@ -60,7 +60,19 @@
   var presentTags = knownTags.concat(extraTags);
 
   // State
-  var state = { q: "", qRaw: "", cats: new Set(), city: "", favOnly: false, openNow: false };
+  var state = { q: "", qRaw: "", cats: new Set(), city: "", favOnly: false, openNow: false, sort: "city" };
+  var userPos = null;
+  function haversine(la1, lo1, la2, lo2) {
+    var R = 6371, d2r = Math.PI / 180;
+    var dla = (la2 - la1) * d2r, dlo = (lo2 - lo1) * d2r;
+    var a = Math.sin(dla / 2) * Math.sin(dla / 2) +
+            Math.cos(la1 * d2r) * Math.cos(la2 * d2r) * Math.sin(dlo / 2) * Math.sin(dlo / 2);
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+  function fmtKm(km) {
+    if (km == null) return "";
+    return km < 1 ? Math.round(km * 1000) + " m" : (km.toFixed(1).replace(".", ",") + " km");
+  }
 
   // ── Favoriten (localStorage) ───────────────────────
   var FAV_KEY = "rue-favs";
@@ -92,7 +104,7 @@
 
   var $ = function (id) { return document.getElementById(id); };
   var elResults = $("results"), elEmpty = $("empty"), elFoot = $("foot-count");
-  var elQ = $("q"), elCity = $("city"), elChips = $("cat-chips");
+  var elQ = $("q"), elCity = $("city"), elChips = $("cat-chips"), elSort = $("sort");
 
   // ── Theme ──────────────────────────────────────────
   var ICON_MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8Z"/></svg>';
@@ -200,7 +212,7 @@
   }
   var PIN_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10Z"/><circle cx="12" cy="11" r="2"/></svg>';
 
-  function cardEl(r, i) {
+  function cardEl(r, i, showCity) {
     var card = document.createElement("article");
     card.className = "card" + ((r.tags && r.tags.length) ? "" : " untagged");
     card.dataset.key = String(r._i);
@@ -214,6 +226,14 @@
       card.appendChild(ph);
     }
     var nm = document.createElement("div"); nm.className = "name"; nm.textContent = r.name; card.appendChild(nm);
+    if (showCity || r._dist != null) {
+      var meta = document.createElement("div"); meta.className = "card-city";
+      var parts = [];
+      if (showCity) parts.push(r.city);
+      if (r._dist != null) parts.push(fmtKm(r._dist));
+      meta.textContent = parts.join(" · ");
+      card.appendChild(meta);
+    }
     if (r.note) { var nt = document.createElement("div"); nt.className = "note"; nt.textContent = r.note; card.appendChild(nt); }
     if (r.blurb) { var bl = document.createElement("div"); bl.className = "blurb"; bl.textContent = r.blurb; card.appendChild(bl); }
     if (r.rating) {
@@ -293,30 +313,56 @@
     history.replaceState(null, "", url);
   }
 
+  function sortCmp(a, b) {
+    if (state.sort === "rating") {
+      var ra = a.rating || -1, rb = b.rating || -1;
+      if (rb !== ra) return rb - ra;
+      return a.name.localeCompare(b.name, "de");
+    }
+    if (state.sort === "dist") {
+      var da = (a._dist == null) ? Infinity : a._dist, db = (b._dist == null) ? Infinity : b._dist;
+      if (da !== db) return da - db;
+      return a.name.localeCompare(b.name, "de");
+    }
+    return a.name.localeCompare(b.name, "de");
+  }
+
   // ── Rendering ──────────────────────────────────────
   function render() {
     updateCounts();
     var list = ALL.filter(matches);
-    var byCity = {};
-    list.forEach(function (r) { (byCity[r.city] = byCity[r.city] || []).push(r); });
+    if (userPos) list.forEach(function (r) {
+      r._dist = (typeof r.lat === "number") ? haversine(userPos.lat, userPos.lng, r.lat, r.lng) : null;
+    });
 
     var frag = document.createDocumentFragment(), shownCities = 0, gi = 0;
-    cities.forEach(function (c) {
-      var arr = byCity[c]; if (!arr || !arr.length) return;
-      shownCities++;
-      arr.sort(function (a, b) { return a.name.localeCompare(b.name, "de"); });
-      var sec = document.createElement("section"); sec.className = "city";
-      var head = document.createElement("div"); head.className = "city-head";
-      var h2 = document.createElement("h2"); h2.textContent = c;
-      var rule = document.createElement("span"); rule.className = "rule";
-      var cnt = document.createElement("span"); cnt.className = "count";
-      cnt.textContent = arr.length + (arr.length === 1 ? " Adresse" : " Adressen");
-      head.appendChild(h2); head.appendChild(rule); head.appendChild(cnt);
-      sec.appendChild(head);
-      var grid = document.createElement("div"); grid.className = "grid";
-      arr.forEach(function (r) { grid.appendChild(cardEl(r, gi++)); });
-      sec.appendChild(grid); frag.appendChild(sec);
-    });
+    if (state.sort === "city") {
+      var byCity = {};
+      list.forEach(function (r) { (byCity[r.city] = byCity[r.city] || []).push(r); });
+      cities.forEach(function (c) {
+        var arr = byCity[c]; if (!arr || !arr.length) return;
+        shownCities++;
+        arr.sort(function (a, b) { return a.name.localeCompare(b.name, "de"); });
+        var sec = document.createElement("section"); sec.className = "city";
+        var head = document.createElement("div"); head.className = "city-head";
+        var h2 = document.createElement("h2"); h2.textContent = c;
+        var rule = document.createElement("span"); rule.className = "rule";
+        var cnt = document.createElement("span"); cnt.className = "count";
+        cnt.textContent = arr.length + (arr.length === 1 ? " Adresse" : " Adressen");
+        head.appendChild(h2); head.appendChild(rule); head.appendChild(cnt);
+        sec.appendChild(head);
+        var grid = document.createElement("div"); grid.className = "grid";
+        arr.forEach(function (r) { grid.appendChild(cardEl(r, gi++, false)); });
+        sec.appendChild(grid); frag.appendChild(sec);
+      });
+    } else {
+      var sorted = list.slice().sort(sortCmp);
+      var seen = {}; list.forEach(function (r) { seen[r.city] = 1; }); shownCities = Object.keys(seen).length;
+      var sec2 = document.createElement("section"); sec2.className = "city";
+      var grid2 = document.createElement("div"); grid2.className = "grid";
+      sorted.forEach(function (r) { grid2.appendChild(cardEl(r, gi++, true)); });
+      sec2.appendChild(grid2); frag.appendChild(sec2);
+    }
     elResults.replaceChildren(frag);
 
     var none = list.length === 0;
@@ -477,6 +523,19 @@
     }, 110);
   });
   elCity.addEventListener("change", function () { state.city = elCity.value; refresh(); });
+  elSort.addEventListener("change", function () {
+    var v = elSort.value;
+    if (v === "dist" && !userPos) {
+      if (!navigator.geolocation) { elSort.value = state.sort; return; }
+      elFoot.textContent = "Standort wird ermittelt…";
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        userPos = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        state.sort = "dist"; if (view !== "list") setView("list"); else render();
+      }, function () { elSort.value = state.sort; elFoot.textContent = "Standort nicht verfügbar."; });
+      return;
+    }
+    state.sort = v; if (view !== "list") setView("list"); else render();
+  });
   function resetAll() {
     state.q = ""; state.qRaw = ""; state.cats.clear(); state.city = "";
     elQ.value = ""; elCity.value = ""; syncChips(); refresh();
@@ -578,7 +637,7 @@
       elDPhoto = $("d-photo"), elDCity = $("d-city"), elDRate = $("d-rate"),
       elDBlurb = $("d-blurb"), elDNote = $("d-note"), elDTags = $("d-tags"),
       elDNav = $("d-nav"), elDSite = $("d-site"),
-      elDOpen = $("d-open"), elDHours = $("d-hours"), elDFav = $("d-fav");
+      elDOpen = $("d-open"), elDHours = $("d-hours"), elDFav = $("d-fav"), elDShare = $("d-share");
   var mapLastFocus = null;
   function openMap(r) {
     var q = encodeURIComponent(r.name + ", " + r.city + ", Deutschland");
@@ -591,7 +650,7 @@
                      "/media?maxWidthPx=900&maxHeightPx=440&key=" + encodeURIComponent(mk);
       elDPhoto.hidden = false;
     } else { elDPhoto.hidden = true; elDPhoto.removeAttribute("src"); }
-    elDCity.textContent = r.city;
+    elDCity.textContent = r.city + (r._dist != null ? " · " + fmtKm(r._dist) : "");
     elMapTitle.textContent = r.name;
     if (r.rating) { elDRate.textContent = "\u2605 " + r.rating + (r.reviews ? " (" + r.reviews + ")" : ""); elDRate.hidden = false; }
     else elDRate.hidden = true;
@@ -616,6 +675,12 @@
     function syncFav() { elDFav.classList.toggle("on", isFav(r)); elDFav.innerHTML = (isFav(r) ? "\u2665" : "\u2661") + " Merken"; }
     syncFav();
     elDFav.onclick = function () { toggleFav(r); syncFav(); if (state.favOnly) render(); };
+    elDShare.onclick = function () {
+      var link = location.origin + location.pathname + "#r=" + encodeURIComponent(favKey(r));
+      var done = function () { elDShare.innerHTML = "\u2713 kopiert"; setTimeout(function () { elDShare.innerHTML = "\uD83D\uDD17 Link kopieren"; }, 1500); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(link).then(done, done);
+      else done();
+    };
     elMap.hidden = false; document.body.style.overflow = "hidden";
     elMap.querySelector(".modal-card").scrollTop = 0;
   }
@@ -663,5 +728,10 @@
   // ── Init ───────────────────────────────────────────
   applyHash();
   syncChips();
+  var pendingR = parseHash().r;
   render();
+  if (pendingR) {
+    var rDetail = ALL.filter(function (x) { return favKey(x) === pendingR; })[0];
+    if (rDetail) openMap(rDetail);
+  }
 })();

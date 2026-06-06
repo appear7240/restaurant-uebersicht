@@ -36,6 +36,14 @@
         <div class="cityselect">
           <select id="city" aria-label="Stadt filtern"></select>
         </div>
+        <div class="cityselect">
+          <select id="sort" aria-label="Sortierung">
+            <option value="city">Nach Stadt</option>
+            <option value="rating">Beste Bewertung</option>
+            <option value="name">Name (A–Z)</option>
+            <option value="dist">In der Nähe</option>
+          </select>
+        </div>
         <button id="roll" class="btn-roll" type="button" aria-haspopup="dialog">&#127922; Wohin heute?</button>
         <button id="theme" class="btn-icon" type="button" aria-label="Hell/Dunkel umschalten" aria-pressed="false"></button>
       </div>
@@ -109,6 +117,7 @@
       <div class="map-embed"><iframe id="map-frame" title="Karte" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
       <div class="d-actions">
         <button class="d-btn ghost d-fav" id="d-fav" type="button">&#9825; Merken</button>
+        <button class="d-btn ghost" id="d-share" type="button">&#128279; Link kopieren</button>
         <a class="d-btn" id="d-nav" href="#" target="_blank" rel="noopener">&#129517; Navigation</a>
         <a class="d-btn ghost" id="d-site" href="#" target="_blank" rel="noopener" hidden>Speisekarte / Website &#8599;</a>
         <a class="map-link" id="map-link" href="#" target="_blank" rel="noopener">In Google Maps öffnen &#8599;</a>
