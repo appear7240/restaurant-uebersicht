@@ -60,7 +60,34 @@
   var presentTags = knownTags.concat(extraTags);
 
   // State
-  var state = { q: "", qRaw: "", cats: new Set(), city: "" };
+  var state = { q: "", qRaw: "", cats: new Set(), city: "", favOnly: false, openNow: false };
+
+  // ── Favoriten (localStorage) ───────────────────────
+  var FAV_KEY = "rue-favs";
+  var favs = (function () { try { return new Set(JSON.parse(localStorage.getItem(FAV_KEY) || "[]")); } catch (e) { return new Set(); } })();
+  function favKey(r) { return r.name + "||" + r.city; }
+  function isFav(r) { return favs.has(favKey(r)); }
+  function toggleFav(r) {
+    var k = favKey(r);
+    if (favs.has(k)) favs.delete(k); else favs.add(k);
+    try { localStorage.setItem(FAV_KEY, JSON.stringify(Array.from(favs))); } catch (e) {}
+  }
+
+  // ── Öffnungszeiten: jetzt geöffnet? (Europe/Berlin) ─
+  function isOpenNow(h) {
+    if (!h || !h.p || !h.p.length) return null;
+    var b = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Berlin" }));
+    var now = b.getDay() * 1440 + b.getHours() * 60 + b.getMinutes();
+    for (var i = 0; i < h.p.length; i++) {
+      var p = h.p[i];
+      if (p.cd == null || p.ch == null) return true; // ohne Schließzeit = durchgehend
+      var o = p.od * 1440 + p.oh * 60 + (p.om || 0);
+      var c = p.cd * 1440 + p.ch * 60 + (p.cm || 0);
+      if (c <= o) c += 7 * 1440;
+      if ((now >= o && now < c) || (now + 7 * 1440 >= o && now + 7 * 1440 < c)) return true;
+    }
+    return false;
+  }
   var view = "list";
 
   var $ = function (id) { return document.getElementById(id); };
@@ -118,6 +145,10 @@
   var resetChip = makeChip({ label: "Alle", n: ALL.length, reset: true,
     onClick: function () { state.cats.clear(); syncChips(); refresh(); } });
   elChips.appendChild(resetChip);
+  var favChip = makeChip({ label: "\u2665 Favoriten", onClick: function () { state.favOnly = !state.favOnly; syncChips(); refresh(); } });
+  favChip.classList.add("toggle"); elChips.appendChild(favChip);
+  var openChip = makeChip({ label: "Jetzt geöffnet", onClick: function () { state.openNow = !state.openNow; syncChips(); refresh(); } });
+  openChip.classList.add("toggle"); elChips.appendChild(openChip);
   var tagChips = {};
   presentTags.forEach(function (t) {
     var c = makeChip({ label: t, n: catCount[t], tag: t, dot: true,
@@ -129,6 +160,8 @@
   });
   function syncChips() {
     resetChip.classList.toggle("on", state.cats.size === 0);
+    favChip.classList.toggle("on", state.favOnly);
+    openChip.classList.toggle("on", state.openNow);
     presentTags.forEach(function (t) { tagChips[t].classList.toggle("on", state.cats.has(t)); });
   }
 
@@ -194,6 +227,18 @@
       card.appendChild(tw);
     }
     var foot = document.createElement("div"); foot.className = "card-foot";
+    var fb = document.createElement("button");
+    fb.type = "button"; fb.className = "card-fav" + (isFav(r) ? " on" : "");
+    fb.setAttribute("aria-label", "Merken: " + r.name);
+    fb.textContent = isFav(r) ? "\u2665" : "\u2661";
+    fb.addEventListener("click", function (e) {
+      e.stopPropagation();
+      toggleFav(r);
+      fb.classList.toggle("on", isFav(r));
+      fb.textContent = isFav(r) ? "\u2665" : "\u2661";
+      if (state.favOnly) refresh();
+    });
+    foot.appendChild(fb);
     var mb = document.createElement("button");
     mb.type = "button"; mb.className = "card-map";
     mb.setAttribute("aria-label", "Karte: " + r.name);
@@ -215,6 +260,8 @@
   }
 
   function matches(r) {
+    if (state.favOnly && !isFav(r)) return false;
+    if (state.openNow && isOpenNow(r.hours) !== true) return false;
     if (state.city && r.city !== state.city) return false;
     if (state.cats.size && !(r.tags || []).some(function (t) { return state.cats.has(t); })) return false;
     if (state.q && r._s.indexOf(state.q) === -1) return false;
@@ -530,7 +577,8 @@
       elMapTitle = $("map-title"), elMapLink = $("map-link"), elRMap = $("rl-map"),
       elDPhoto = $("d-photo"), elDCity = $("d-city"), elDRate = $("d-rate"),
       elDBlurb = $("d-blurb"), elDNote = $("d-note"), elDTags = $("d-tags"),
-      elDNav = $("d-nav"), elDSite = $("d-site");
+      elDNav = $("d-nav"), elDSite = $("d-site"),
+      elDOpen = $("d-open"), elDHours = $("d-hours"), elDFav = $("d-fav");
   var mapLastFocus = null;
   function openMap(r) {
     var q = encodeURIComponent(r.name + ", " + r.city + ", Deutschland");
@@ -547,15 +595,27 @@
     elMapTitle.textContent = r.name;
     if (r.rating) { elDRate.textContent = "\u2605 " + r.rating + (r.reviews ? " (" + r.reviews + ")" : ""); elDRate.hidden = false; }
     else elDRate.hidden = true;
+    var on = isOpenNow(r.hours);
+    if (on === true) { elDOpen.textContent = "Jetzt geöffnet"; elDOpen.className = "d-open open"; elDOpen.hidden = false; }
+    else if (on === false) { elDOpen.textContent = "Geschlossen"; elDOpen.className = "d-open"; elDOpen.hidden = false; }
+    else elDOpen.hidden = true;
     if (r.blurb) { elDBlurb.textContent = r.blurb; elDBlurb.hidden = false; } else elDBlurb.hidden = true;
     if (r.note) { elDNote.textContent = r.note; elDNote.hidden = false; } else elDNote.hidden = true;
     elDTags.replaceChildren();
     (r.tags || []).forEach(function (t) { elDTags.appendChild(tagEl(t)); });
+    elDHours.replaceChildren();
+    if (r.hours && r.hours.w && r.hours.w.length) {
+      r.hours.w.forEach(function (line) { var d = document.createElement("div"); d.textContent = line; elDHours.appendChild(d); });
+      elDHours.hidden = false;
+    } else elDHours.hidden = true;
     elFrame.src = "https://maps.google.com/maps?q=" + q + "&z=16&output=embed";
     elDNav.href = "https://www.google.com/maps/dir/?api=1&destination=" + q + pid;
     elMapLink.href = "https://www.google.com/maps/search/?api=1&query=" + qs +
                      (r.placeId ? "&query_place_id=" + encodeURIComponent(r.placeId) : "");
     if (r.website) { elDSite.href = r.website; elDSite.hidden = false; } else elDSite.hidden = true;
+    function syncFav() { elDFav.classList.toggle("on", isFav(r)); elDFav.innerHTML = (isFav(r) ? "\u2665" : "\u2661") + " Merken"; }
+    syncFav();
+    elDFav.onclick = function () { toggleFav(r); syncFav(); if (state.favOnly) render(); };
     elMap.hidden = false; document.body.style.overflow = "hidden";
     elMap.querySelector(".modal-card").scrollTop = 0;
   }

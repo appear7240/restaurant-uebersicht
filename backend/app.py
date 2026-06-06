@@ -59,7 +59,7 @@ def init_db():
     con.execute("CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY, value TEXT)")
     for col, decl in (("lat", "REAL"), ("lng", "REAL"), ("place_id", "TEXT"),
                       ("photo", "TEXT"), ("rating", "REAL"), ("reviews", "INTEGER"),
-                      ("website", "TEXT"), ("resolved", "INTEGER")):
+                      ("website", "TEXT"), ("hours", "TEXT"), ("resolved", "INTEGER")):
         try:
             con.execute(f"ALTER TABLE restaurants ADD COLUMN {col} {decl}")
         except sqlite3.OperationalError:
@@ -87,11 +87,14 @@ def apply_geo(con, path=None):
         return
     for k, g in geo.items():
         name, _, city = k.partition("||")
+        hrs = g.get("hours")
         con.execute(
             "UPDATE restaurants SET lat=?, lng=?, place_id=?, photo=?, rating=?, reviews=?, website=?, "
-            "resolved=COALESCE(?,resolved) WHERE name=? AND city=?",
+            "hours=COALESCE(?,hours), resolved=COALESCE(?,resolved) WHERE name=? AND city=?",
             (g["lat"], g["lng"], g.get("placeId"), g.get("photo"), g.get("rating"),
-             g.get("reviews"), g.get("website"), 1 if g.get("photo") else None, name, city))
+             g.get("reviews"), g.get("website"),
+             (json.dumps(hrs, ensure_ascii=False) if hrs else None),
+             1 if g.get("hours") else None, name, city))
     con.commit()
 
 
@@ -156,6 +159,11 @@ def row_public(r):
         d["reviews"] = r["reviews"] or 0
     if r["website"]:
         d["website"] = r["website"]
+    if r["hours"]:
+        try:
+            d["hours"] = json.loads(r["hours"])
+        except (ValueError, TypeError):
+            pass
     return d
 
 
@@ -376,7 +384,8 @@ def geocode_one(name, city, key, timeout=12):
             "Content-Type": "application/json",
             "X-Goog-Api-Key": key,
             "X-Goog-FieldMask": ("places.id,places.location,places.photos,"
-                                 "places.rating,places.userRatingCount,places.websiteUri"),
+                                 "places.rating,places.userRatingCount,places.websiteUri,"
+                                 "places.regularOpeningHours"),
         })
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -397,11 +406,20 @@ def geocode_one(name, city, key, timeout=12):
     if "latitude" not in loc:
         return None, None
     photos = p.get("photos") or []
+    roh = p.get("regularOpeningHours") or {}
+    hours = ""
+    if roh:
+        per = []
+        for x in (roh.get("periods") or []):
+            o, c = x.get("open") or {}, x.get("close") or {}
+            per.append({"od": o.get("day"), "oh": o.get("hour", 0), "om": o.get("minute", 0),
+                        "cd": c.get("day"), "ch": c.get("hour"), "cm": c.get("minute", 0)})
+        hours = {"w": roh.get("weekdayDescriptions") or [], "p": per}
     return {
         "lat": loc["latitude"], "lng": loc["longitude"], "place_id": p.get("id"),
         "photo": photos[0]["name"] if photos else None,
         "rating": p.get("rating"), "reviews": p.get("userRatingCount"),
-        "website": p.get("websiteUri"),
+        "website": p.get("websiteUri"), "hours": hours,
     }, None
 
 
@@ -414,9 +432,10 @@ def geocode_all(limit: int = 4, x_admin_token: Optional[str] = Header(None)):
     if not key:
         return {"error": "Kein Maps-Key gesetzt", "geocoded": 0, "remaining": 0}
     con = db()
+    sel = ("(resolved IS NULL OR resolved=0 OR hours IS NULL) "
+           "AND (place_id IS NULL OR place_id!='∅')")
     rows = con.execute(
-        "SELECT * FROM restaurants WHERE resolved IS NULL OR resolved=0 "
-        "ORDER BY id LIMIT ?", (limit,)).fetchall()
+        "SELECT * FROM restaurants WHERE " + sel + " ORDER BY id LIMIT ?", (limit,)).fetchall()
     try:
         with open(GEO_PATH, encoding="utf-8") as f:
             geo = json.load(f)
@@ -429,16 +448,17 @@ def geocode_all(limit: int = 4, x_admin_token: Optional[str] = Header(None)):
             last_err = err
             continue
         if res is None:  # nicht gefunden -> als erledigt markieren
-            con.execute("UPDATE restaurants SET place_id=COALESCE(place_id,'∅'), resolved=1 WHERE id=?", (r["id"],))
+            con.execute("UPDATE restaurants SET place_id=COALESCE(place_id,'∅'), resolved=1, hours='' WHERE id=?", (r["id"],))
             continue
+        hrs = json.dumps(res["hours"], ensure_ascii=False) if res["hours"] else ""
         con.execute(
-            "UPDATE restaurants SET lat=?, lng=?, place_id=?, photo=?, rating=?, reviews=?, website=?, resolved=1 WHERE id=?",
+            "UPDATE restaurants SET lat=?, lng=?, place_id=?, photo=?, rating=?, reviews=?, website=?, hours=?, resolved=1 WHERE id=?",
             (res["lat"], res["lng"], res["place_id"], res["photo"], res["rating"],
-             res["reviews"], res["website"], r["id"]))
+             res["reviews"], res["website"], hrs, r["id"]))
         geo[r["name"] + "||" + r["city"]] = {
             "lat": res["lat"], "lng": res["lng"], "placeId": res["place_id"],
             "photo": res["photo"], "rating": res["rating"], "reviews": res["reviews"],
-            "website": res["website"]}
+            "website": res["website"], "hours": res["hours"] or None}
         done += 1
     con.commit()
     try:
@@ -446,9 +466,7 @@ def geocode_all(limit: int = 4, x_admin_token: Optional[str] = Header(None)):
             json.dump(geo, f, ensure_ascii=False, indent=2)
     except OSError:
         pass
-    remaining = con.execute(
-        "SELECT COUNT(*) AS n FROM restaurants WHERE resolved IS NULL OR resolved=0"
-    ).fetchone()["n"]
+    remaining = con.execute("SELECT COUNT(*) AS n FROM restaurants WHERE " + sel).fetchone()["n"]
     con.close()
     out = {"geocoded": done, "remaining": remaining}
     if done == 0 and rows:
