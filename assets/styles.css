@@ -104,11 +104,9 @@ a { color: inherit; }
 
 /* ── Controls ───────────────────────────────────────── */
 .controls {
-  position: sticky; top: 0; z-index: 20;
+  position: static;
   margin-top: 0;
-  padding: 16px 0 14px;
-  background: color-mix(in srgb, var(--paper) 88%, transparent);
-  backdrop-filter: saturate(140%) blur(10px);
+  padding: 8px 0 14px;
   border-bottom: 1px solid var(--line);
 }
 .controls-row {
