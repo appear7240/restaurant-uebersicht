@@ -100,8 +100,9 @@
 
   // ── Stadt-Select ───────────────────────────────────
   function opt(v, l) { var o = document.createElement("option"); o.value = v; o.textContent = l; return o; }
-  elCity.appendChild(opt("", "Alle Städte (" + ALL.length + ")"));
-  cities.forEach(function (c) { elCity.appendChild(opt(c, c + " (" + cityCount[c] + ")")); });
+  var allCityOpt = opt("", "Alle Städte (" + ALL.length + ")"); elCity.appendChild(allCityOpt);
+  var cityOpts = {};
+  cities.forEach(function (c) { var o = opt(c, c + " (" + cityCount[c] + ")"); cityOpts[c] = o; elCity.appendChild(o); });
 
   // ── Kategorie-Chips ────────────────────────────────
   function makeChip(o) {
@@ -110,7 +111,7 @@
     if (o.tag) b.dataset.tag = o.tag;
     if (o.dot) { var d = document.createElement("span"); d.className = "dot"; b.appendChild(d); }
     var lab = document.createElement("span"); lab.textContent = o.label; b.appendChild(lab);
-    if (o.n != null) { var n = document.createElement("span"); n.className = "n"; n.textContent = o.n; b.appendChild(n); }
+    if (o.n != null) { var n = document.createElement("span"); n.className = "n"; n.textContent = o.n; b.appendChild(n); b._n = n; }
     b.addEventListener("click", o.onClick);
     return b;
   }
@@ -129,6 +130,34 @@
   function syncChips() {
     resetChip.classList.toggle("on", state.cats.size === 0);
     presentTags.forEach(function (t) { tagChips[t].classList.toggle("on", state.cats.has(t)); });
+  }
+
+  // ── Facetten-Counts (Zahlen je nach gesetzten Filtern) ──
+  function passSearch(r) { return !state.q || r._s.indexOf(state.q) !== -1; }
+  function passCity(r) { return !state.city || r.city === state.city; }
+  function passCats(r) { return !state.cats.size || (r.tags || []).some(function (t) { return state.cats.has(t); }); }
+  function updateCounts() {
+    // Kategorie-Chips: Treffer bei Suche+Stadt (eigene Kategorie-Auswahl ignoriert)
+    var ct = {}, catBase = 0;
+    ALL.forEach(function (r) {
+      if (!passSearch(r) || !passCity(r)) return;
+      catBase++;
+      (r.tags || []).forEach(function (t) { ct[t] = (ct[t] || 0) + 1; });
+    });
+    if (resetChip._n) resetChip._n.textContent = catBase;
+    presentTags.forEach(function (t) {
+      var n = ct[t] || 0;
+      if (tagChips[t]._n) tagChips[t]._n.textContent = n;
+      tagChips[t].classList.toggle("dim", n === 0);
+    });
+    // Stadt-Select: Treffer bei Suche+Kategorie (Stadt-Auswahl ignoriert)
+    var cc = {}, cityBase = 0;
+    ALL.forEach(function (r) {
+      if (!passSearch(r) || !passCats(r)) return;
+      cityBase++; cc[r.city] = (cc[r.city] || 0) + 1;
+    });
+    allCityOpt.textContent = "Alle Städte (" + cityBase + ")";
+    cities.forEach(function (c) { if (cityOpts[c]) cityOpts[c].textContent = c + " (" + (cc[c] || 0) + ")"; });
   }
 
   // ── Tag- & Karten-Elemente ─────────────────────────
@@ -219,6 +248,7 @@
 
   // ── Rendering ──────────────────────────────────────
   function render() {
+    updateCounts();
     var list = ALL.filter(matches);
     var byCity = {};
     list.forEach(function (r) { (byCity[r.city] = byCity[r.city] || []).push(r); });

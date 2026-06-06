@@ -546,3 +546,7 @@ footer .totop { cursor: pointer; color: var(--accent); font-weight: 600; }
 .d-btn.ghost { background: transparent; color: var(--accent); }
 .d-btn.ghost:hover { color: var(--accent-d); text-decoration: underline; }
 .d-actions .map-link { margin-top: 0; }
+
+/* Facetten: Chips mit 0 Treffern dezent ausblenden */
+.chip.dim { opacity: .4; }
+.chip.dim.on { opacity: 1; }
