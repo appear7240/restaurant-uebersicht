@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Konfiguration &middot; Restaurant-Übersicht</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .kwrap { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
+    .khead { padding: 28px 0 18px; display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .khead h1 { font-family: var(--serif); font-weight: 600; font-size: 30px; color: var(--ink); margin: 0; }
+    .khead a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14px; }
+    .khead a:hover { color: var(--accent); }
+    .kcard { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px 22px; margin-bottom: 18px; }
+    .kcard h2 { font-family: var(--serif); font-weight: 600; font-size: 19px; color: var(--ink); margin: 0 0 14px; }
+    .krow { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 10px 0; }
+    .krow label { font-size: 13px; font-weight: 600; color: var(--muted); min-width: 92px; }
+    .kcard input[type=password], .kcard input[type=text] {
+      flex: 1 1 200px; font: inherit; font-size: 14px; padding: 9px 12px;
+      border: 1px solid var(--line); border-radius: 10px; background: var(--paper); color: var(--ink);
+    }
+    .kbtn { font: inherit; font-weight: 600; font-size: 14px; padding: 9px 16px; border-radius: 10px;
+      border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer; }
+    .kbtn:hover { background: var(--accent-d); border-color: var(--accent-d); }
+    .kbtn.ghost { background: transparent; color: var(--accent); }
+    .kbtn:disabled { opacity: .5; cursor: default; }
+    .kstat { display: flex; gap: 22px; flex-wrap: wrap; }
+    .kstat div { font-family: var(--serif); font-size: 30px; font-weight: 600; color: var(--ink); }
+    .kstat span { display: block; font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--muted); margin-top: 2px; }
+    .kmsg { font-size: 13px; font-weight: 600; margin-left: 4px; }
+    .kmsg.ok { color: #2e7d32; } .kmsg.err { color: var(--accent); }
+    .khint { font-size: 12px; color: var(--muted); }
+    [data-theme=dark] .kmsg.ok { color: #7fd28a; }
+    #offline { display: none; color: var(--accent); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="kwrap">
+    <div class="khead">
+      <h1>Konfiguration</h1>
+      <a href="index.html">&larr; Zur Übersicht</a>
+    </div>
+
+    <p id="offline">Backend nicht erreichbar &ndash; diese Seite funktioniert nur auf dem Server mit laufendem Admin-Backend (nicht auf GitHub Pages).</p>
+
+    <div class="kcard">
+      <h2>Status</h2>
+      <div class="kstat">
+        <div><span>Gesamt</span><b id="s-total">&ndash;</b></div>
+        <div><span>Angereichert</span><b id="s-enr">&ndash;</b></div>
+        <div><span>Koordinaten</span><b id="s-geo">&ndash;</b></div>
+      </div>
+    </div>
+
+    <div class="kcard">
+      <h2>API-Schlüssel</h2>
+      <div class="krow">
+        <label for="k-openai">OpenAI</label>
+        <input id="k-openai" type="password" placeholder="sk-… (leer = unverändert)" autocomplete="off" />
+        <button class="kbtn ghost" id="b-test-openai" type="button">Test</button>
+      </div>
+      <div class="krow">
+        <label for="k-maps">Maps</label>
+        <input id="k-maps" type="password" placeholder="AIza… (leer = unverändert)" autocomplete="off" />
+      </div>
+      <div class="krow">
+        <button class="kbtn" id="b-save" type="button">Speichern</button>
+        <span class="kmsg" id="m-keys"></span>
+      </div>
+      <p class="khint" id="k-hint"></p>
+    </div>
+
+    <div class="kcard">
+      <h2>Daten</h2>
+      <div class="krow">
+        <button class="kbtn" id="b-enrich" type="button">Alle anreichern</button>
+        <span class="kmsg" id="m-enrich"></span>
+      </div>
+      <div class="krow">
+        <button class="kbtn" id="b-export" type="button">Export (restaurants.js schreiben)</button>
+        <span class="kmsg" id="m-export"></span>
+      </div>
+      <p class="khint">„Anreichern" holt Küche/Beschreibung via OpenAI; „Export" schreibt die Daten in die statische Seite.</p>
+    </div>
+  </div>
+  <script src="assets/konfig.js"></script>
+</body>
+</html>
