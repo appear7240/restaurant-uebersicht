@@ -347,23 +347,36 @@ GEO_PATH = str(BASE / "geo.json")
 
 
 def geocode_one(name, city, key, timeout=12):
-    """Places Text Search -> (dict|None, error|None). (None,None)=nicht gefunden."""
-    q = urllib.parse.quote(f"{name} {city} Deutschland")
-    url = ("https://maps.googleapis.com/maps/api/place/textsearch/json"
-           f"?query={q}&region=de&language=de&key={key}")
+    """Places API (New) Text Search -> (dict|None, error|None). (None,None)=nicht gefunden."""
+    body = json.dumps({
+        "textQuery": f"{name} {city} Deutschland",
+        "languageCode": "de", "regionCode": "DE",
+    }).encode("utf-8")
+    req = urllib.request.Request(
+        "https://places.googleapis.com/v1/places:searchText",
+        data=body, method="POST", headers={
+            "Content-Type": "application/json",
+            "X-Goog-Api-Key": key,
+            "X-Goog-FieldMask": "places.id,places.location",
+        })
     try:
-        with urllib.request.urlopen(url, timeout=timeout) as r:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
             d = json.loads(r.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        try:
+            em = json.loads(e.read().decode("utf-8")).get("error", {}).get("message", "")
+        except Exception:  # noqa: BLE001
+            em = ""
+        return None, (f"HTTP {e.code}: {em}").strip()[:200]
     except Exception as e:  # noqa: BLE001
         return None, str(e)
-    st = d.get("status")
-    if st == "ZERO_RESULTS":
+    places = d.get("places") or []
+    if not places:
         return None, None
-    if st != "OK" or not d.get("results"):
-        return None, (f"{st}: {d.get('error_message', '')}").strip()[:200]
-    res = d["results"][0]
-    loc = res["geometry"]["location"]
-    return {"lat": loc["lat"], "lng": loc["lng"], "place_id": res.get("place_id")}, None
+    loc = places[0].get("location") or {}
+    if "latitude" not in loc:
+        return None, None
+    return {"lat": loc["latitude"], "lng": loc["longitude"], "place_id": places[0].get("id")}, None
 
 
 @app.post("/api/geocode-all")
