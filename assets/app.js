@@ -306,7 +306,7 @@
       center: { lat: 51.3, lng: 7.1 }, zoom: 8,
       streetViewControl: false, mapTypeControl: false, fullscreenControl: true
     });
-    var svc = new g.places.PlacesService(map);
+    var svc = null; // legacy PlacesService entfällt – Details via places.Place (New)
     var iw = new g.InfoWindow();
     var bounds = new g.LatLngBounds();
     var withGeo = ALL.filter(function (r) { return typeof r.lat === "number"; });
@@ -319,7 +319,7 @@
     if (withGeo.length) map.fitBounds(bounds);
   }
 
-  function openInfo(r, marker, map, svc, iw, g) {
+  async function openInfo(r, marker, map, svc, iw, g) {
     var q = encodeURIComponent(r.name + ", " + r.city);
     var maps = "https://www.google.com/maps/search/?api=1&query=" + q +
                (r.placeId ? "&query_place_id=" + r.placeId : "");
@@ -329,28 +329,27 @@
     }
     render("");
     iw.open(map, marker);
-    if (r.placeId && svc) {
-      svc.getDetails({ placeId: r.placeId,
-        fields: ["photos", "rating", "user_ratings_total", "opening_hours", "website"] },
-        function (place, status) {
-          if (status !== g.places.PlacesServiceStatus.OK || !place) return;
-          var html = "";
-          if (place.photos && place.photos.length) {
-            html += '<div class="ph">' + place.photos.slice(0, 2).map(function (p) {
-              return '<img loading="lazy" src="' + p.getUrl({ maxWidth: 320, maxHeight: 200 }) + '" alt="">';
-            }).join("") + '</div>';
-          }
-          if (place.rating) html += '<div class="r">★ ' + place.rating + ' (' + (place.user_ratings_total || 0) + ')</div>';
-          try {
-            if (place.opening_hours && place.opening_hours.isOpen) {
-              html += place.opening_hours.isOpen()
-                ? '<div class="o open">Jetzt geöffnet</div>' : '<div class="o">Geschlossen</div>';
-            }
-          } catch (e) {}
-          if (place.website) html += '<a class="site" href="' + esc(place.website) + '" target="_blank" rel="noopener">Speisekarte / Website &#8599;</a>';
-          render(html);
-        });
-    }
+    if (!r.placeId || !g.places || !g.places.Place) return;
+    try {
+      var place = new g.places.Place({ id: r.placeId });
+      await place.fetchFields({ fields: ["photos", "rating", "userRatingCount", "regularOpeningHours", "websiteURI"] });
+      var html = "";
+      if (place.photos && place.photos.length) {
+        html += '<div class="ph">' + place.photos.slice(0, 2).map(function (p) {
+          return '<img loading="lazy" src="' + p.getURI({ maxWidth: 320, maxHeight: 200 }) + '" alt="">';
+        }).join("") + '</div>';
+      }
+      if (place.rating) html += '<div class="r">★ ' + place.rating + ' (' + (place.userRatingCount || 0) + ')</div>';
+      try {
+        if (typeof place.isOpen === "function") {
+          var on = await place.isOpen();
+          if (on === true) html += '<div class="o open">Jetzt geöffnet</div>';
+          else if (on === false) html += '<div class="o">Geschlossen</div>';
+        }
+      } catch (e) {}
+      if (place.websiteURI) html += '<a class="site" href="' + esc(place.websiteURI) + '" target="_blank" rel="noopener">Speisekarte / Website &#8599;</a>';
+      render(html);
+    } catch (e) { /* Basis-Popup bleibt stehen */ }
   }
 
   function setView(v) {
