@@ -81,17 +81,23 @@
 
   $("b-geocode").addEventListener("click", async function () {
     var btn = this; btn.disabled = true;
-    var total = 0;
+    var total = 0, prev = null;
     try {
       while (true) {
         msg($("m-geocode"), "Geocodiere… (" + total + ")");
-        var d = await api("geocode-all?limit=4", { method: "POST" });
-        if (d.error && !d.geocoded) { msg($("m-geocode"), d.error, false); break; }
+        var d = await api("geocode-all?limit=8", { method: "POST" });
         total += d.geocoded || 0;
-        if (!d.geocoded || d.remaining === 0) {
-          msg($("m-geocode"), "Fertig: " + total + " geocodiert, " + (d.remaining || 0) + " offen.", true);
+        if (d.remaining === 0) {
+          msg($("m-geocode"), "Fertig: " + total + " verarbeitet, 0 offen.", true);
           break;
         }
+        // kein Fortschritt (alle Restzeilen fehlerhaft/unauffindbar) -> Abbruch
+        if (prev !== null && d.remaining >= prev) {
+          msg($("m-geocode"), "Gestoppt: " + total + " verarbeitet, " + d.remaining +
+              " offen" + (d.error ? " (" + d.error + ")" : "") + ".", false);
+          break;
+        }
+        prev = d.remaining;
       }
     } catch (e) { msg($("m-geocode"), "Fehler: " + e.message, false); }
     btn.disabled = false; loadStatus();
