@@ -331,397 +331,3253 @@
     "lat": 51.4947612,
     "lng": 7.280552900000001,
     "placeId": "ChIJ1Ud04bMfuUcRuNsGaDqckRQ",
-    "photo": "places/ChIJ1Ud04bMfuUcRuNsGaDqckRQ/photos/AaVGc3kAcLlHkYOjqlQrCuQW0We0FO6visJvnm4NTBTXkdoOW-tWn2EXdbVyhSGf1bQYrn4vEn2VCljPvNCsDAMi8dTCUsJX_WXNd81l1hWcqiJnMwjcnO1Tv1LWU7zCgqEv7KF2-x5-FbFXUCVDnV7ivoFheEC4P1s7YiRr1dyC0S28z90jLKhQGKEGdc_jnjmxKk_Hfs9dL5oZt6u-cDLQOgC_19RibfW48ea3HvZER6aa5OhqTwd1zKNzH0_iLa-NJk6K9KjL9q7faojm_tbBV7UOXkzUEL-zEa9KRALivcrER9n6hvJKucWfAoQTykmz-uoTCfTCZ62HF1JndTN7gg6wl7WMVG2gNZj3s85SXUeQNWd6qR5ToNF6a06Vt_2xD4f4pVJY_dBefmcKH4w06RPkmwXXj1_bdOXTHegUbOq591ct",
+    "photo": "places/ChIJ1Ud04bMfuUcRuNsGaDqckRQ/photos/AaVGc3mCw5Nfc8K23EGFMTmIxqXJPbE4-hVNjFK2eRJJwv1iLCqlboY78oiv9korsLTR8ToALb7zpNGSgSV_l72WCKM0MZVIspKl_UFDFL8os77h3Cw55aTFzPG1y48jq_OPTX_jola6dMdGur2SF_enqu4J0g65kx0V1ldonj465ZsAcB2EavDTZs7SGeeov5lM1wCGI79mtO2QB-L4hG7uzfmFOHYYdq1BBwelHuQLuAlzJxAmprmyVDOi1MI11mlgsZOl_sGQj54QJzCeg3-D0DKdgwGfjAMUYPBWp7oRdytc1Yvcm6eiAaa2ZaC752t1M0kMLQnq0NqA9RLH-fCxx6eY89WwITEq9UbVTU0tEWjWGfNtAPSlRkYsi_gMrC90hCd__YxAzK8JcY7MiHB2z-2_E0XetgLFK_vvrR9uMlF1OH6Y",
     "rating": 4.2,
     "reviews": 2236,
-    "website": "http://cafe-zuckersuess.9gg.de/"
+    "website": "http://cafe-zuckersuess.9gg.de/",
+    "hours": {
+      "w": [
+        "Montag: 08:30–21:00 Uhr",
+        "Dienstag: 08:30–21:00 Uhr",
+        "Mittwoch: 08:30–21:00 Uhr",
+        "Donnerstag: 08:30–21:00 Uhr",
+        "Freitag: 08:30–21:30 Uhr",
+        "Samstag: 08:30–21:00 Uhr",
+        "Sonntag: Geschlossen"
+      ],
+      "p": [
+        {
+          "od": 1,
+          "oh": 8,
+          "om": 30,
+          "cd": 1,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 8,
+          "om": 30,
+          "cd": 2,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 8,
+          "om": 30,
+          "cd": 3,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 8,
+          "om": 30,
+          "cd": 4,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 8,
+          "om": 30,
+          "cd": 5,
+          "ch": 21,
+          "cm": 30
+        },
+        {
+          "od": 6,
+          "oh": 8,
+          "om": 30,
+          "cd": 6,
+          "ch": 21,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Lokmahouse Café||Bochum": {
     "lat": 51.4793466,
     "lng": 7.2215522,
     "placeId": "ChIJzTPSn2nhuEcRQhL3yunSc-A",
-    "photo": "places/ChIJzTPSn2nhuEcRQhL3yunSc-A/photos/AaVGc3n1AqU2WjDy0IQekWocnlstGDcQKscqolyBcUVI6qhqSq6poBwbphsHLFG9oEkvM2-gC_wSurY-s_mnXW-jWN9qt5nEpbz5rybAJabyjNX18FNwA3pzYMxZ_DsFM0YlRktORfVc0zbUqOKE-Q-jjSoZx3QnfOkvDn17gKFRskMXxw94T7dfJ20a6iekfcYere6fKPKRyhT9TWby-TqSvWn0dcJpQZftqrJDhVBFIWGjatUm9_kd48ovnmL1Co2qg_zM_zMBussI-s9hJ8xtAxXB7lGSxPDRtUntVglyB55xG6Cc7YiMjjK4WSRaJL7USXleYzIiUMZr39Jdn4Jk_Md16piU9LHfUunnAWAN612TYUvVhRxgSPtDKF_oFwEd8tNJKpM1pgFsJsHlNNt_AQGZp6vwpESArn_ZOsq3RjWCWQ",
+    "photo": "places/ChIJzTPSn2nhuEcRQhL3yunSc-A/photos/AaVGc3lCvPy1EnOgouxHSHz4Gf0x1cFXu0ae8a9oLS_7cBnluKmUVAYPvsiGVwvnAWrOfAUmCY3jMFwxgFFfAL2kdP3XbdJOhvEDAqVZjlDITEwOt9d6zWSiZ4PH_nFASfvHSCar78rqhHzM7wbmW6NTvcVSXiCsQ1IHFoHjoJ1LdbmUipBpCvl_6gwgQXrAa-GDLTmykCtqRROfnDPMjzs-Pqwi8jWMd3IgZQ86N-R9cdcsWSEkJB5epP9i-cL0FXLbnL1Z1v3grbKEafhndeDoP_uda_7m9FWTZro2d6V-aHH0I-Ltbj_3UITom5ODfGLpw7ftS98DgAzsLfBJJH1XVZULcVy_WxVY6BmSwEWaqy9sDzSvF-uz70TCCrXugAoAfvlh3z9tWg_0qVUQ6wK8qC4_T4jP3L83SJf23PfGZ-tTrg",
     "rating": 4.6,
-    "reviews": 614,
-    "website": "https://www.lokmahousecafe.com/"
+    "reviews": 613,
+    "website": "https://www.lokmahousecafe.com/",
+    "hours": {
+      "w": [
+        "Montag: 14:00–23:00 Uhr",
+        "Dienstag: 14:00–23:00 Uhr",
+        "Mittwoch: 14:00–23:00 Uhr",
+        "Donnerstag: 14:00–23:00 Uhr",
+        "Freitag: 15:00–01:00 Uhr",
+        "Samstag: 15:00–02:00 Uhr",
+        "Sonntag: 15:00–00:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 15,
+          "om": 0,
+          "cd": 1,
+          "ch": 0,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 14,
+          "om": 0,
+          "cd": 1,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 14,
+          "om": 0,
+          "cd": 2,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 14,
+          "om": 0,
+          "cd": 3,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 14,
+          "om": 0,
+          "cd": 4,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 15,
+          "om": 0,
+          "cd": 6,
+          "ch": 1,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 15,
+          "om": 0,
+          "cd": 0,
+          "ch": 2,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Heiter & Herrlich||Bochum": {
     "lat": 51.4712679,
     "lng": 7.192285199999999,
     "placeId": "ChIJnXj77hbhuEcRvR-Rfa28Ltk",
-    "photo": "places/ChIJnXj77hbhuEcRvR-Rfa28Ltk/photos/AaVGc3l0nXCLW-EgW5KMycKx5HB7zBUZLibN1UoKX6dDiuIC2smk0abpGvjVF0BnEM5pVzY39ZQ57oEv_E13p3bcONEnPkrj9iSCsRemZXp8wNQAhlHBIFOsZYtYj3fJiTLXeFLCsgp6iBI-ckO-jHkVRJTDHTkYDdg6P4WdNXFJODxVlRBHnMO-ser8ETnt0pNSCkMjqG2ZVB7P-QnTWYbg5TlnGj60nS5flTd2VamQOXBJztHAJ3dnqdz6DUqlfcnlWRLDd6YNrJfYgwyDjyTVRxQ5cUx7G-RLm3HRk_4RUWMoqxHzy4lxd9fb4JGBhMGgN4MGqIZJkVrNHH29oM6BtsgR7UPwu4CvSQabiceV1dc4cga1ELcRwGLlPcoIwbB7nSZGuoMj2_WYdz0PI9Ko21_hpPlW_6xtIaG5wlLUyAIasR0",
+    "photo": "places/ChIJnXj77hbhuEcRvR-Rfa28Ltk/photos/AaVGc3mpyH-KwSIav6yfyAPrY1OLSWbMdr35eFA_hqmZZAsVGXoUCtBvW0gsFs4KfD_KBDjgwS68rWkF2dzJ5tZhdXWo6I7HcO0AiAlTkTQrvF7xpLzKdie7ujL7AzqMsK8yRFY8eXUzTFvdaxb0IBT8PKENti4TH-GV3ZIl19OstDL1Mfe-piDFBMrva4O0eoQNGykDtqIPenvzFzZ2sdlNM-c9vyGKneinrIVFrp90aPS1ErJIFJj7lhx5Xn3NAg3VR7woQ64n1cXdy_cPTOGskK9PkCKejoCtowamaJ2ir90u0GAcvT78mUQR_CMMb4HLIP2Q3w33BAbHzKQ6oj5wzBgtx6NBU936Kcahu1KZKhuFuqCyRhNib_TiZSzEBMNobFvmujRgQuiIIBnRSqG7c0TH2ZcMGi7CFOI55oaEioL4aes",
     "rating": 4.6,
     "reviews": 558,
-    "website": "https://www.heiterundherrlich.de/standorte/heiter-herrlich-bochum/"
+    "website": "https://www.heiterundherrlich.de/standorte/heiter-herrlich-bochum/",
+    "hours": {
+      "w": [
+        "Montag: 09:00–22:00 Uhr",
+        "Dienstag: 09:00–22:00 Uhr",
+        "Mittwoch: 09:00–22:00 Uhr",
+        "Donnerstag: 09:00–22:00 Uhr",
+        "Freitag: 09:00–23:00 Uhr",
+        "Samstag: 09:00–23:00 Uhr",
+        "Sonntag: 09:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 9,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 9,
+          "om": 0,
+          "cd": 1,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 9,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 9,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 9,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 9,
+          "om": 0,
+          "cd": 5,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 9,
+          "om": 0,
+          "cd": 6,
+          "ch": 23,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Arte Italiana||Bochum": {
     "lat": 51.4804775,
     "lng": 7.1347729,
     "placeId": "ChIJXWL5MbPguEcRugSU2HFK1GQ",
-    "photo": "places/ChIJXWL5MbPguEcRugSU2HFK1GQ/photos/AaVGc3mLBRmNMw573WjVY5HjN7bvuMXpV3pZ_oDbLMrCCnQSB_Grb6bu5JyYZdtIvKcUUyD82-fSJlhWbwj4Nrq0ykeJLOouvX_tMRDc8AK7mQFS5Y3MaxwySAY8jCFbrtbGkqlufEI-ygNtb7KIc4DKyvWvN6pfvM31bqIC8654MTGes6pqJ712GFT9khARfI95uIKHEK7DDmYHdH7oUZooMrDeDr4L6PoXgflauspVHzRSwE7uk4n_XBnZ-NnIwipdxkyvDmeQ1cuFMrfTtpufiCprnZdYCIXcVEfJkfQPgUyrrqucnSXAbnRUaOcl37kRxfaimaV2Faphy2wumZyzwVEJCV9x07XJoYFacuTv0px38I5PxeYZqN-YUTdGCkqr7V96eSy20sS5Kzafc0L9c-0EdvlMKvShzuTwIl1Cof9yew",
+    "photo": "places/ChIJXWL5MbPguEcRugSU2HFK1GQ/photos/AaVGc3l0u-bNEUFIqv7gNs6EjAd1bIOyytwxtiLQ4wIrcgYO3a-t_RU97CG54lN1hzzNrQjvrJqOVZYlMAYBgmUc53Vh9x8C0r9jTV-OH09em31FhwXRjB1yYG-9Xkn_jQqn010Ll2rK4tReTyqc5gKP91o8idlw94LiVJfJUxq1-5hBtEgXENE8B_mQDMUtLCiOct3H2CvJgPOtP8nLeb8WZlbPwpnZYlEIM6zNWcdeDJyCEiXOUMcqa0XZLpSAuyBEsL2lZpfD7jJu_NOnPos8cbTgk043RaARX9Vq8Bw9MhYpWsYAsJMbTYJLfYpSxcTZs-nh9uUxfK72AuITXf2B1ZK6khOsrfuEOrP4PgwTAJAnU6DQ6uxhJULIEt8HUB2Ndyn3XmZC58J5ZL_5_BGRZNi7TvK_bQlDqDSoZD2kDF6NAw",
     "rating": 4.6,
     "reviews": 580,
-    "website": "https://arte-italiana-restaurant.eatbu.com/?lang=de"
+    "website": "https://arte-italiana-restaurant.eatbu.com/?lang=de",
+    "hours": {
+      "w": [
+        "Montag: Geschlossen",
+        "Dienstag: 12:00–22:00 Uhr",
+        "Mittwoch: 12:00–22:00 Uhr",
+        "Donnerstag: 12:00–22:00 Uhr",
+        "Freitag: 12:00–22:00 Uhr",
+        "Samstag: 12:00–22:00 Uhr",
+        "Sonntag: 12:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 12,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 12,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 12,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 12,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 12,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 12,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Traumkuh||Bochum": {
     "lat": 51.4764878,
     "lng": 7.215670299999999,
     "placeId": "ChIJA8BYLwDhuEcRj5s85nYVsRY",
-    "photo": "places/ChIJA8BYLwDhuEcRj5s85nYVsRY/photos/AaVGc3kkWpjNblsr8H1z7dUX1xrx5X6HVXe9fOaJSRB1ZFHaJt88BgrhE6JfEPrQXl_0M-c65Gwy3J5iRfTJoZBWBLPY2579bda2mVh-0tKTyvUj92gMMjia7j1a_pdy8PxNJ8DKUwFNC_LHmB_OkvFgE_gr66JWgxPYIwaIbRQrdufWKadT2TJTJMiDZmw6GAXOacC94OBzV3fhaN1M6PYPfzYgBLUYflAwXwEmEJEnMy3ToKXH2CQs-wXWqOf45UO-uQFYqjnIQWiAVuYfx6UKlh1YJ4n0cYS81zcArnpsZYljeffPz-jfysVjGWmJtXGB2mIUpJeUq_DL6xn_prtlAVf1KrAUBlDl44ZiWzEGe6I_5jqaq9J9kvms8cYRXZ_OV7NS5QDpzz2Uplj2kE5suxl27oCfsyomzS5v04VLHgJw-y4O63nPVk7530mHe8ID",
+    "photo": "places/ChIJA8BYLwDhuEcRj5s85nYVsRY/photos/AaVGc3nVLzSS0eB3ojKf3lZbQq9jz4mpQhEVr7C3r-DZUAXeinDkr9STJf_K7tULaEgCn1_LJT6Au7YrLL7IyuAFGY32qkhcgSjjKE0jD_dUO3v9RhrsxWVY7crtvXZ1-SJgF5l4ztEWBkXLJNUFf1e0FI5ztfcUBW1G0u2TzrSdHd7fby-2ZX7daxUXauFIdjb0FPpVeqvAljnA2vbCzz9HTOYfTiTF5rX3suPzp3dd7j1Gr9d5hdaAF7ERLTyD-WtEhbLxHJ4Qaf46OaIZykhQsW_7SltcGjIyROhzJ2k4RTZKccT8w8XrQd1imHmbQ0dmu4hUA4BjX1hU-XEeh9EcKx0tWdVbawlu39U9LWjINGCBsik1gFkzOxDAIN8NFp3IV5QBBmKsgUe2cxiAi0cgd_uybr1sSL5H6ex7YVvfvQr5h-Bg5veP8d0bIlnP-8Uk",
     "rating": 4.1,
     "reviews": 245,
-    "website": "http://traumkuh.de/"
+    "website": "http://traumkuh.de/",
+    "hours": {
+      "w": [
+        "Montag: 12:00–22:00 Uhr",
+        "Dienstag: 12:00–22:00 Uhr",
+        "Mittwoch: 12:00–22:00 Uhr",
+        "Donnerstag: 12:00–22:00 Uhr",
+        "Freitag: 12:00–23:00 Uhr",
+        "Samstag: 12:00–23:00 Uhr",
+        "Sonntag: 13:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 13,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 12,
+          "om": 0,
+          "cd": 1,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 12,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 12,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 12,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 12,
+          "om": 0,
+          "cd": 5,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 12,
+          "om": 0,
+          "cd": 6,
+          "ch": 23,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Takumi||Bochum": {
     "lat": 51.477015699999995,
     "lng": 7.215753500000001,
     "placeId": "ChIJYWjePQDhuEcRuxz9Ki9Gn50",
-    "photo": "places/ChIJYWjePQDhuEcRuxz9Ki9Gn50/photos/AaVGc3nKVbaYivol7-H1PYv874bXg6sWwukkaK7eM-JApMsE3E2K3zGZh7ZVI7J7SLaNkLTPRY6LyTgWQYQdpthtpmBGyn5KlRsn8L4Vn_HpgW_8MB_WvZs6sjpluVv7aM-7gw9YGYZ_FRBBX5W16GudCPcdITp-vuiFUiP4Wzsg3rKyOmnOvegy388xJhLJUzmw4M_Hri-9oBtdZfBwgiC0xMW49kIMEh3HMoUC129f9sZuo6mZmkjDIzosLdlnMEtfUP1aAqIynKNjBMfWdcbkCbCaNl0RljK97WDtsjJ14CFLAsFoJpxDqMH29Yr6BX31v3x-WQgmfmiynf-zMzjWlXxxKrtWySEABWmLO2WA4lo5eTKMsSd_nRccGEPXr5QBRny1fDBCYgI6WbPcC0-cHPKduocy9QmKtpcf2AurVCNjZHmO",
+    "photo": "places/ChIJYWjePQDhuEcRuxz9Ki9Gn50/photos/AaVGc3n1hjmSUuAHQxEEzWJ1MiveJDD6G5SLtAbmcN7b_RzPv0I8inft7soeHx-C4ShNjoZqmv2oq3Hyea2JrJLKbZFdUkj9jPLdYIgI_Hnr-_Vwt-Nqyq75eRg_VuEwcJ1toxzmbR8hfvMWczuwcZZxImKCqif0WvoE6w7nlOtUxCHe-8onevSTn4uI-s7b79NUuzx6faBwv9a-B8PUCO9diTzIj6mj5hOeXqBEAezGljGmisxK0XX_mhsFbSG3YTbi40l74tzEPxjqENKtxsWA2GQP4i50n6Pygb0DN02r_dIvouVQDD6836-ZhBU84YYZ_lGyuOi9nLOZObGiqc4xTHhgx1LhBH-w_99qkF6T6z-g716rhokIm0YbShBgf86IcXGQ7uJSUq_BypBftr66TNCi0uIk82X8WQUJIHGmHCpUKvEz",
     "rating": 4.7,
     "reviews": 405,
-    "website": null
+    "website": null,
+    "hours": {
+      "w": [
+        "Montag: Geschlossen",
+        "Dienstag: 12:00–15:00 Uhr, 17:00–21:30 Uhr",
+        "Mittwoch: 12:00–15:00 Uhr, 17:00–21:30 Uhr",
+        "Donnerstag: 12:00–15:00 Uhr, 17:00–21:30 Uhr",
+        "Freitag: 12:00–15:00 Uhr, 17:00–21:30 Uhr",
+        "Samstag: 12:00–21:30 Uhr",
+        "Sonntag: 13:00–21:30 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 13,
+          "om": 0,
+          "cd": 0,
+          "ch": 21,
+          "cm": 30
+        },
+        {
+          "od": 2,
+          "oh": 12,
+          "om": 0,
+          "cd": 2,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 17,
+          "om": 0,
+          "cd": 2,
+          "ch": 21,
+          "cm": 30
+        },
+        {
+          "od": 3,
+          "oh": 12,
+          "om": 0,
+          "cd": 3,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 17,
+          "om": 0,
+          "cd": 3,
+          "ch": 21,
+          "cm": 30
+        },
+        {
+          "od": 4,
+          "oh": 12,
+          "om": 0,
+          "cd": 4,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 17,
+          "om": 0,
+          "cd": 4,
+          "ch": 21,
+          "cm": 30
+        },
+        {
+          "od": 5,
+          "oh": 12,
+          "om": 0,
+          "cd": 5,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 17,
+          "om": 0,
+          "cd": 5,
+          "ch": 21,
+          "cm": 30
+        },
+        {
+          "od": 6,
+          "oh": 12,
+          "om": 0,
+          "cd": 6,
+          "ch": 21,
+          "cm": 30
+        }
+      ]
+    }
   },
   "Chillers||Bochum": {
     "lat": 51.474699799999996,
     "lng": 7.151811599999999,
     "placeId": "ChIJLWFJHmjhuEcR72TdjL99IKo",
-    "photo": "places/ChIJLWFJHmjhuEcR72TdjL99IKo/photos/AaVGc3nmu1YaHp2_1MvwiJQVytaio1yLgSovRIUelXOnZrS4ETelLrwx5sOdMbDNtGplspnKdmTbncy9pm9oRoOr3lGDQNyMXdcfdn9Z0TdMgxYfLOkkUQPAjjhx5NiHUTcc1c_xrXMj8dYP4-S0QEiszgk5k_pvfH4r7RRD4rpjMfZQdmtLIDsTvARWc-ooUg6IUdI0Jvtjy9WFD1yrnj_7tntliz3GQpWHA12GsBKXYWjoV7LcuK4wJHts2qv2RZyfhBgCYL20XqYhSW8XQhr2Q7kxy4bJIHeVTrIK9ii-CB3qar6mKuy7pSaBPyC6VgFep9l38nQdqnVW9ApFuCypO3d1m420zAoDe_ACHhLzMkB9c7z447MX-j23B5Ghpuw3avkp_zwrWrNiyaU6xDNX9QHtSxeGWOAEbEkn9WgLs4hOnnD2",
+    "photo": "places/ChIJLWFJHmjhuEcR72TdjL99IKo/photos/AaVGc3nnvWKtktLBfREnF_4gFz4OhlXcLc-JckQ35a-xOJV8CpsUkLIbQGlV4EORLgxwk87RYlrZeepykjtc3p53JtTUaCYwWSYb4PgI6Yb8DT91SkVepZYRU42RF99K_4uhg_S7vDcxtuewtWKsIbqjrki9RwLAOgMoiABlL5W-rGCKBDUURdQffQ45ep8_B56YSu92WfZAS5vWc3_PZC49uuspUcEt1dGuHX-OApQv3U3Kqc_SEKDreDIhBjVpiFlci-b87OibetQh_F-_LhPKYax-aLa3ifPBC8YxYygGdV6ENIziyZGjbbBxV897Sc-xt5XZolQ_KMFFPz2NPMzpbRI0m0GxUmhSNN2BRAmnlXq-E1x6zYbsqcADo0OOaSDzygycCdEIzToEVc1Xqmd7QoALRuF_ytkyZnaxUH_0aczVrzi2",
     "rating": 4.5,
     "reviews": 696,
-    "website": "https://bochum.chillers-bars.com/"
+    "website": "https://bochum.chillers-bars.com/",
+    "hours": null
   },
   "Knüppelknifte||Bochum": {
     "lat": 51.4913203,
     "lng": 7.238861699999999,
     "placeId": "ChIJKw5UXvHhuEcRykA0zzdAgQM",
-    "photo": "places/ChIJKw5UXvHhuEcRykA0zzdAgQM/photos/AaVGc3n4aFe0oeQZxo-jPd65RdwP2DZwU-8-YIq3N3sStOOQpn4NxjzBoGC-lKvd3Z15MjdS53Ety6fxz7s0ICD-CW1HwArpZFn7I954ia2sm04gY_uuxRkRJ_QCbGYb2GcDQwstrIuHGeiYNkcu39wBV0I6XL2D22C71-_Cr0ECt6PS5jU22cfAoOtk-WDTmSF2BmrZGc4rIy1rNjKKGC6HYC7RA81XAGL77j8XrJ3i_YLVol-gauDryEdkDakDPlI0WSzpxILUB9iHphJaiYqamXjDddajyTReCg8A817SjoP1WZyA5cKoWWcc-VoBKByfzl24pdvPt4U-5GXbl2tgiUou5yeIdwAf0RBYKUWym0cbUS9trrt6QplrBhd-xoax0Vccutsk86iKjUsE0RFe11ro4E9ryu21sWJkVU1bVUnWTa9U",
+    "photo": "places/ChIJKw5UXvHhuEcRykA0zzdAgQM/photos/AaVGc3ngFaXdDLHC42fwRK1kkO3SXV36B7FWqe9HhAdWy0bpMXM6-Tk6Y0j_QhT_vxcL-wmMiXx-2v-MgKNEyyLuvWabDTwDXQ0FZTizIWGtMMbC20kTI15tt8Bb5uivINSZHWfqMgX97M9kEy_os3rfxqRBKYSKUA7jCl5gpHToq7QTK-N4oOeaf2Km-lDA06NRbnOlKJwviMnXlD9bgHqtiUz5MqtGbK70Xg_eGh91rgBmMjMVLpaGLYcT1kU4r7-6Fuyl488YsRxJvWiUaByNeqHw7dpVWhEsx3SCwFwB-i83iZKMVQNsqjAuAXveoS7_whiS8G_NKCzDPGOu0WbnTK9CK8wETwAxFUvVMe5dytLm52IbPRiYQ-pP9kWgo7m-pN7fS93bywhL4CocKVE-nI_aFayCBg5hoZh8vHxJ-HPw231M",
     "rating": 4.2,
     "reviews": 333,
-    "website": "http://www.knüppelknifte-bochum.de/"
+    "website": "http://www.knüppelknifte-bochum.de/",
+    "hours": {
+      "w": [
+        "Montag: Geschlossen",
+        "Dienstag: Geschlossen",
+        "Mittwoch: Geschlossen",
+        "Donnerstag: 17:00–22:30 Uhr",
+        "Freitag: 17:00–23:00 Uhr",
+        "Samstag: 15:00–23:00 Uhr",
+        "Sonntag: 15:00–20:30 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 15,
+          "om": 0,
+          "cd": 0,
+          "ch": 20,
+          "cm": 30
+        },
+        {
+          "od": 4,
+          "oh": 17,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 30
+        },
+        {
+          "od": 5,
+          "oh": 17,
+          "om": 0,
+          "cd": 5,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 15,
+          "om": 0,
+          "cd": 6,
+          "ch": 23,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Kleene Tocke||Bochum": {
     "lat": 51.4726356,
     "lng": 7.2149955,
     "placeId": "ChIJU3qdqr_huEcRnnPskrKAgXE",
-    "photo": "places/ChIJU3qdqr_huEcRnnPskrKAgXE/photos/AaVGc3lt71JfebBOkrgMSiLJmN4KibuvkdJvTiQ_GCLS4OGA12mk-THCXEMbx8Dvx-gTDF9VcDzJnvgMVR9jlZOQuuqDt_85YUVU-Btjxs5dVpZuKl_2-hOvetFwFffH_GY5gGo28hg-LVqcpOu8adXAq0qPxkeVIzzSGg3cBOdSYEpFdCs5zzgGqBKtctu20Uqm482On4f50aAEw2lVWAzC7-slY3E4ycRm7LeBP3wBKFf0CbPrrH3tsaUYdpbO5mVB4Juh-rZUaFkeCNYxgX7CXHpq-wfzUlLu1D1OvgWNbYDVxRP8vPZA-2Csfo5ZMiPPkAlAe1HiIFrH97qz_qJtIL5VuXzdiCS3enTmU6pao6OmT7m5pgVvJkSRwiFvEdeQ8uEYRQl0Q1IUyEwnfO9GtV3aKc5-ptODW2fEPO0N1_R1ag",
+    "photo": "places/ChIJU3qdqr_huEcRnnPskrKAgXE/photos/AaVGc3mtHxSSyvzR6uL48v6mPpAtNtt-UO6Q6pFTSeyuk5Sr7nlFptLwzfXfDO0I6KgNJxxo25WQBnbfPLZz54d6nIZ3iTCKGJT7-owBnRbZppu49bMvz0TNeRXJcNHJmlo5iUkKfoEv5eaGe6D_WRjuKNAQf925qHz2atlN35epuMQmjcZX7Bj42mtKkxDqwtLA4oa7LxS3OsPr91ScyzJXrxG-rluJhuD-_3VLnR1x5NeR5go6tVqbSuWzE_5RpP9JZLl1owFaEztKEQ_Dxk9X6f-vHa9miF9g9lHTK6MHhKGF6wMW-DjjTupZhpJLm_j8-Clq7evBR_qwDjQ0oMq9NQWzRZ01XCpN2omu7so0W0nZ0Sl6dRvUALKI42hoS2wJXNtJvdGqg-IejJw3u99wJ5dSoxJl-7E2O90PkuOR-cBcFA",
     "rating": 4.6,
     "reviews": 190,
-    "website": "https://kleenetockereservierung.guestplan.io/"
+    "website": "https://kleenetockereservierung.guestplan.io/",
+    "hours": null
   },
   "Mufasa||Bochum": {
     "lat": 51.48736050000001,
     "lng": 7.2153247,
     "placeId": "ChIJjYF66xTguEcRkYkoZV1tJ1M",
-    "photo": "places/ChIJjYF66xTguEcRkYkoZV1tJ1M/photos/AaVGc3lSV2ASMTUWT5ZqA8EuJPsSVLkDRiMBcusGRflK2nulDzYjtczhvbfU7KAeuIoXGsWRbL3KIUEhOxZkYAdzHf6ufJBoZaUFEQjmRs5zIEjQyW1yObce0AGEmgj4oT5eNpoOwdiZo4PIYD6sB2vbNf6H9Q1aNW0ukXoOeQsBIiWo2hoHM8OqMUhJYmca-_2JyrZgiwLdWbVnoVLSFR2O5yGwpiJXhWcq60Jwp5ZKnMWu1lcVkS6nXbF9OJE9k57k-hMBcnJQKB23XB-EIbaP81VxcvwLHpGFmkk6aQcrqyXoaPtepHWNN5PxiXHKA9WScJaJK46cSLPmg_YKvwGhx-hY8wHQySxqvc38muao45nKcH2DrNwzufvm-CbVMW64Fwtif3CowXMSEwzm5VkNUBVQ4L92IkOtlnp_U0hjueBWZxfUNiYa-VZZ0OShrCzN",
+    "photo": "places/ChIJjYF66xTguEcRkYkoZV1tJ1M/photos/AaVGc3lRwyvmjMYmYm_T_3Fg_gpg3qnm-OBG3ptQG8tob3JLfNemOlqY6yAtNo5c0a3vWLlhLy8rh4HR7uow_Xp2Gb-VG7t1MrNR4v1YL1f3oCbjCR-mfkdP7-h5Iyi1TYslf7ryarhrEvchM4NdfMtjS03LhE8qVCat9baYTxTWYRB1nXvP6DwqP666xx-FpOLx-Y_TB3ta1OcA4_lRPkf7sKJWYh-_io8bVtHB4ULQaTj9-BblSGjsTa1VFBjGdJ955iwpheXnlHL3ArLnNzlE0fgeOCL8suNvFcVi4IKEWBkK677-eV7n7FPbmjNx929e9CJsRRGNhBgh_rLi75DlMEve-QdYXdsGPiNNIqG5hkYM5teJ2D6y-B6BqiGpuJ0qOT3oN5qGa3s4pGEfnA7Ugux3A4EmNAI0nre_Rr5NTskNMQRzE-NRHBKXTajL-KrH",
     "rating": 4.8,
     "reviews": 302,
-    "website": "http://www.mufasa-bochum.de/"
+    "website": "http://www.mufasa-bochum.de/",
+    "hours": {
+      "w": [
+        "Montag: 10:00–01:00 Uhr",
+        "Dienstag: 10:00–01:00 Uhr",
+        "Mittwoch: 10:00–01:00 Uhr",
+        "Donnerstag: 10:00–01:00 Uhr",
+        "Freitag: 10:00–03:00 Uhr",
+        "Samstag: 10:00–03:00 Uhr",
+        "Sonntag: 10:00–01:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 10,
+          "om": 0,
+          "cd": 1,
+          "ch": 1,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 10,
+          "om": 0,
+          "cd": 2,
+          "ch": 1,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 10,
+          "om": 0,
+          "cd": 3,
+          "ch": 1,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 10,
+          "om": 0,
+          "cd": 4,
+          "ch": 1,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 10,
+          "om": 0,
+          "cd": 5,
+          "ch": 1,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 10,
+          "om": 0,
+          "cd": 6,
+          "ch": 3,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 10,
+          "om": 0,
+          "cd": 0,
+          "ch": 3,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Nandy's||Bochum": {
     "lat": 51.4766153,
     "lng": 7.2162815,
     "placeId": "ChIJafNqNfPhuEcRnogA7Q6Uqyk",
-    "photo": "places/ChIJafNqNfPhuEcRnogA7Q6Uqyk/photos/AaVGc3nIutnDm0afgthiMk8qr4HYeKCc0GSZoRxOwhlVQtUNBVIlxm86kdetTPAzo3P0fiFAddk4n27taBIOvTpxbUMW7ClBVf4Ka-99Lls_HGsN5tFSP2WM5Fr3TqWTsePDMSQxqZVl4UpIpw6FFHSjUTtBB6ahTFiMUx3rKKT7MgIW0ANhZrX7MydOV5PFkXm1Kpo_xxOAljoQ4NjFRtz2-onkwpX6YSLXjH7cP-lZp9Wws7mB2dDZp4nAfrgt0t0zkNjm05iU_BI6acCoRSTK8gdGJKkJVl5dzKMzSMb5uXiSMnH23ZGDIkCMR04nqOaPt201yQDsgWLGMiLeuAj2CurKrmY1CsWHrftIVDvdSZ5-_ndWzvX_t6FjWgF5-88k2E5ksFZsZBdQOHeHTBu_4hE2ZwbZtx3aIblrONgZDTxNJH9FrNYQqbf9ryh3QX89",
+    "photo": "places/ChIJafNqNfPhuEcRnogA7Q6Uqyk/photos/AaVGc3nMGNqygmEXaBh-u3B0NNwOWcc8J-3BmiOjh-G9Fr3JT4hTQSWKH7VFWMJ_ClWgy5RqBm5zamqocUiVl4-WQKa3Mb8IrKH3ORqU3xRm7FAynCUEJrOdm70W8mkswmLyh7TglpOicBRZwHAHgeFfrIB06gsN-cvDjZUkYGOnd-ggUItYKceA1JXvrYfsKWlaEen3cxcDncaZhmf_AcwmlDzAqZPSuvRDxAEMmwcMHqpDUs0AnxrgDUf_B1FmQOrlvFjAWm_pWJHcmXRAoCKETs3Z4UK4y7kzUKx6i6UVIWpKKAaMAC43TCtXBhse6oYxEXQNymC3wh392VFCfYJbo29sXNog-MpHwT5vUcbuo0qiWorwmCwmBM4N0XorFVrZ8HO7NXUhqoylQEQziB6Si-mueCq9H1jDAZyeloA0i7OEyPXISkBJuQ8ztdrBUrQc",
     "rating": 4.4,
     "reviews": 235,
-    "website": "https://www.nandys-restaurant.de/"
+    "website": "https://www.nandys-restaurant.de/",
+    "hours": {
+      "w": [
+        "Montag: 17:00–22:00 Uhr",
+        "Dienstag: Geschlossen",
+        "Mittwoch: 17:00–22:00 Uhr",
+        "Donnerstag: 17:00–22:00 Uhr",
+        "Freitag: 17:00–22:30 Uhr",
+        "Samstag: 11:30–22:30 Uhr",
+        "Sonntag: 11:30–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 11,
+          "om": 30,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 17,
+          "om": 0,
+          "cd": 1,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 17,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 17,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 17,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 30
+        },
+        {
+          "od": 6,
+          "oh": 11,
+          "om": 30,
+          "cd": 6,
+          "ch": 22,
+          "cm": 30
+        }
+      ]
+    }
   },
   "Cups 'n Berry||Bochum": {
     "lat": 51.4784752,
     "lng": 7.2161553,
     "placeId": "ChIJwVpE1rPhuEcRaRHNqhR6JIg",
-    "photo": "places/ChIJwVpE1rPhuEcRaRHNqhR6JIg/photos/AaVGc3mXeZFzUtbkFao9U9paxB9BxpA3AgXyvxxARcnh29KaFrsLHSnX1HIK0RDyXSWQq3o0S8lTIzWa9OXA2X2pab_6l21LBelltaBw03P5ySywGpxgKH-GLIfI_tS_ZiKg2-EvHv4fIe9YN5e3UQuBXrgQWRuE5uoEod4JMna4pJJNo2DVwVTAMmQp6d8OMQC2srjjvDrx-ZR4IgZubDSJSn5biEcZDXy3voW5_hO9SpoPSc9nzUgOZgpj4r2jrC-n-3bgYJPrdy0TVcp8SQESzONt_BPKsZhEENZSgwwCJsa96WADML0XeauGLAKY8BOgB918V89BK2psAYq56Z0yLqm2wXH_aGPjQAyjhWRiGs-W_Z-tLQNeV3wz6w3BM-ruZfOfWXAzkfPJYj1DhekFqYP1OrjL_q85J1RFdvd3v2f-MMYL",
+    "photo": "places/ChIJwVpE1rPhuEcRaRHNqhR6JIg/photos/AaVGc3lHzwimhI89qemP7RgzChKFntLEV0Af0uW5Pyw9gtE-EycSprHmC0rtflz-ven6JTkhvvTpJiTJccF3A_7kI1ncv1IRNKQcmbFSeqehMpxkBAl40siJ6C86SsJU7DBo0V6xmDMUq339h2qfMSdFFqtuHVNiZhODkeAVXcb0vHQ2MPsJzyZeqXODKKQd00Xty9Oc4Z1yGniR99V2pyoj3nq4Hlt6cN3zHXUND00lwpppZY7hyP68cm7fFwwwnV-Iulq9Fz4tdOdPRbwGC2kB0lBBfhy4jukNZzAEMd5fwCYaGAyhHJ-J7AvKy0PdFbuUoVwu73nmGuAa9yeU49KMM1eSSU5Gg9k_Lcjjc28TjpIyDP9C4hlgwQRsOYUzHfmRlRZZ25WWshM-rQtfM-FTqvcKAkEL6PN5sdeeRzfbFbxWysyu",
     "rating": 4.5,
     "reviews": 160,
-    "website": "https://www.cupsnberry.com/"
+    "website": "https://www.cupsnberry.com/",
+    "hours": {
+      "w": [
+        "Montag: 11:00–21:00 Uhr",
+        "Dienstag: 11:00–21:00 Uhr",
+        "Mittwoch: 11:00–21:00 Uhr",
+        "Donnerstag: 11:00–21:00 Uhr",
+        "Freitag: 11:00–22:00 Uhr",
+        "Samstag: 11:00–22:00 Uhr",
+        "Sonntag: 11:00–21:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 11,
+          "om": 0,
+          "cd": 0,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 11,
+          "om": 0,
+          "cd": 1,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 11,
+          "om": 0,
+          "cd": 2,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 11,
+          "om": 0,
+          "cd": 3,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 11,
+          "om": 0,
+          "cd": 4,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 11,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 11,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Veeva Acai||Bochum": {
     "lat": 51.4788535,
     "lng": 7.2187263999999995,
     "placeId": "ChIJ9XJJygfhuEcRg7aTR0pO63c",
-    "photo": "places/ChIJ9XJJygfhuEcRg7aTR0pO63c/photos/AaVGc3layaKKTiciQ3-u2Ps2yCB8RrZs5MbC_Xm1DyErTq2OnggVSpu8GzS7AMeY3T8La29E1JF8PjsiwamB9Os5vV8t0FkZS05Pvh477SAYK70PX1h13udvBebhxrAbbrX43Vz11hYRN3ZYeWweGvYzO72nlpOv1n3_7BlvE5eXkRhUSKerKtdDDVjc38EmYquIy4QNLT1Mn28iWDfI3DWGe4OJD6m4FONiHFU0PoQCCAX6rPwPTfMjs3BgrxZfCBk3xEfJgjUF6ZSCsbJ1D6BEa4A_V3Pd5zfHR9iHjydQsSwzHQjOT-6WNFTYIAwVsuq3VSRjCBByUD4bL_h6UFaLWl6mwmJe2uA5EKM0J52oW4HGkDXvL1iKb1J_3cL0DxlStr9D-r3rtJf6Qm_sfz3maioC7KhpqrFoEdDEfNewIRj_wrRSaPbq2IctlLMLrn6P",
+    "photo": "places/ChIJ9XJJygfhuEcRg7aTR0pO63c/photos/AaVGc3kC-FskIeD5eODLYGEL_1PwTeFq80Gq5n5DYMqswudJ11enQJ0N4jcv3OnQsPJYu2Hq-__LoEcHBCg0fzm_8gBe8rzd8XLLo53e4Wu7cfZ9mXf5huL6iql-Xhe0HB2cm32P9umnmuVVcAnD-18gnI4LFtAxicFMroD9hxCWEQnOjQgwahCsGqVuR1hKV1Mr62CgcUgrZlN92C0FmGQ6Wx2R1ymFkoDoHzK4vL_b7p2e0CaHvGhOKRpuvU9-qKNG_DWnOLqSLj4g-eWrf9-BtjVjIqVIgUKBTdt813G9N4JzfMEy7uvD5ZFie6D3JmVx6RGCBqvapXJT3tE6dRXCB9fDbitsn2DqZrwYEoLWS-p7Z0oPp8-E2oDURQ2PQac5eG27WarFNn8utF2EktKAUR65AxHyA_jpCfr7McVKlT1tCzJIHKVAFW3lYOrdJ8OH",
     "rating": 4.9,
-    "reviews": 124,
-    "website": "https://veevaacai.de/"
+    "reviews": 127,
+    "website": "https://veevaacai.de/",
+    "hours": {
+      "w": [
+        "Montag: 11:00–22:00 Uhr",
+        "Dienstag: 11:00–22:00 Uhr",
+        "Mittwoch: 11:00–22:00 Uhr",
+        "Donnerstag: 11:00–22:00 Uhr",
+        "Freitag: 11:00–22:00 Uhr",
+        "Samstag: 11:00–22:00 Uhr",
+        "Sonntag: 11:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 11,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 11,
+          "om": 0,
+          "cd": 1,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 11,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 11,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 11,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 11,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 11,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Trattoria Puglia||Castrop-Rauxel": {
     "lat": 51.5505175,
     "lng": 7.310494799999999,
     "placeId": "ChIJLc1mmvcduUcRt4HaGUEMklg",
-    "photo": "places/ChIJLc1mmvcduUcRt4HaGUEMklg/photos/AaVGc3n-g65_ZZg_gRMMmHJ8FkfxcPouDPgPwu0DFj6U1OUONghsJks-yNjt7uhAauE6tMx06ej3Y0Tt_cjJtm1b34CN1_1-iimorUQBe9cQobamfJz6K7ib9xvHpdr84uzK94-2kofVbfpi4s3PIb2GshgD8W46DM_w6IxBWcta0CScK6fT3_Ixd48EFf50Frkrq07l2oiTgLtXqAtRvhwkizEHzu1CEP1OR-HlAW2CmYqNiUBUVZjh9rl-1-DXW3pBboI0nSFVeAI8ffFQFK0kRzFjm7_eWO8t87ks7lQ5rj5kJXWIpdiIi0DieOEzqVV_op-NkIGyeihqfSYeDnX88sUncoYvqMsa3qAYnl2rpy8OCNOW72cOe_VsV4IusglOK-WJKW3KgT7YTpm3Is74hcEerdj0WdJzmOG7joBaP9X1gA",
+    "photo": "places/ChIJLc1mmvcduUcRt4HaGUEMklg/photos/AaVGc3neO5JZ6tmd-mMxV8AohYCPP6CoPUp53bWFCGYVfxEneJEHQtdtxFLGkYAdkinDYgieIG9dyr7cGjBXO6EAYOZ6HNOdK9aRe-8Nq65ILZXARdvPKjmx9BZyXxkW_s-xFhqT1rW7T3c_q7mXBrYyr5nG_-YPb9er5dS8gaEpNi2f5elhaZbFskgk3JizmDmg1nCIEfdQAawSFTpXxvNpjfKKb3IhSoOFz8pAcbm-9H70TpemQ4YXqeCZ-MtH-5j4eT5PCtKGSxjjZQzrU9UnrgwaS6FVJlvvd-z1hkLYCS8VOYxJCo6HdS5g1axT8PcrtaryTX4aKwy6UxMBbIa5kWBikrPx4N_XphYT0bKScpOEtBVIBp8VTKniyUvuWjK-mQVrySpY_eL4xr66y8Dqm9jGf-w7R3NEjtc4AFELwf6gYw",
     "rating": 4.8,
-    "reviews": 781,
-    "website": "https://www.trattoria-puglia.de/"
+    "reviews": 783,
+    "website": "https://www.trattoria-puglia.de/",
+    "hours": {
+      "w": [
+        "Montag: Geschlossen",
+        "Dienstag: 17:00–22:00 Uhr",
+        "Mittwoch: 17:00–22:00 Uhr",
+        "Donnerstag: 17:00–22:00 Uhr",
+        "Freitag: 17:00–22:00 Uhr",
+        "Samstag: 17:00–22:00 Uhr",
+        "Sonntag: 12:00–21:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 12,
+          "om": 0,
+          "cd": 0,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 17,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 17,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 17,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 17,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 17,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Ristorante Fratelli||Bottrop": {
     "lat": 51.6039622,
     "lng": 6.9222721,
     "placeId": "ChIJAbx235HtuEcR-IZiaEx77CA",
-    "photo": "places/ChIJAbx235HtuEcR-IZiaEx77CA/photos/AaVGc3lydXSjVcPvmuVOAk2dnannmHyxtjaYD_zMOvrUAd0Rmst06-xhZQOpCob-AmQfNUHKG6snNQfDbjwcPwLIaOC9eVxJppQlrOenARkW-lYy2H94tDqnaXLXeBDchcP2eSbQK7mRcKL41mWgBV5-dX8K5HshSFWKkimI8A1dAI_fu54AqrFpXynLsU8YFBWWL-s2wKXeRZU0-idNvb1TT8Y8zBRDu0aIx1yDJrgRgQT8ZMhgLzCiRUcZ5RgxdxKmE3e3a4aJf_AJthJ3_MTroZalwvF9Hpp0DBPfCrbuZhDK1DAFJU9hxKpC_jZ8ZKCoixz7gsbs4gjm1zmgWmC7zIv1UUJsiUq4vPCkvxMglaJBI5bYumoE8jnlFfsrf5L1S7Dt_Gb36zmFOMSKK__7p2aKWbrjq-xZu525IWoz90g0mw",
+    "photo": "places/ChIJAbx235HtuEcR-IZiaEx77CA/photos/AaVGc3nd9cFLVlWF26OAJChYQmx_d1K8PMGBvbZJR0-X7D-42iuQr1etLGlPNfT-aT0TQU5wYBdtjBqMrR9hYrOt6AZI-O5O5YHoIpfEY9xPGgA7iDEZbhkYRQWm6mlYDqGjoargqF-uwXihDRlCGcipUKpOFt_mRuVvxkh4KzPHsFOMESRuc4BVhfUQWx5MIokEZ6zx6nG4YvrjaziUamC2a1zZaSxK0C3iqiCtdfgsUKSC7Nn320tPvZnI9EF4xa2q-RhJy3aO-piuZa0iZBTTVJT6QAxIEdoN2zAS3aflED-LWzo9xTvA9ZTVgsjHyQfmSiOC6WC2et67Rcs0e1nQrUtMp8Pm4FPP-8uauZ9xn_Z6zfjbd7877jRrGj5x4JAETUOgUq6ymC-N0AbNeUvBb5X8AubIx2QsV79CRKGEc6CA4g",
     "rating": 4.8,
-    "reviews": 996,
-    "website": "http://fratelli-bottrop.de/"
+    "reviews": 997,
+    "website": "http://fratelli-bottrop.de/",
+    "hours": {
+      "w": [
+        "Montag: Geschlossen",
+        "Dienstag: 12:00–15:00 Uhr, 17:00–22:00 Uhr",
+        "Mittwoch: 12:00–15:00 Uhr, 17:00–22:00 Uhr",
+        "Donnerstag: 12:00–15:00 Uhr, 17:00–22:00 Uhr",
+        "Freitag: 12:00–15:00 Uhr, 17:00–22:00 Uhr",
+        "Samstag: 12:00–15:00 Uhr, 17:00–22:00 Uhr",
+        "Sonntag: 12:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 12,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 12,
+          "om": 0,
+          "cd": 2,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 17,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 12,
+          "om": 0,
+          "cd": 3,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 17,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 12,
+          "om": 0,
+          "cd": 4,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 17,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 12,
+          "om": 0,
+          "cd": 5,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 17,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 12,
+          "om": 0,
+          "cd": 6,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 17,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 0
+        }
+      ]
+    }
   },
   "AMI Restaurant||Dortmund": {
     "lat": 51.5136317,
     "lng": 7.4785355000000004,
     "placeId": "ChIJcYePasYXuUcREwt3Z3arIvQ",
-    "photo": "places/ChIJcYePasYXuUcREwt3Z3arIvQ/photos/AaVGc3mvp4XM8M4OU6H85WQ_qtmpNx4ti88QMC0i2-t8CXaCuVmY7oPlrp4qQtk3otypKrofDL9K5LgZNKnmERgxMNY4cIjHwRBHqcK0uW0dJ85MFxQzr5pMZlrZ1cC-TOvZFF3awAuWZeE1johcnIGfMf0ayAjbC68w7bF6i1ZQBHyG2iOCjG7RRUqC4JhYDbAojAj758WfNJhVR7bJvJe5P_0dDqQehzfuJCtmCWoEmlJTzDa0-NBKbJOYBYEaXrM0C9ejOfFgiyc4Tg2R1TQVbkZU9GQqiEvBq9jlvoNqGpfZJRGBj8JZwziftq2vjJl4jGxtRP-3cFrmFsFaMwHOhYWlBj17T1_W7iHSfOj0VlAu8LZ0r5UtpTxMpSqM-R4dt5Jty77D8JtFifp_U5mSwValuuo8IbgOjXK-eCE7meNHRNDZ_m5aWMPPE0rxQQ",
+    "photo": "places/ChIJcYePasYXuUcREwt3Z3arIvQ/photos/AaVGc3kOXIs-hRQvUnj9S18-4sqNJO5LumjNrGIc1DVFmkSsdI26dy1ICNMqNRFfYQVoSXzn-6KiKDl5fMA_YOJqQDO3PrBmi7aSXx7391IFWY7U9mxh9tvUekzjM4tFsqgt3AzWLEuqikc4avshtTC-IDli2mVo4huHT01-pAQxmYWH8yPfEdmyIUHSox9yiqVF82hV_xvmy5Ro3rwSz322uAgKMpqq1YR4rF4NFmgZowEkgAZk_-M8Ki1jXqwwAneixIqX-KzYDyjHhNBAix9veO1xhxPRB9_xcyFgdGokSXQDWHL64vmUnPH9lRjn9fE8lnNK3x90eJsGvRw1nU_qTAee9EWKnIR5QeyFzHkkLSBaYCiUNmqXMbc8shOLDRKWK4Ag3cxGE-cLxX1FIeUQwefiZvh38Gt1waD1J3mF8eCduQ_5h1bHmz527qA0Zw",
     "rating": 4.7,
-    "reviews": 926,
-    "website": "http://amirestaurant-dortmund.de/"
+    "reviews": 936,
+    "website": "http://amirestaurant-dortmund.de/",
+    "hours": {
+      "w": [
+        "Montag: Geschlossen",
+        "Dienstag: 11:30–22:00 Uhr",
+        "Mittwoch: 11:30–22:00 Uhr",
+        "Donnerstag: 11:30–22:00 Uhr",
+        "Freitag: 11:30–22:30 Uhr",
+        "Samstag: 13:00–22:30 Uhr",
+        "Sonntag: 14:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 14,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 11,
+          "om": 30,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 11,
+          "om": 30,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 11,
+          "om": 30,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 11,
+          "om": 30,
+          "cd": 5,
+          "ch": 22,
+          "cm": 30
+        },
+        {
+          "od": 6,
+          "oh": 13,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 30
+        }
+      ]
+    }
   },
   "Café Lemberg||Dortmund": {
     "lat": 51.458781699999996,
     "lng": 7.4769912000000005,
     "placeId": "ChIJud_I1xkXuUcRh_EoalJWS_k",
-    "photo": "places/ChIJud_I1xkXuUcRh_EoalJWS_k/photos/AaVGc3mOHDSo4lR9hatWCMZgpXWoLw4_ivL2nUIa08sABTAS7rjZPl0LQQCLpFvhdXG0mEdMv3L9G-xgzj6FvMaHx1cWCoSkISxWV3GYeDrE7X5O_gN00z19dZpE0PEFwvRXjK1SSElJ01olzZsEOlSKhzkvuI_fWnPiVkHWL4ZhJv1VWBn2hmZf5Nm1YeQexy67FQdty25Og0dBXDab-_tbU3xIE-361HpXrNay1mMwLRgjQrnsCNJcaiyz0yI8uTvfSLJ-fz2YgAnmjFsaymtL2__qAM-HhhiH7yRUAxZLtnpzTvSfH7e3wU9A0oVTr_86CLVzPt4oD_kDoM-12odf7ew5O-6iE_jf2217Ml5hlELKvFuVTV1LmnPlU4HKjoT0pVLjU7LhtLmbCENKhnpKqnYmyM_2Fga_fNlzKfGSbOk1d_oo",
+    "photo": "places/ChIJud_I1xkXuUcRh_EoalJWS_k/photos/AaVGc3niyrdw3oRYtudodufrCp6ikNWvfPBcEiHHvA_X2XO_NCddIX84GfbG8Zc4ckY--HeU7XOjWloSw1GHlQeFXZ9qb9nmcpvGm2nUiND6D2YoE_N3SiYOBi_IWnCjkD64qotyjJ2mHkFsKTaAAlBKpQ4Mgh5W71ulhMVNs-Ii-oeZlaWrllhXePmH_-cXpuEZ-OpaWaugGT9q6L8AS9c486CaO7YITQmGeN7mWy41sJosbbdN-PujOe6oQqWQIiaa3SFa_ly9_eld6XcdBfoKpstP-qRy3LQa3pRTgRBsrcIebftDbbnI3VjTpZ4pWbT-CBaDzpXTMs_l-fNV0nCJwGpZzq9OFg35jrQPR8N12eWHkDCKK-bpNhKjsdPa6ffwAFZPAoJmGuoZA0YFXFBATpfL-v6yjo0Ec9oX_3QPU7Bibb8L",
     "rating": 4.7,
     "reviews": 261,
-    "website": "https://instagram.com/cafelemberg?igshid=YmMyMTA2M2Y="
+    "website": "https://instagram.com/cafelemberg?igshid=YmMyMTA2M2Y=",
+    "hours": {
+      "w": [
+        "Montag: Geschlossen",
+        "Dienstag: 10:00–18:00 Uhr",
+        "Mittwoch: 10:00–18:00 Uhr",
+        "Donnerstag: 10:00–18:00 Uhr",
+        "Freitag: 10:00–18:00 Uhr",
+        "Samstag: 10:00–17:00 Uhr",
+        "Sonntag: Geschlossen"
+      ],
+      "p": [
+        {
+          "od": 2,
+          "oh": 10,
+          "om": 0,
+          "cd": 2,
+          "ch": 18,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 10,
+          "om": 0,
+          "cd": 3,
+          "ch": 18,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 10,
+          "om": 0,
+          "cd": 4,
+          "ch": 18,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 10,
+          "om": 0,
+          "cd": 5,
+          "ch": 18,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 10,
+          "om": 0,
+          "cd": 6,
+          "ch": 17,
+          "cm": 0
+        }
+      ]
+    }
   },
   "MemorieZ||Dortmund": {
     "lat": 51.493938199999995,
     "lng": 7.380252,
     "placeId": "ChIJl3ggBiAZuUcRAWTUTbiS_zE",
-    "photo": "places/ChIJl3ggBiAZuUcRAWTUTbiS_zE/photos/AaVGc3nItvUbZwD8qqfvWi-O9lPLVUchgDoaGHPU7vlynYa0fDTwzuR6b6G83U6nhOT9etJdnXhGlGnaKpnz3ypA29l08dHscMXEAYTIq-z0xOffLojIAWKbI1bwrxocTeS6T0j-PkNXC9iIiUZV9c3hYSvq34BhSxWmiweTBXbBYISxPBcevvBbc3BBHbUapwx43_sn0WOLxIuBP8x_zA59RfH0TZcRCibbWJx2l8oZ7jVXKIVj10v2VABhs58RSr1rDRR8zs089WMJP4a7OBOdbVxm1m8bq36iO4uRFsToaTUAjyaBmFGR0vs7aLJAy0wC4Ztj9sY9GY75Yaaw0I4VXcnxvQToGsn_cu842BlS51-NbtrVAd0jryOqRRUDNPRFOiZnYZa7CFrvP1AryPKOvZECndc5SV50jqEQwWZBZYk-7g",
+    "photo": "places/ChIJl3ggBiAZuUcRAWTUTbiS_zE/photos/AaVGc3lHxQDgpwGhoQykNqBbkEbNaH_XfETOi9a_hbp32OKCXXC-OeP211MQLnU0qwq82WlyTZA5yPO2l0gGAKLFQaLaF_q4rKWXpJ1iehOlHkP4SxeIlzfBNbtM6g_Ty8e0AQs1uhrNEdkzrrTJCpFCa-k4DvOnDX9QxROr3Fy3Vd7u3wHv6RXY3VU-ohrHVuJhATvvnFPgSeNtqlkNW6DH7ttQIPhfv2Lx76ttpuAS1hakI1namhf0I3WNst0xr2307RfLjg9rWtWT9A6vXO7-JV94z73DvlCyI1KY5gv72lvHC2dNB7rGyUh3vx_hur5DKU63BBCABQlT5oD3KDiON6BmCBoByE5WaWzS9238_UuEFbFeyiG-Lo4cJLaMpBU6ONWHkAF7pSaYvsEUOiOPXGejP9LyhD__KVPr5dSALk-TMw",
     "rating": 4.4,
-    "reviews": 6039,
-    "website": "https://memorie-z.de/"
+    "reviews": 6047,
+    "website": "https://memorie-z.de/",
+    "hours": {
+      "w": [
+        "Montag: 17:00–22:00 Uhr",
+        "Dienstag: 17:00–22:00 Uhr",
+        "Mittwoch: 17:00–22:00 Uhr",
+        "Donnerstag: 17:00–22:00 Uhr",
+        "Freitag: 12:00–15:00 Uhr, 16:30–22:30 Uhr",
+        "Samstag: 12:00–15:00 Uhr, 16:30–22:30 Uhr",
+        "Sonntag: 12:00–15:00 Uhr, 16:30–22:30 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 12,
+          "om": 0,
+          "cd": 0,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 0,
+          "oh": 16,
+          "om": 30,
+          "cd": 0,
+          "ch": 22,
+          "cm": 30
+        },
+        {
+          "od": 1,
+          "oh": 17,
+          "om": 0,
+          "cd": 1,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 17,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 17,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 17,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 12,
+          "om": 0,
+          "cd": 5,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 16,
+          "om": 30,
+          "cd": 5,
+          "ch": 22,
+          "cm": 30
+        },
+        {
+          "od": 6,
+          "oh": 12,
+          "om": 0,
+          "cd": 6,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 16,
+          "om": 30,
+          "cd": 6,
+          "ch": 22,
+          "cm": 30
+        }
+      ]
+    }
   },
   "BASE.KITCHEN||Dortmund": {
     "lat": 51.5034202,
     "lng": 7.452022899999999,
     "placeId": "ChIJdZRffPwZuUcR6ikwv-xPXMM",
-    "photo": "places/ChIJdZRffPwZuUcR6ikwv-xPXMM/photos/AaVGc3m0nVyywzj8pXnRGw1_LsA3k1cVgIULeBWO50TcR4XqKeEoQJ6IXxT1q7umrOMRjErfQUohOS4IKNOTSvAg80-w6iK084tFIBoNgwOl2FSHB6ybNSso4C0lNOQpBZmTRDP8w3BpTrjKJwqe0taDm588nXY3h1pwR7jtZlqryIH37EyBV-SDhp6EDIeVMNbitUV2zJdLp0tE0b4mAciADwICrAFbA3O4H62ssNWwN5RfNdQv8vvfKk38CtjTpaB-v6VWX7I1qLyrtRLFwyH9CAuizYuJSvMHgSi7BW3Sum5Ah9V6WDbjYKp8W8d_s1R_ZKX9tVbJgJSMjSF9onHCoJeIGkps2MfweAKr7-tyNnX-nLGQRxa_I2X_SPhZ35XzGmBk99_Lwrpip947mjZbPy7HIGrCnOyZ2tRDfCEwp9ZLNQ",
+    "photo": "places/ChIJdZRffPwZuUcR6ikwv-xPXMM/photos/AaVGc3k6WNeSIGBo-FS0aDoUGPO6wnl8uwfyUuwATkoDqEhm5sQ9_UHMTZRpK6uTy6K6P2GChEZ3d9BbccGnFx0qitjCJghnFj2pFNaQHfK4kQf5maLVvgAh0py33ythJpy419qdUlaIyChF-79agbqpP4jd5V3A9JjO2_1hWcmHGbOXV-soEOm2uGeAjBFKUs-uqRbz3uffaWN7A2kLTSO6X7B6OQstl-VGgOQVHu-oMPXOfdw49PfQpE15g5HNAIKYlf82eDRDQv6YId00k9vLJWVt__gD5i5CaSK1uZimWvwzL742c8GG8tSacS7sPPFd1c1Jx2mh32tAyRVBgoXoD8xKPwQ3_1MWPIgL0gn7fx_OmlCJyOyrpBH-JmArNqwkmNBO4EMGselP0S_h1hHe_kHE3-2FdWoqQ1Tse67tFes64g",
     "rating": 4.6,
-    "reviews": 1094,
-    "website": "http://www.base.kitchen/"
+    "reviews": 1097,
+    "website": "http://www.base.kitchen/",
+    "hours": {
+      "w": [
+        "Montag: 17:00–22:00 Uhr",
+        "Dienstag: Geschlossen",
+        "Mittwoch: Geschlossen",
+        "Donnerstag: 17:00–22:00 Uhr",
+        "Freitag: 17:00–22:00 Uhr",
+        "Samstag: 17:00–22:00 Uhr",
+        "Sonntag: 17:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 17,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 17,
+          "om": 0,
+          "cd": 1,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 17,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 17,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 17,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Ong Bui Asia Fusion||Dortmund": {
     "lat": 51.51631,
     "lng": 7.4683619,
     "placeId": "ChIJzYRQ_gMXuUcRUzICUdIKMNo",
-    "photo": "places/ChIJzYRQ_gMXuUcRUzICUdIKMNo/photos/AaVGc3m5PBy5W3sNKzAcWUXG0A1f1NLJF6LfMHbz74KrOqesYlnT9dR-oh-8dre7pHtmUE9DdHE9DPlOwnlxSKPCvNFnm8ze2PHtVlxDURb_duhmbJJA8_SxzXkoUqCFTYi6hp8aMlaW3lRTiSIiMVj8bl6UwQOKZXEEA5CRcGxfIDBhafadq9h4rySLdba_4d34cv_UKZciOYeDwubZEPGf0FODnctARAyeDayXffwj45wBedFH-bcbjmpTSTziwLY8XDrPjbIVqGzaEVsJksf0TOScyhXrk6cz_iMIcn9i6ZYJnEJTgiSh3KUQ1wIgRS8PXJqIbA37zkLhpdkcp40EupNeV8Ks-eRn4fFqwqsXMHJOl4fSqBEBm7g4fz1o3ftxP0ppg-fC9udGyLg0U7N6Gl94KVZQgkSi4h5CzD8I06MyTuObv7VBxuJmXqZqp-HD",
+    "photo": "places/ChIJzYRQ_gMXuUcRUzICUdIKMNo/photos/AaVGc3lp6_UyRKgNXK2hp0oIuAmftIsjLnrr0s8OumZC1l9feVOtb2Efj-PJV04tfvW4W54VYeZ1fhlis0lk7YGqTz-jeTQz4twfwamr_zC15BVB-6SxjUGAHRWjqROfQwrKeJi0BJxzZz4ZTKLnmENx8CvhfV5AdbWvEfJh7_tQAlNC4pBv_69s3dCNkQb3_cNZ4LdrIcS-SVy0Nk0xMh7dhCe4f0wD-R9WVVh_vHmc3ec9NyKh1Sb_YusVZiTNRDnUHsXyY3Bf3PTQcX2tWFdRI8k1ad2aDh0mzTNg7_yNuvk_cSngut3a5XYfkj2S-GIvN4SmJRF9Ww3qcFC7r8fN-sybfDDszSZLE2brMFibBeeEfMi9VxbjbYvxFZfI-cz5ISOearLSUJmWTMON5BI21AnvUQeVlH_g9Vk7XDHgXIsm7LuGvljTrqRUK9Bb5QTv",
     "rating": 4.8,
-    "reviews": 1127,
-    "website": "https://ongbui.com/"
+    "reviews": 1129,
+    "website": "https://ongbui.com/",
+    "hours": {
+      "w": [
+        "Montag: 12:00–22:00 Uhr",
+        "Dienstag: 12:00–22:00 Uhr",
+        "Mittwoch: 12:00–22:00 Uhr",
+        "Donnerstag: 12:00–22:00 Uhr",
+        "Freitag: 12:00–22:30 Uhr",
+        "Samstag: 12:00–22:30 Uhr",
+        "Sonntag: 12:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 12,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 12,
+          "om": 0,
+          "cd": 1,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 12,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 12,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 12,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 12,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 30
+        },
+        {
+          "od": 6,
+          "oh": 12,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 30
+        }
+      ]
+    }
   },
   "Pasta Lounge||Dortmund": {
     "lat": 51.513251600000004,
     "lng": 7.4829486,
     "placeId": "ChIJV2rj7_0zcEERXcBEWDE_vq4",
-    "photo": "places/ChIJV2rj7_0zcEERXcBEWDE_vq4/photos/AaVGc3nB85S5rpoSN9movBMUvAFgdsuu0oZf-Vd2GOkhixJa3sFAQY_3SaFwqtsQCyROvlY_F97Zg3Z2d2W83o_JmDhZ51TRVp9Ypu5pLS6sXFss9StBHW_V5vLUcqO4FMWw4kvbnJ7lbgWwENWB2tGq12tn0nYKVH3oWwGyMzoYKCkPxt0K6hoMGaODO0iGQkCkGh0Xq164CGWpPEWlMOvELHT75YdFrhlyEzURoDILVpKHdqG0LL7wKG9wRTZwJVIvsrWzjxx7pBRTwsI8VnMFw5KxORTJOAmwStq8g2D6r90UxSlUUKeuGvYyG9oaiEcUzeqAo-YaQ1mHopoXfDEe2xPTcHgZT_nnV5_nyK8DwnD1RtlVKWFx6giNwFlC0D8uy2tsXDGTf4l70o6mx1--HGLl8RVnJUE796aqGnSYw94",
+    "photo": "places/ChIJV2rj7_0zcEERXcBEWDE_vq4/photos/AaVGc3kfPtDhhuK5ROOswbULtTqcxMdn3u8Knn3FKs_qDa6671Qa5uowMECwUyAqlesF1ri7VHznRNEWeoSdHcj46ryAM_7MMCsjaQuISdZzXIuu6dlshK-NhL3TkH-mCW-jONuRFc5Z-VtM-Zifl5Xg5TGgeSnWeKo30QYyoHPeVauHT_x-1i26O0QbPbUrS46yI-lMTr6wT5xWitSzLwUSYI27Mb4nvYoJVzAfSMZ0aB8KIF2KACpFf01C5muaQ8h4lQz-HikOIxxhqj34Ta5nIY0zFyYY_HRGN0_EQWlmxM_ZNGhwLkoXIRLhHXImKO1iT7VM1WoUTqJcLR89Ax5YhgVuemj1Vc7K5ARUr-7-lGs3Za7eqd91rTHBgHy1zT2XsrtOnR09MokSguvukFkge2ySCBFlWopAc266H5VnFzU",
     "rating": 4.4,
     "reviews": 707,
-    "website": "https://pastalounge-do.de/"
+    "website": "https://pastalounge-do.de/",
+    "hours": {
+      "w": [
+        "Montag: 12:00–22:00 Uhr",
+        "Dienstag: 12:00–22:00 Uhr",
+        "Mittwoch: 12:00–22:00 Uhr",
+        "Donnerstag: 12:00–22:00 Uhr",
+        "Freitag: 12:00–22:00 Uhr",
+        "Samstag: 12:00–22:30 Uhr",
+        "Sonntag: 12:00–22:30 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 12,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 30
+        },
+        {
+          "od": 1,
+          "oh": 12,
+          "om": 0,
+          "cd": 1,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 12,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 12,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 12,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 12,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 12,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 30
+        }
+      ]
+    }
   },
   "Medusa||Dortmund": {
-    "lat": 51.5136665,
-    "lng": 7.4562024,
-    "placeId": "ChIJE0idXuYZuUcRE_sSgxdPlp4",
-    "photo": null,
-    "rating": 5,
-    "reviews": 1,
-    "website": "https://medusa.eatbu.com/?lang=de"
+    "lat": 51.5241939,
+    "lng": 7.5463382,
+    "placeId": "ChIJpU1ZQsMXuUcR9MRXrSbVESQ",
+    "photo": "places/ChIJpU1ZQsMXuUcR9MRXrSbVESQ/photos/AaVGc3nBh0hYMvx9BSNPtwI4hnHg-wLb8ApR5HaQTCtaqwJHMqyZcLSsssQxtTrFsUnD0l-W9P7JRMhwKz466GIRHAP9RD1oM97bcZrA7Qjgykdh1R5GzmIk0uTm5LsEpJVbRVRE2Ag54rAl-cFJURr1mujSQnxkfYMkBE0PVdHgYor3lVyS1_57W6KZwbkv_oMs4pOGrhc42Gf3QH7027IZvd3R8v-HKuPK7vf9VkNf0ThmHDepTCSXIkTbQSkI59yFYEZanC5xDUlwZNF-DoTanB5Y6R29ed2L9xJyey3UK9PQi-AAEOcYQoNWL-D-D8WK_c7k6Ec8xIkPzGQ8CbxOcsAjYKx-18He_kjswCmAqaThReoJMB6EyRwuATj6ydVnYPGYsh9nuUI-7NCc3AtUKmYO_hyWokHGTs1FvhU42R1zZQ",
+    "rating": 4.8,
+    "reviews": 338,
+    "website": "https://medusa-tattoo-dortmund.de/",
+    "hours": {
+      "w": [
+        "Montag: Geschlossen",
+        "Dienstag: 11:00–16:00 Uhr",
+        "Mittwoch: 11:00–16:00 Uhr",
+        "Donnerstag: 11:00–16:00 Uhr",
+        "Freitag: 11:00–16:00 Uhr",
+        "Samstag: 10:00–14:00 Uhr",
+        "Sonntag: Geschlossen"
+      ],
+      "p": [
+        {
+          "od": 2,
+          "oh": 11,
+          "om": 0,
+          "cd": 2,
+          "ch": 16,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 11,
+          "om": 0,
+          "cd": 3,
+          "ch": 16,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 11,
+          "om": 0,
+          "cd": 4,
+          "ch": 16,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 11,
+          "om": 0,
+          "cd": 5,
+          "ch": 16,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 10,
+          "om": 0,
+          "cd": 6,
+          "ch": 14,
+          "cm": 0
+        }
+      ]
+    }
   },
   "MA'LOA Poké Bowl||Dortmund": {
     "lat": 51.513154,
     "lng": 7.4684531000000005,
     "placeId": "ChIJ12hbIKEXuUcREnm903g7wh0",
-    "photo": "places/ChIJ12hbIKEXuUcREnm903g7wh0/photos/AaVGc3mqUpt1K8yYrqx6YPjqGjuLHDgeXJPsHhzReWMjm1XWP9UgU-qmTF8ScJSB4DBZUblPHUnfcaN9u6r7FkIJx7QkZK341MuyLiU9CADffTOIxlrGieVMIxH1NoWbhm8U8LJuh7hod1Ptx_QTTZBtt5RSIZB9tMEKgECJjNF2e-Y1xziuL3BqWxowqCg-vmMdu4xl8AJHJEnmKUyifhRWt80UQsWjxvjtik9qPXvgxMqpEPoi1Tw-fsMDtCmXsxIIx9D47Iv7fkZuxnH3DliipVcG95JpIFBT37MdI2_ul_Bqvx3F1TMsVOsuBxq0bxAvscUiC7RhS4ttW7h3jXk38M_XHmcA8KdB9Inc-yaMPTK22m2oXaqSjQPCJ0mSOa_sMtysUiQXzhfZLYQo-IP7A3RABccKiNNASETxj8jWWONRz2e0",
+    "photo": "places/ChIJ12hbIKEXuUcREnm903g7wh0/photos/AaVGc3mT-TWbYjxM4rGpgPU22uOA9c9HLXG-cMDH0oILRgOE06aT8MzCt1rKgDNMnf8mwXZHvoVx7Cg2IpR89Wzu59TeY-uPg5I9FaPCoLPgwfB5jDAe56WGD3Y-mvJDZjGtxKgT_jjUc6EyzNxaqi0x4Im0-zo7fHpFR44vjXxQ3gbAbDHOKgIkNY8aUcCkj_3MLYHnwZJ09T9Y8Ewu35EyWuihg53075UeLlm6VGdYiUgIb-nhe46AqJRUYqZZiawfElj6U9d60ZFtfsPBndAG4sNwSzABt0oMGH9jAqK-tpdLNt6x66Hzvam-tXnij6tclzXFpt9UeuiGD7Gt9_0h85Vd5rg_wggpTfub4EPiSghfxwFJavRo8eb2qyJ7-CF_kbzG033Ng_eq-BWe8-xsjfA4P8VuB-RpzrvB3qmvaxTJSt0t",
     "rating": 4.8,
     "reviews": 366,
-    "website": "http://www.maloa.com/"
+    "website": "http://www.maloa.com/",
+    "hours": {
+      "w": [
+        "Montag: 11:00–21:00 Uhr",
+        "Dienstag: 11:00–21:00 Uhr",
+        "Mittwoch: 11:00–21:00 Uhr",
+        "Donnerstag: 11:00–21:00 Uhr",
+        "Freitag: 11:00–21:00 Uhr",
+        "Samstag: 11:00–21:00 Uhr",
+        "Sonntag: 12:00–21:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 12,
+          "om": 0,
+          "cd": 0,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 11,
+          "om": 0,
+          "cd": 1,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 11,
+          "om": 0,
+          "cd": 2,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 11,
+          "om": 0,
+          "cd": 3,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 11,
+          "om": 0,
+          "cd": 4,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 11,
+          "om": 0,
+          "cd": 5,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 11,
+          "om": 0,
+          "cd": 6,
+          "ch": 21,
+          "cm": 0
+        }
+      ]
+    }
   },
   "bona'me||Dortmund": {
     "lat": 51.5116823,
     "lng": 7.468625200000001,
     "placeId": "ChIJMbjEoj8XuUcR_jR4UA2ZoJc",
-    "photo": "places/ChIJMbjEoj8XuUcR_jR4UA2ZoJc/photos/AaVGc3mouTZvr-MpSvdtM4jdNprWNtDLU6CevQ0gWU98JTEbMxxOznwkCtZ7c1w4bdIXQ0u4Wl4hxGexg6x_JMmqnY8C6dKIfxovhUOPWgevr7vokObH967ePtietc259PhSb_obaDasAribblouxZ-89DDhJfcAsXOuBgsML2vAtVnDc5qcEiCpRnBI_BmZbLFh4lTv8qXkdx4vSgDQSxddykBQWC15P_0pBu3bBy51ohGc-0LUceCGe6qSDPVtMlus0LL0cWXwxKJlGkOnOkbSNl9-fUBj7BFoXhZr4FIGrm3tz7AEuxIZfh1X4QmGXxgbXJjVdM1a3RDhg-TbvMM1OhBj2VNkvB1dZ13GRkH0crfvKBKaeqra_wbzQVBrrpOL9tZhyZbMzSyLrL9xfzz6BT9HTgI22Zymc7dgtYN1SGAF8A",
+    "photo": "places/ChIJMbjEoj8XuUcR_jR4UA2ZoJc/photos/AaVGc3l35At-hRz4pai02Ria9gB_p_cMr5omGYQ5M9dvJ_7cMzAOJogFriik6AC4OETa5cLd3m-F7iVKBgXaand7vMUsQQVY-6P2m_uVhMc4BRy4A1eLs8A4IvfKQmMH01Q4fM2_WKCiIS3HKRyTQPdw1n89qQvtTF5GicqVx15QL-kzVZ3cgi-YqNjWXZTwIBGnGQVRUXxCvCNW0yJZrDorElbgpc4oUtaqrDS6Ydej7G7j0ypWvnH1laHsRQaLQHMC2YiBUmoz_Lh6VXwXJA4Wuz_XF8IcEO2Coru8QWv6-qE6lbdr14_2UumWpLJlOQVl6c-KH5Z7Ze9E8a9yxC46y7d14bZhvvr26muaLnXZa_dFLEmrOC5QHZJ9mZmBHySbAH8QbS8tgZfSKzhL8TcbhL2eSmHzMJL3QkLe1FrkL8kAJQ",
     "rating": 4,
     "reviews": 1137,
-    "website": "https://bona-me.de/"
+    "website": "https://bona-me.de/",
+    "hours": null
   },
   "OISHINBO Restaurant & Bar||Dortmund": {
     "lat": 51.512536999999995,
     "lng": 7.4714093,
     "placeId": "ChIJ8fCRhlUXuUcR3uuID3WiRr8",
-    "photo": "places/ChIJ8fCRhlUXuUcR3uuID3WiRr8/photos/AaVGc3m9j4Fy5yR31TZ35FoXg_X-mFO5vkNxbFlzRxy3zEwXm0aCVhnepKmt_4ERn1MLjUxJFTYXTR4WudXHCrfVyWTHhUHbY5F1nVR69sj34PeyY32tIqKj0_NFnYVKkTw4q2fqlT_Obp9SFTBrvlD6pclNc-48lIkt6I6ejxYDBoSfRE9jCOlDqMlsoWqNPb2M1iHXDa4H50udoiubcQvlMQhYPex5EgAb6rBA3l02FcUe-Lg2FEOpGzMrNkaYc3FgwwkjJVJ_VjuAe4Qn6bCMPoXHvl68zq_0QVLmIIyVCZcM0NGc5YTRhUtO8SWVDfymdTLYOXnz1FoU5DLhK1UsuncWcR4DonoxRaU_N29gck-3DHtafekUqGgGDnQuqBJ_gcks1LOHV0LIzO3Hp4kZVPVvjSTN3rWjZhAQxe8A2uPB86YdnHkXB1DKaPLLPHXg",
+    "photo": "places/ChIJ8fCRhlUXuUcR3uuID3WiRr8/photos/AaVGc3m_lFHDGlaJ7vlpLlmF4vm-Tfw0gYzoJfn_DDSxkHrXnjtSM0HyHpaPS7LYsnKcRjX85DKE-V0mGZrU1qXGy6Y1IqPV44hY6RftazZuRZOvQy7ZSBRTcKkzZfz0_8PZpEunY5kJkUnh7PhX2sjV0jHUnMJYmHZHCu4EUy87-nCZzt4UDUTnHDOFMvPFwTXZ9ADllmISfV7Xh7Tv641ncWu9xhz47omF8aI3vrT518hp7W20mlAzc2nadczmDymdx4e4oCh9KGRFLKSE1U7ONHrnA-WmUs5D7bMSCkOmdwPLej3EW-_XOlvmLFauDv1lZMKqulE0zH9_C6LnHawUJyc_1tsbfWWs9o-IlN8Q3-EzrZrLs41bBo0L8fEQiJPiz0FBEE8440bHL21HSu9hEHIKF8av3t4bhdZaCM7bA4KbjzV1Jfde0ARJ3fFx_2R_",
     "rating": 4.6,
-    "reviews": 2430,
-    "website": "https://www.oishinbo-restaurant.de/"
+    "reviews": 2431,
+    "website": "https://www.oishinbo-restaurant.de/",
+    "hours": {
+      "w": [
+        "Montag: Geschlossen",
+        "Dienstag: 17:00–23:00 Uhr",
+        "Mittwoch: 17:00–23:00 Uhr",
+        "Donnerstag: 17:00–23:00 Uhr",
+        "Freitag: 17:00–02:00 Uhr",
+        "Samstag: 10:00–14:00 Uhr, 17:00–02:00 Uhr",
+        "Sonntag: 10:00–14:00 Uhr, 17:00–23:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 10,
+          "om": 0,
+          "cd": 0,
+          "ch": 14,
+          "cm": 0
+        },
+        {
+          "od": 0,
+          "oh": 17,
+          "om": 0,
+          "cd": 0,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 17,
+          "om": 0,
+          "cd": 2,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 17,
+          "om": 0,
+          "cd": 3,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 17,
+          "om": 0,
+          "cd": 4,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 17,
+          "om": 0,
+          "cd": 6,
+          "ch": 2,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 10,
+          "om": 0,
+          "cd": 6,
+          "ch": 14,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 17,
+          "om": 0,
+          "cd": 0,
+          "ch": 2,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Raphael's am Phoenixsee||Dortmund": {
     "lat": 51.4908455,
     "lng": 7.5066654999999995,
     "placeId": "ChIJ5100UqMXuUcRYG-VpmjQWo8",
-    "photo": "places/ChIJ5100UqMXuUcRYG-VpmjQWo8/photos/AaVGc3klnSCh6DHCH02_Tz2FgM_m6B-P7BEckxHVJFw5kFrF60MVH-lo4OpNE-TJyfm_cTGMIpJ9Nu5uk40mFdeKg8RUHzwNjlrH9jeOYJ3hFqUMWrmFLNJCFKh4777_2V9O6lwyT3FsP-CFqIXchcFiSalrZDTinpDDMvs_8uI32ZnzJHXSdUGehenU3XlxbnoGTJSWw7Qo_Sa7bBnngf5-VpGSrBSLEL3_HFqhFujg518ajgd37znBCi6iAoFjw1d63_OO1tiPo62GEenGzjHVH6HLrTkCBuMKi8opApFTOP_ztezlxPYiwPPtXP3Rku3tv_gvUCLC4OEUcgnUcRz0BbwQWgPlF2wKOmj0IEEojO20GkQ12Aoj1H9vxRcj6ENpL3cROJDv3R5iU96ZeHXIobGZcrLe1q-5gx0lmJLq09WMlw",
+    "photo": "places/ChIJ5100UqMXuUcRYG-VpmjQWo8/photos/AaVGc3lOyK1vmgLRzj1gkdxGoZeAbxoGGjP7Dy-R0rFgxhSzMypkjWIVgiQVEBZmSE0ZuAnlP0Oih_yjJVyjjTUhYN_Wsj5Dq7MWNfUuKtu6BLYPpba6-tdsBzJNzRe8ZOSuNZwYioVo-ur8KS9gc5IhvVieaQbg9VWuzZgTUeG1vqwLWK0tCmqemE3WRpi_S-nLWVfQqJu9XIzbBDx6RjOWZwJ37DQrr_7dTc-dnruPMyv-kyhuF-sGhfFP0tN8YqCiROb-56EqV8DuvccuckfAt2b9kN0im34V7p3gt_NvGgF7so4glvMTEzypvWaFGYyYTi33GsIT9zsZ4VPKB6_yxTaUQJhXRqZBRpS8URi7qN5fwJEsfO5dSj1lk3Jr8xyvaamRtmZa760UsODhfZ8Us7m-DeMP97DQM8gnisyOJD5e9A",
     "rating": 4.4,
     "reviews": 417,
-    "website": "https://raphaels-phoenixsee.de/"
+    "website": "https://raphaels-phoenixsee.de/",
+    "hours": {
+      "w": [
+        "Montag: 11:30–21:30 Uhr",
+        "Dienstag: 11:30–21:30 Uhr",
+        "Mittwoch: 11:30–21:30 Uhr",
+        "Donnerstag: 11:30–21:30 Uhr",
+        "Freitag: 11:30–21:30 Uhr",
+        "Samstag: 11:30–21:30 Uhr",
+        "Sonntag: 11:30–21:30 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 11,
+          "om": 30,
+          "cd": 0,
+          "ch": 21,
+          "cm": 30
+        },
+        {
+          "od": 1,
+          "oh": 11,
+          "om": 30,
+          "cd": 1,
+          "ch": 21,
+          "cm": 30
+        },
+        {
+          "od": 2,
+          "oh": 11,
+          "om": 30,
+          "cd": 2,
+          "ch": 21,
+          "cm": 30
+        },
+        {
+          "od": 3,
+          "oh": 11,
+          "om": 30,
+          "cd": 3,
+          "ch": 21,
+          "cm": 30
+        },
+        {
+          "od": 4,
+          "oh": 11,
+          "om": 30,
+          "cd": 4,
+          "ch": 21,
+          "cm": 30
+        },
+        {
+          "od": 5,
+          "oh": 11,
+          "om": 30,
+          "cd": 5,
+          "ch": 21,
+          "cm": 30
+        },
+        {
+          "od": 6,
+          "oh": 11,
+          "om": 30,
+          "cd": 6,
+          "ch": 21,
+          "cm": 30
+        }
+      ]
+    }
   },
   "Bosco||Dortmund": {
     "lat": 51.4459501,
     "lng": 7.523257999999999,
     "placeId": "ChIJF8XmyiMXuUcRO_4PJhjOUig",
-    "photo": "places/ChIJF8XmyiMXuUcRO_4PJhjOUig/photos/AaVGc3m68wJ2-51vhHWbQ55pi_dwazq2GF0n1P8UxgwY9umhiwCr1TphoiFZ70aYfJxKXozYnX-rsxt4jrJv95RqKRp8ItOgfT7d08rZ_QzQUNtfoBDl8Oc4wWFK0M_IdLyWFg-4CXtUEUfVbJUShnRp2bj1J7ivkoM6u66bC1PbsQFiuRGyHa4NQ0q22flyA9JZ5mhHB36uZeir6js5wnsscyQrYxwhs3SvDYIvb4s0svBjhiKKU_YOJf_1bx2RLAAai3BxScVfw1q3N3L07Ui7lVGd96TLPzWp9yKyMC9XIiwr0QfGNGk8JbmIZkPNMkKQD_oRqN5yotLGmNhoE6mmWkiA3KmC0Sy_XUqpN8LpHB0z4dFcobHogmz3ZpqBJB6lGtIrOdba3U1f_Gp_hHPOgLbbbn_9YYnRL7vNhB-FukCkoJ1RHDUKdBEFNtduFw",
+    "photo": "places/ChIJF8XmyiMXuUcRO_4PJhjOUig/photos/AaVGc3nTTSDdE9i-wUDWt8tb-yGsQNcOD0Eff1XPjk_7gbFYubReCG7HJI6DkxVoIlaxbiMn7pzKfKLhoAnOtLdvhjIouGkJhTtjWD4So74dBp4JVwxks-y83bLfeg_y2ai3NlC5IjXMihty4K19thOwiY0uN0zbRJJEchc7MNYIfh9QcsJH7hgILrEUcYkSUFCqfl9_tPjkkSoh8ao7I8j9-gO-THnkQGC2GA7GzCX4m-GDlu7wjTPaLcFt2LKXv5KoHwcRhcX5JXDMCZYcyFEB7I0BWnBMUNa0Ia7-P8FoYakHB4sqj1riYLGQBouGFIgaqqIWGfQfhKamWTE1Ut_TBihJay9rU9nlQl1Rc4uE_EvG5WBdNDghBTABr67OKURQhtqGP1eNMvTW4S_GQCMPS29GWVSF_vLuS6cjyVL0dV9fFebX49aZl6ScO7xarw",
     "rating": 4.9,
     "reviews": 194,
-    "website": "http://www.bosco-holzen.de/"
+    "website": "http://www.bosco-holzen.de/",
+    "hours": {
+      "w": [
+        "Montag: 17:00–22:00 Uhr",
+        "Dienstag: Geschlossen",
+        "Mittwoch: 17:00–22:00 Uhr",
+        "Donnerstag: 17:00–22:00 Uhr",
+        "Freitag: 17:00–23:00 Uhr",
+        "Samstag: 17:00–23:00 Uhr",
+        "Sonntag: 17:00–21:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 17,
+          "om": 0,
+          "cd": 0,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 17,
+          "om": 0,
+          "cd": 1,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 17,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 17,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 17,
+          "om": 0,
+          "cd": 5,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 17,
+          "om": 0,
+          "cd": 6,
+          "ch": 23,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Bocca||Dortmund": {
     "lat": 51.490739,
     "lng": 7.505129500000001,
     "placeId": "ChIJqT6oc6wXuUcRFns-1p4gs7Y",
-    "photo": "places/ChIJqT6oc6wXuUcRFns-1p4gs7Y/photos/AaVGc3mbzrO5dGNy2QCHpjwvgxZrPt4llrHd_7OqN-YeHPyocKHuYc2BVrGf64hAaUhrijiBdGFauBOCFSPjksY6whBwXy-AoVB1LGmF_RTt8AV7R0h0J5TAysYV0iIb1ZZ8JEG2ioZHVLc9shWd9x0SYAKHFNh0jQXgNJFDTDvRmGCEM8jY5vfFZOBlSY5ab8sSRnvlleWZBfUQrxust2hKT8Etw76R5GClx_EkC5WNB6vYwtvniSdafs86LysJVwcDIiSwaLIR2mr3zf6g7Lvg1ABPpXOnHdYsLaXjfxUBl5ogrginYz7n3rxDnCiSpX8HmjNPIlUBLqfIWtySJR3KdDE_EUviASbPTjQxoq5XbwS05JU-TSda-u4Hbs3cG-gn_nhX2YpCEFKKtgJa0ZTeicACVTGPKe2zyG6J9mj0hOJVIw",
+    "photo": "places/ChIJqT6oc6wXuUcRFns-1p4gs7Y/photos/AaVGc3m5Xbo0klxYau8Dt4T-t-Uro6QIHnrr-aCvr17xYjC9m5q2mzQviksBJjcdBbACO8hTig0INwmdJ9EpXYNiraqvq7qRqgJiY0seIwssZpzd3YYXzCJ4DrPbC1h9GmjvCwZVdUIq7wctOLQgNLpQFK5rbzGyZKXmCy7TYMWA2JszCMo0TBc8dGZjgjr_J7CGTlsb8Ev0iFZ13r2tvqzBnAI6VAmShksFdPa97eoWc4LAkr927_sIHPNFzQS3L9jSTajDDwMhZUOupvpGqlBEQZ5k7PynFIrgt3MXm5179pIM0oo5fPRiwp0cukePLdg5nlGFYdNoWA3hRpc-YFExZGp025tVtFBSAqmZLUlCbLOWBNoqx47P3WK3EAW28rQ0srYZfh5rAYWjSXIJldCXafICWct-e61ocVEdbbHV7tqPpA",
     "rating": 4.1,
     "reviews": 2283,
-    "website": "https://www.bocca-dortmund.de/"
+    "website": "https://www.bocca-dortmund.de/",
+    "hours": {
+      "w": [
+        "Montag: 12:00–23:00 Uhr",
+        "Dienstag: 12:00–23:00 Uhr",
+        "Mittwoch: 12:00–23:00 Uhr",
+        "Donnerstag: 12:00–23:00 Uhr",
+        "Freitag: 12:00–23:00 Uhr",
+        "Samstag: 12:00–23:00 Uhr",
+        "Sonntag: 12:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 12,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 12,
+          "om": 0,
+          "cd": 1,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 12,
+          "om": 0,
+          "cd": 2,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 12,
+          "om": 0,
+          "cd": 3,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 12,
+          "om": 0,
+          "cd": 4,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 12,
+          "om": 0,
+          "cd": 5,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 12,
+          "om": 0,
+          "cd": 6,
+          "ch": 23,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Meeting die Brunchery||Dortmund": {
     "lat": 51.5128397,
     "lng": 7.456093,
     "placeId": "ChIJ85CBM1oZuUcR96hialbqg4E",
-    "photo": "places/ChIJ85CBM1oZuUcR96hialbqg4E/photos/AaVGc3ntyXm9D75XgJaYWWKFsRI5N2OneeUc7fP2e1ovhfcM5Qc7Sur8c5jVOibDh2Yw1eES7aI2bd7qMbvytnYQsXp-LxdkL0xB9O2_ucqLw4aK4P6AwKm2HpMnvYx6-dRoBdd0PweepV3ykFrhVSxgeJe1QlwoAB-NWcoH74GNsutyPXN0-JLqPXFrsCiyC1UkuqmAD9zAcDiPKfktHCZw0AL2fUUrIYpVUKK-Btb2h5gQHWP4CXr2opajV1x3Ni9w19KLPoA6yttTQWap43Zz1OcThTfLm8yKI-MptatJnHgcg7MduOXZVgfAv8XJJS8CmWogATS881rl8VTQIVDDnP7M_Z2XtHoywMcp5yQkcdbn-4O3oUyfZ-5TLIruqBWyy4fGZ93bz61NJ_D5JhBRlrX3C2l9srLiNeZbWn_f5E6FTrAjFlydePgokUtCTboF",
+    "photo": "places/ChIJ85CBM1oZuUcR96hialbqg4E/photos/AaVGc3knnhqbyUMO2-kQTR6Ni4UKjbkusr55VUhewPbOVZFdA6e-YHxce0gsZK5t5JKpPS4p8jllw9U4BDnBqLOk49IcnjI1KSMQOJ6Tjp6kA2fUij46LXfLVqSxtUERX8fduPK7wB1NMrWF1sJG3oulEDba0eOSlR47q08Za-7wuPT8QUwG5oAFywaGD5ND8RKwoDoA0dpyIps9ELwd4zf9ltTda91W_f-Br5NJrsEnC-2IkVol7sEQVr89ylzkdVpysUx5xUbL-sy8e6V08SkCQfubfyVHeBQFJMlPFLoAog47L09gj_wRb0Pmzx3eZrkutd65woyJYlXDODnUWXpvRR7S4L7vfXaZ9Rcw8tOfa29d3Txe1OCjARa94TEh3-LigHjB5GSFyNCg6sbCW-0gGIKS_cy1jksUJ2kDrHFABvFpiViDiFAm02IxZRBBCyet",
     "rating": 4.7,
-    "reviews": 253,
-    "website": "http://www.instagram.com/meeting.die.brunchery"
+    "reviews": 254,
+    "website": "http://www.instagram.com/meeting.die.brunchery",
+    "hours": {
+      "w": [
+        "Montag: 09:00–15:00 Uhr",
+        "Dienstag: Geschlossen",
+        "Mittwoch: 09:00–15:00 Uhr",
+        "Donnerstag: 09:00–15:00 Uhr",
+        "Freitag: 09:00–15:00 Uhr",
+        "Samstag: 09:00–16:00 Uhr",
+        "Sonntag: 09:00–16:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 9,
+          "om": 0,
+          "cd": 0,
+          "ch": 16,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 9,
+          "om": 0,
+          "cd": 1,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 9,
+          "om": 0,
+          "cd": 3,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 9,
+          "om": 0,
+          "cd": 4,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 9,
+          "om": 0,
+          "cd": 5,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 9,
+          "om": 0,
+          "cd": 6,
+          "ch": 16,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Ristorante Sale & Pepe||Dortmund": {
     "lat": 51.4872509,
     "lng": 7.4910307,
     "placeId": "ChIJfWorLfYXuUcRiASGRIFGdRU",
-    "photo": "places/ChIJfWorLfYXuUcRiASGRIFGdRU/photos/AaVGc3kLL_7SD4zzxib2fpT5tyWCS3TzlufYsNp77lhnVCc1NoaURiFBq6YvBKWK0dRlMTiu7P4hfE4AsFlIGG4zCozc_RKWoxF6SzgqTj1W9J8cMWCiMbfKnsTwq2OqdU1Z15Rej9tJYdQYCfBQYN4ZEjTPzTnGDSVz1dAQlwBVKqqk0UyDL3M6kYOVf4E4THw6demclkbTqK-rekQ3ZXKqzhmFUT-0IZ7c54m673MyYPHtpe3i-RelaDtN7kuGRYM43E4flW28WRMidcok-FwE-5dBqc5q1wUG9IgTNxcX1D8UH4pTFX208WtUKFCM41JLXJc5sNs5LVQQJjgf77616gOvjxapr2H2dd-TYFa53H7w5hKjek6LpTPWoOlOHn03WOa4f04GsbI6MbnsZJl05SJrr_EVogF6wm785potA49w2GWomYMG7-Zn0D9Bv7n_",
+    "photo": "places/ChIJfWorLfYXuUcRiASGRIFGdRU/photos/AaVGc3nK67Ty3ZvExijwmtZATYWJWFeRe2GmVSLVZA5e3FoinKYZckYY2mydoV8lNxVRnMsfp6WQTtKFV_v9eNBNhtyD4hl8P1J9JcQMr7QJJTSM8aEgddOUNO_4kFgyamncDiFcdbdeu4sIFm5VJL5s5itl5IAGFxukYs_yYrORrA6981NrEKeETqdUi2m-d0AdoNC7i6ixE8YtpEBEG_AxdoqWpCBpao3503dqamrAbO8qG5Te7ZiIAs3TFgFU_qTJuNWhgXLlrFesPUQY5lj5Q7hkqMztIOQjHnwuMHqb7HJDxnT7wdJoORhKc9LajCdsQOog37STVqeAhnLojd635Z2mFAaFst64v-MEzTDL11kuMBfTvfWdMI9nTk0boBPfSODdZnsv0_mR1HQVy8k_Fyb2WhNWlZT53Ge6VHce0Iv4YxFUkv5ucLn4Fnjb6cm5",
     "rating": 4.9,
     "reviews": 148,
-    "website": null
+    "website": null,
+    "hours": {
+      "w": [
+        "Montag: 12:00–15:00 Uhr, 17:00–22:00 Uhr",
+        "Dienstag: 12:00–15:00 Uhr, 17:00–22:00 Uhr",
+        "Mittwoch: Geschlossen",
+        "Donnerstag: 12:00–15:00 Uhr, 17:00–22:00 Uhr",
+        "Freitag: 12:00–15:00 Uhr, 17:00–22:00 Uhr",
+        "Samstag: 17:00–22:00 Uhr",
+        "Sonntag: 12:00–15:00 Uhr, 17:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 12,
+          "om": 0,
+          "cd": 0,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 0,
+          "oh": 17,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 12,
+          "om": 0,
+          "cd": 1,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 17,
+          "om": 0,
+          "cd": 1,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 12,
+          "om": 0,
+          "cd": 2,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 17,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 12,
+          "om": 0,
+          "cd": 4,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 17,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 12,
+          "om": 0,
+          "cd": 5,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 17,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 17,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Saigon Soul||Dortmund": {
     "lat": 51.5090082,
     "lng": 7.461838800000001,
     "placeId": "ChIJ6R9mngcZuUcRnCz36BEnlNw",
-    "photo": "places/ChIJ6R9mngcZuUcRnCz36BEnlNw/photos/AaVGc3kCA3pZpfrCR_c03mfFEC7Pv01Y6rbKeuyY8QiVoKJRk4W2Fio58s0NSfaUcBUMJTYT5odffQ4tiuVEeAG1NGQNatBLesRy0xyav_v5zL5ykmncI3v2PWjtso0drKcv2h_CLQyOHCPKy9sDFDFwpFU3gONzHLh9e0RIOeLVRkIwj8hD1kokDqVuk-pCuSLJi7K3g-tVifgkU21R3HTuGS9SOkRzHIHcGW3AYCsp4J7ap_B_NyLZyWjUd3vT9_saXbj-sRu22NTi672UrcHB9ItR9Xn_19c2n-u2-wbza3HDbTeDQSO9S8bhTBkprNw4vUnIrXI70JwjZk3DkCG-1Zo0TvSe5Hf-qpiPY_CHGQm4eIKsA1V0zPuP0MqsDOvn2XuzcDdkFaB--vf_uXORWp_ZLdppqtHySPStUs25RSbCxTbRglv2ZnpBSwCc6QUo",
+    "photo": "places/ChIJ6R9mngcZuUcRnCz36BEnlNw/photos/AaVGc3nFjzrP-04O2GsVYY7DmTOUjUg_LARp3L_cmTK8vZG9E1obfSEBx9VOVJbq8bdISyRnVCkMZ0a4qbI2xz9wZL7g3L8tlor8upPtfOxESgaGMUpwAmiBLDDhllH-wouu_-fz412EFnEN9F-mZc65UTGUP3XPCKQiGfysk3DyPAycqeKVJDEMZI4wzlPXK9lcTioCerqT6twFb4i37AtpXYf2I3eq-2wVGeFN8YUzuIDScfAI_hplXeyITjyp0Yinuqxc0PTKctHLcKZD-N03r6oDwpo7ySqJXrLsDLTfqMoCacC6hwj-1xdmmSViq6Xt8pE2-GKJoBeej7bXPmeeqf4rhJNm-Rn1gc8b-dcfvGWOHLbtHzdzljJudGG7qQZwXuPU9uWQlGJr-clxEr2lN94Y8RSRMOqtyZi9MFWzaO1soLFkNBf5d9PsLHASjce_",
     "rating": 4.7,
-    "reviews": 259,
-    "website": null
+    "reviews": 260,
+    "website": null,
+    "hours": {
+      "w": [
+        "Montag: 11:30–15:00 Uhr, 17:00–22:00 Uhr",
+        "Dienstag: 11:30–15:00 Uhr, 17:00–22:00 Uhr",
+        "Mittwoch: Geschlossen",
+        "Donnerstag: 11:30–15:00 Uhr, 17:00–22:00 Uhr",
+        "Freitag: 11:30–15:00 Uhr, 17:00–22:00 Uhr",
+        "Samstag: 11:30–15:00 Uhr, 17:00–22:00 Uhr",
+        "Sonntag: 14:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 14,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 11,
+          "om": 30,
+          "cd": 1,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 17,
+          "om": 0,
+          "cd": 1,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 11,
+          "om": 30,
+          "cd": 2,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 17,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 11,
+          "om": 30,
+          "cd": 4,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 17,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 11,
+          "om": 30,
+          "cd": 5,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 17,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 11,
+          "om": 30,
+          "cd": 6,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 17,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Amara||Dortmund": {
     "lat": 51.4829457,
     "lng": 7.4140101000000005,
     "placeId": "ChIJS3khaQAZuUcRgYdIHMgcP50",
-    "photo": "places/ChIJS3khaQAZuUcRgYdIHMgcP50/photos/AaVGc3nYnsoCf27fPHB0svRQJyXNwFVvLNPG8laFCzqTjOz5ZpKag2duNS6iLuAXDiew89iw-uGdZ2O2d61V5iYBGAxiWJaNvc_Sq36PV85bDFJPCBSFpnZZQE3XeVfftibd53CtuBih0po9cjAPcsoJ0NfGXUR9xDXvVkWXpEvmFCp-Dst8iryKYVQNN-USVtjMnltRcHnsalPV6LgMb9ISsWGAnBtwrxwXofMW2Vci8PHpV1cZLNi-okDTsM9ySh7AQCxMgNXOVdMGFaGwBMw5-PVBAZ45Qp3q-peoECi3v947g3_xp2kLgg6fnIYErPSBI_hJwj9CTzrDpEqv3nua9HiVHeLg_jDfcmR8WCWDOBK7E9-WZ_Tq87b27-yX_I9VknLsz7TPZkjjkzNSb0iC88JqjjxBGLKP_osDqEAy_nitrYvjri7-Ce7pitotpQ",
+    "photo": "places/ChIJS3khaQAZuUcRgYdIHMgcP50/photos/AaVGc3m3eYqmlkSV77fWnowGHsqdUi0q--kAhto2T3K9LKLyQMNhQ6Xol_ytNij4mAeZ9W0pmmpHOEmkmBX8rkNm_aCedUtpUDl8tmOmI2fRSnAE_SyfgDN2r7h0TaK2AVOUP0aWepP9P6hPyt915GXWPbMpgko27DG25pWyTiNHGEfcgN46cjIK9qbWCTWHjDvzkTl_W3A8qDfQEp1jXcjLfE5dyX9Qy8U_P0xt6wMUgL7PfdN_TQZg9kjuEzNsaLKPNT7M017jCXarhIWMsj86UBsQpMnR5kmqJ0nSqOeEnUXfP2Uz-wxmDLDfOFtK1aMdQDZ8VChHu7qih0cR2JBJLETfoNULz44edGaEhlThgcM0Ok_LBrt0N8w6XlTWPO160mihneL5fejpOzhghuCiO1vggFm0eckBWUK0qNdNisJ4lXBGpHNPf1hlGBlOcA",
     "rating": 4.9,
     "reviews": 144,
-    "website": "http://amara-barop.de/"
+    "website": "http://amara-barop.de/",
+    "hours": {
+      "w": [
+        "Montag: 09:00–14:00 Uhr",
+        "Dienstag: 09:00–14:00 Uhr",
+        "Mittwoch: 09:00–14:00 Uhr, 17:00–22:00 Uhr",
+        "Donnerstag: 09:00–14:00 Uhr, 17:00–22:00 Uhr",
+        "Freitag: 09:00–14:00 Uhr, 17:00–22:00 Uhr",
+        "Samstag: 09:00–14:00 Uhr, 17:00–22:00 Uhr",
+        "Sonntag: 09:00–14:00 Uhr, 17:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 9,
+          "om": 0,
+          "cd": 0,
+          "ch": 14,
+          "cm": 0
+        },
+        {
+          "od": 0,
+          "oh": 17,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 9,
+          "om": 0,
+          "cd": 1,
+          "ch": 14,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 9,
+          "om": 0,
+          "cd": 2,
+          "ch": 14,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 9,
+          "om": 0,
+          "cd": 3,
+          "ch": 14,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 17,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 9,
+          "om": 0,
+          "cd": 4,
+          "ch": 14,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 17,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 9,
+          "om": 0,
+          "cd": 5,
+          "ch": 14,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 17,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 9,
+          "om": 0,
+          "cd": 6,
+          "ch": 14,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 17,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Sono||Dortmund": {
     "lat": 51.512519999999995,
     "lng": 7.468462100000001,
     "placeId": "ChIJEWSuy2oXuUcRcPPrgKtRNMg",
-    "photo": "places/ChIJEWSuy2oXuUcRcPPrgKtRNMg/photos/AaVGc3nmaHhyQpLxS42AbKObq8n0xCyJUJj228Yecjg0AiAE94Sri7DNfSZLXKiJjBZ-7RwN7otfwy9uLuaHpOwzx4M9TYjJ7Ul2PJGZV1YAxCrM-J6PBU63jrvmFB3dKuSTHEc8QZ7DQN-8rvRUpGB4To2Vb_HqTD5erlRd9UmQ7hz7yFaTvsfjzH8YXhp-mqJoPzb74y5gsxDWvHxUv2GPeePymE2F0YU10P5m6PHTSndbEirBtmrB1vTcmbkfsajkPWkpC-TBNuYWnZZ7rWOzfYcIfzhqKuHN6_ktVIHbUO29bPpWT5tGkkbV9bPdj7BPNLLMxTwhlrLY5qfKEeH7PNu8MQpx-PBZojnIL6IDMsC2yDxshiR5SvP_LXva3y72np3CzOmGE1VZR6yvkezHXVXdwWXCglTtEJuiAsPQx0Mig-MbaIeFvrgzKNmyy82Z",
+    "photo": "places/ChIJEWSuy2oXuUcRcPPrgKtRNMg/photos/AaVGc3nfDA_eG8b5YK3Yy3SMsX1M41nu79Sfs3WerereKk-01pLvBXanZyI8821x_Vx6rExv9HgaEzvH7WjDWlVePMNGlL0viTXsq4Yjcx3RSPDUt0s4nn7MbYcG2wD_NjvFp_ox03INdEmGL23IiuGXEZ9sHYPSn6YGbXIA89PMGnINZx2jqJwkYKaXzv9o5TdG3f8s61EDw8A3EVZhv_c1EHRpb3_CU1VSjtfh1OgliOXEdWrotixtbux0jLU7KW9DPblkC0Eb8LE1Ezkb4L85Pa5qnzqsp54aLNfOCyu40Sc190oUVl9t-GXwCmpIbXN0cRLjag35cMSmAT2y4IypsJnNBY_4D9yGXriq-QGYG2o3WKniQjoaO5VjDFJNLWfw48FA2OJG1AZ-h4Hr2x9YNa5yKwTCyFLP-c8hYolcX3JMngBRUAED7FGMwXpWr0jV",
     "rating": 4.8,
-    "reviews": 140,
-    "website": "https://reservations.allo.restaurant/de/sono-gmbh?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGngJJIYb_2mNQHwzGcCfEbMv1sa-al3ZW-vdM8dttmKoNkTSXPMpeOWIGcwxk_aem_tCF-tQg0D8RO8mzMCs-bnA"
+    "reviews": 141,
+    "website": "https://reservations.allo.restaurant/de/sono-gmbh?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGngJJIYb_2mNQHwzGcCfEbMv1sa-al3ZW-vdM8dttmKoNkTSXPMpeOWIGcwxk_aem_tCF-tQg0D8RO8mzMCs-bnA",
+    "hours": {
+      "w": [
+        "Montag: Geschlossen",
+        "Dienstag: 17:00–22:00 Uhr",
+        "Mittwoch: 17:00–22:00 Uhr",
+        "Donnerstag: 17:00–22:00 Uhr",
+        "Freitag: 12:00–22:00 Uhr",
+        "Samstag: 12:00–22:00 Uhr",
+        "Sonntag: 12:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 12,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 17,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 17,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 17,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 12,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 12,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Café Lotte||Dortmund": {
     "lat": 51.513662,
     "lng": 7.475174,
     "placeId": "ChIJAexrCVwXuUcRJlGOptyQfKQ",
-    "photo": "places/ChIJAexrCVwXuUcRJlGOptyQfKQ/photos/AaVGc3lno3kst_ZVKB79aXbZu5qaZQYd9Y2lUt-Cp9khX16cq0dNbrjqywQm_FtdkzBKn0ek0pFjxfBAEFKrWwknKJ7nlSB0z7QfbfHxr2xHpnqyhpOkGr4xWs8m5OcUCHGT23xcU2zuzQYRyPy6f57zu-JsqcZcNi_iUj6mNLHC---ssbMw9mGcJbg_o3Cs0SIXxLSoE77IkE_g40L03bpWoASWydvenDVC1TVx4eSmtQHMe17excLjzSmc4yPaXL-UBAl-J1YJ6W42HEg49H1tJiMtrg9Ec8C8F1qqbTHFdZ1KvuHqzZ4sY07_ijUnNETZmP7rJDsoeWjM929DR1cDML37-ofWxxjqF7mA7iM1JDW5WvFTHY089emvXBqXqJRxeuVc0Ac5gv8oEzwEuHuyggBx3ySO2XG6j0x_mhwZXyQ494OK",
+    "photo": "places/ChIJAexrCVwXuUcRJlGOptyQfKQ/photos/AaVGc3nwFadZJcWNNPWRF56cI16njxWiWiAmRC-iCRQfeoLmWeIbpn-oTDXwqPt_bA57Mqwd7_UXEhY5K6_wwEZ4JyQMREaR8siCjIodaATpcmbOnx7tKoPIZAdTL-u6QrqhMFdw5jibRRyLyEbDCwNxN1FiukaohFXPMhbmPQrDHIO2fsbguaDL9oNbXUeyl6KEfweybzbJOtLETFhlg-dfwpMDunsXOGQ316-h1rnhH9R_c3uwoQmAcgp8VOrvowu4qR1lxqcWuc8acVUiWxHqyYvV7Y1I9Dq-d59eoY2JSTZQ949WQ5KCP_vK-LoC8IQGQFpmMyYJ5gUpeCS3cZRFhZKF6W_6EYNi-cKlx_8YZJJ8lD3EGT6SzQZuzxwCGCXa0mBBqoltte26QthhP1L_oUu01sWLQp4YsXVMA88I2OWjCpze",
     "rating": 4.5,
     "reviews": 1533,
-    "website": "http://www.cafelotte.de/"
+    "website": "http://www.cafelotte.de/",
+    "hours": {
+      "w": [
+        "Montag: 09:00–19:00 Uhr",
+        "Dienstag: 09:00–19:00 Uhr",
+        "Mittwoch: 09:00–19:00 Uhr",
+        "Donnerstag: 09:00–19:00 Uhr",
+        "Freitag: 09:00–19:00 Uhr",
+        "Samstag: 09:00–19:00 Uhr",
+        "Sonntag: 10:00–19:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 10,
+          "om": 0,
+          "cd": 0,
+          "ch": 19,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 9,
+          "om": 0,
+          "cd": 1,
+          "ch": 19,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 9,
+          "om": 0,
+          "cd": 2,
+          "ch": 19,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 9,
+          "om": 0,
+          "cd": 3,
+          "ch": 19,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 9,
+          "om": 0,
+          "cd": 4,
+          "ch": 19,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 9,
+          "om": 0,
+          "cd": 5,
+          "ch": 19,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 9,
+          "om": 0,
+          "cd": 6,
+          "ch": 19,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Noché||Dortmund": {
     "lat": 51.503833799999995,
     "lng": 7.526608700000001,
     "placeId": "ChIJKek1nzEXuUcRUYDqIEhC-I0",
-    "photo": "places/ChIJKek1nzEXuUcRUYDqIEhC-I0/photos/AaVGc3nbjCVHHq-9enZxuL9oYWBFnHfRhYjC3OnTOUJCcYkf6kH-uejKqrLlEIbe3d8uUQU4HFLQrcgh1PPT8WqYHmT5YBIR7ok_tNJ63XE5qjVBES4I-yUJOarnDtxTxzyeDoj94OFjyWE1tQHCueR_Tczy8LWBSzwOUutCA1BzuT7sgZwq7yiHg454SdNHQ-Ecb1W53m5ka5AyXkfS3wG6QDklaCd-bi3X_0DAglkVVrlU70ISneLGH487-lWahxJpH_abvNo95Q3R51367ogCbYZf3VsKJam_7xXYGjVq4QV-U7Hmkc0TDxUovrLFkZbaRlX_9UCdBIkWlfLczbjIw95cLiwXCrb7qpPSAvPkSedrsqs8Hu2kbYbOwZfExsw7urq6HPJkv6aKbGT8DeRJKfyAahKuFY6oQOFJ8NeFW4yLmNQXz6DZ0E88bbQPjm6e",
+    "photo": "places/ChIJKek1nzEXuUcRUYDqIEhC-I0/photos/AaVGc3kBGrEFYPflvQ3m9h2yYcV_Ty0iTaGKEMSJoySPcSPtmVGyrXoJIbjhzEVsXPWm8NdYFAt2uygrrKv9vOPpuclY4hoJbqxwpFxEULFveKAKmMcJsHZZVWFcinM8ypBm8ItQQtiU4buXEvB17oka3dsCB3Gml2g0BlG6uiCuZz_3DgHFwB_7ygXjkEat66-7v3rXc4B37ZSt4qARzzUFJf44ir219oA7avRSNQpXbPwovxiSauZRX8NEFRLx8FucZAz38X3_995tElATr8fpnx_qxkBIMLuvFTkgtZNXxXX931I27l7hpAFEbCJuRbocJXQkyYdZRXZwL8PQDI5mDX9HgtFiACf55vq9rAU3zIBXfRv-fKDurlr8C8lGq17MHtyZM_XgPEeLPxFAnPwwH9pN_2i7XcYSEASI6W82M78tZ-ZBR2Cy13BuENGxlmQ9",
     "rating": 4.7,
     "reviews": 71,
-    "website": null
+    "website": null,
+    "hours": {
+      "w": [
+        "Montag: 09:00–15:00 Uhr",
+        "Dienstag: 09:00–15:00 Uhr",
+        "Mittwoch: 09:00–15:00 Uhr",
+        "Donnerstag: 09:00–15:00 Uhr",
+        "Freitag: 09:00–15:00 Uhr",
+        "Samstag: 09:00–15:00 Uhr",
+        "Sonntag: 09:00–15:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 9,
+          "om": 0,
+          "cd": 0,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 9,
+          "om": 0,
+          "cd": 1,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 9,
+          "om": 0,
+          "cd": 2,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 9,
+          "om": 0,
+          "cd": 3,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 9,
+          "om": 0,
+          "cd": 4,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 9,
+          "om": 0,
+          "cd": 5,
+          "ch": 15,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 9,
+          "om": 0,
+          "cd": 6,
+          "ch": 15,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Imperatore||Dortmund": {
     "lat": 51.5128537,
     "lng": 7.481910000000001,
     "placeId": "ChIJD9sLPQAXuUcRfrGgjtW_1c8",
-    "photo": "places/ChIJD9sLPQAXuUcRfrGgjtW_1c8/photos/AaVGc3l09w1T5BGjPHx_vLIOxtOtDlLJzUkcAnL-rHETliyyRXzhKyP-GCGBvQO6-KOconnhKtQkfbBITED35VR7GD0InTN4RYhRIwb8rJ41dpaF-1-Nn4jwoyUKoPJ2YhmhcJgMu2aeHSBcuBPuM1XKO6owYpGOYV6GGf83jgHwwsZ76cdn5i3uTAgIzB8tL5zI3-yMv5NAjeltIGyoVB3mYrD5w2IPFA1aWViD3TnxcL3Lfhau3ZJroScxqqK5euALnHQy2onLpD6JaJYdn8SKAyIziTOYTRWic9gPo7utGEvPAHGn-tjMG-F3VptyqeQOof6paBiX8wvVLRaKM0C-rMgu_8o5cvH2pHSBFVM1zibmOedgoJvL5qu-jYL-2WixjynQiSUACZuPjuMRBN5JrMdF0p5mV8m-ynTDR_e8OtIlqOGxLlzJxvA3MNuit1GJ",
+    "photo": "places/ChIJD9sLPQAXuUcRfrGgjtW_1c8/photos/AaVGc3kyc7-VtQl0M8IlHisbXbsuKWIxpxhy3okEB-_Q8LGnPt1y6JlYuTW6hcM9xG52KdLMEUhnVzTAIh07YqZ8R50FfPKja0azKgeaMifYDD4mAFpy6KFCHGv__IO6Z1DHVIhHzszXaLRqWaVwvNPkFkLcfUWs3yDYXygTzaBP8K9ySPoDZ63LSwS6Hz9Vz2R9nuaDpJwoWVbifwI3zvESGktBsSzAYGMQRikoYr0eQ-FFM6nlwzQEP1iLYyWOlVXMjBvjp6DXQzRvc8aK2S9vTWtUFh21fLNl0jYALVTWwCVkEWfd-2wTM_C6xGqc0j9ljkbgw-IVOxswQ4E3v3DfP4tdyIqlXpvDYgntA6TBLdR1gPYfEj_lxGrdtJk-j0PTj7NHJPBKdj5TPtFBRTuqfr_r2DbEoo1xUdURTR2t-15mT9ROd6O4FJ9uifbjhP7D",
     "rating": 4.9,
-    "reviews": 195,
-    "website": "http://www.imperatore-ristorante.de/"
+    "reviews": 197,
+    "website": "http://www.imperatore-ristorante.de/",
+    "hours": {
+      "w": [
+        "Montag: 11:30–22:00 Uhr",
+        "Dienstag: Geschlossen",
+        "Mittwoch: 11:30–22:00 Uhr",
+        "Donnerstag: 11:30–22:00 Uhr",
+        "Freitag: 11:30–22:30 Uhr",
+        "Samstag: 11:30–22:30 Uhr",
+        "Sonntag: 11:30–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 11,
+          "om": 30,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 11,
+          "om": 30,
+          "cd": 1,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 11,
+          "om": 30,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 11,
+          "om": 30,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 11,
+          "om": 30,
+          "cd": 5,
+          "ch": 22,
+          "cm": 30
+        },
+        {
+          "od": 6,
+          "oh": 11,
+          "om": 30,
+          "cd": 6,
+          "ch": 22,
+          "cm": 30
+        }
+      ]
+    }
   },
   "Eiscafé Neue Mitte||Dortmund": {
     "lat": 51.4970145,
     "lng": 7.538049,
     "placeId": "ChIJWamq7MMXuUcRIWxwfjDc5nM",
-    "photo": "places/ChIJWamq7MMXuUcRIWxwfjDc5nM/photos/AaVGc3lsxA0bfTBgHS_4iF2j2kr4BZFbaq5lzkNSbQTYKGTHX-CYXTWF3xWR-S0KjhQeVo_QZv0WWSj3j6KUUPcQl5JAaMJBCfjWlZGDGtu7_Q4lK3Pcqd4KLbhX_hOmQoBBHrqNmiAXOAsil8LZTAC4mx33NXdy8MLlgL0-IOtp8jy-Q_J6ISdpvahzAN8gQqO-9kDM5lGsBGtQaSzaTLm-Wtu0UMlfbAoJy2Ct5eg8GVS7G9PP5QkFjjkMAKPczSN-h4ktRLvaT5u9LGFf2TJGLw93oHgeDyRNttzrq9TIGD1vw6E7_SfFmifNAUDd9NkiUgdBZb3p3Q6CLVOsXbd5CMb8BggFHy4aRrYyfUYxulxcfBMQuxz8oZAAnIPZm8vO26bNqU47QYFpIHbIUK-f1XMaOUrGyDbzD7u4v-mkKZeN3w",
+    "photo": "places/ChIJWamq7MMXuUcRIWxwfjDc5nM/photos/AaVGc3mRTXWqL39bL5-FnkyeTRJ87s8EyiJt1umv2tT1OXDFkTAgFk1D2XydkwYUeCwbl3VIdQmcI7f6epjIKGabQQEKtBEz4njzwaejj21tNDB-nhLRcn_RzKpIFiZUdWScT2nsOLLqAAP8Tzv9-YGGa6P79cw6UtpDRdj0SwlOJumxo3EB_yEkEO4gEoB5RNAjkb52ozaX2ecgQ04QjYb4IgzPHxs9k-H6SFBJjX793g5aqPW1SBiTJXvsilWn2q2MvF5W4gM8nMZqZ8ao2LSNrplgwa2dxKCKcSO7TWEWjZ3CjcNHdTvcurVZhoYVn7nkau6mg-z-tmOkd2FFslW4-Fe64ONKQxaI6HMvmIdPr7rsqcJaQKz8aB4-iCi3SH4P1js5IYxG1AkTx1uGP069e_EyVzYgaaOoTHgYUu8xDnzFOg",
     "rating": 4.6,
-    "reviews": 208,
-    "website": null
+    "reviews": 209,
+    "website": null,
+    "hours": {
+      "w": [
+        "Montag: 11:00–20:00 Uhr",
+        "Dienstag: 11:00–20:00 Uhr",
+        "Mittwoch: 11:00–20:00 Uhr",
+        "Donnerstag: 11:00–20:00 Uhr",
+        "Freitag: 11:00–21:00 Uhr",
+        "Samstag: 11:00–21:00 Uhr",
+        "Sonntag: 11:00–20:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 11,
+          "om": 0,
+          "cd": 0,
+          "ch": 20,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 11,
+          "om": 0,
+          "cd": 1,
+          "ch": 20,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 11,
+          "om": 0,
+          "cd": 2,
+          "ch": 20,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 11,
+          "om": 0,
+          "cd": 3,
+          "ch": 20,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 11,
+          "om": 0,
+          "cd": 4,
+          "ch": 20,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 11,
+          "om": 0,
+          "cd": 5,
+          "ch": 21,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 11,
+          "om": 0,
+          "cd": 6,
+          "ch": 21,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Saft-Manufaktur||Dortmund": {
     "lat": 51.505576,
     "lng": 7.4688826,
     "placeId": "ChIJ-a0wbQAXuUcRWllM-KX_rTM",
-    "photo": "places/ChIJ-a0wbQAXuUcRWllM-KX_rTM/photos/AaVGc3lOPtqIdTAVNyxZrDpicVDHrdTng2gmQPft13xD325twgROSIrC-BwMlh-03-yqcHLcyoZAJ-AjYWhHdum5tAvdsq6L1XrJVSlWzwsObJH5W88QxIAd-Sfx1009DXi10ThNsm3qaQStVtBs50sl1o5Niilz77_FaTV3jqOmhPxsdp4FSaIH-i_D26vbKJX1CA12qvsp_ijOGvh2bJwWyzrWikkU_ey_ecBZIX2s_Fh9XBFBDSm7uz3bmkwpufNSbfVXuJ_jH7sD92-SmG4jyHBH-J0WESzBEHoi4Tfgm7XaYfNf8CtJbFIzWLwSoOybr4H-ZQkami3DYfyNpVDwerjrSqpjrDOyyjlV2UPDiz0nGtIXIYrIQWE2e3cxjhKry76AjaNat9SY_87Ucqhg8Nk8X8p-AsJZSRoQ7G9-8cE_w0LRkKIsM1SMTT99WUqA",
+    "photo": "places/ChIJ-a0wbQAXuUcRWllM-KX_rTM/photos/AaVGc3lfRYiwjDYTgLHfLbLGFEiAQcRc-9Cso00j1YMbBv8yM5vVwZaI06SHSTxioDJ3vjTUyDJdElciMsVHxD9eJVwMFj3YyzdvX-1UljJ3TypX_fdO0B8urmsMP6522L27C6eMGzKQTF8SACzEKNGwMdjOl5wCrLVhNMiL-5AORAXNwE_cTinJsb8OV_gUNC4gnr69loXb3ZXmaSZQlYtNUqTZgEzkQhVttp7KtdYRtWY3g-N7KpaEJng-OHAppP3KI_19dP20C93swJN5Aq-zA4kozuMJu4OryewHXEJkaV97HFW5RDGKtFISI3wfZoOkW7BLJJtkmHDgYENJ6fdvfUOIsYwojlSm6quUu-MMgTPUr68RooIVaoS-iyr9mku-LcUlJYunzAan_LDGNEPlqaFijJcT0mUTKQUKJ1doY9lGfC4qT3Vq2aEdvjRWoj-4",
     "rating": 4.2,
     "reviews": 96,
-    "website": "https://www.instagram.com/saft_manufaktur"
+    "website": "https://www.instagram.com/saft_manufaktur",
+    "hours": {
+      "w": [
+        "Montag: 11:00–19:00 Uhr",
+        "Dienstag: 11:00–19:00 Uhr",
+        "Mittwoch: Geschlossen",
+        "Donnerstag: 11:00–19:00 Uhr",
+        "Freitag: 11:00–19:00 Uhr",
+        "Samstag: 11:00–19:00 Uhr",
+        "Sonntag: 12:00–17:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 12,
+          "om": 0,
+          "cd": 0,
+          "ch": 17,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 11,
+          "om": 0,
+          "cd": 1,
+          "ch": 19,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 11,
+          "om": 0,
+          "cd": 2,
+          "ch": 19,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 11,
+          "om": 0,
+          "cd": 4,
+          "ch": 19,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 11,
+          "om": 0,
+          "cd": 5,
+          "ch": 19,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 11,
+          "om": 0,
+          "cd": 6,
+          "ch": 19,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Labbis||Dinslaken": {
     "lat": 51.5625273,
     "lng": 6.739596499999999,
     "placeId": "ChIJIU4DcxCUuEcRdCzSPf-1Ytc",
-    "photo": "places/ChIJIU4DcxCUuEcRdCzSPf-1Ytc/photos/AaVGc3l7Z6oTNfXflg5Tft0k6Ad3ePLoJDAYd2eN7-EkRqSz6_LFiLELqk_xQqLSebt_DzWcjRN11xkWfbs_u_7FG2pAD83Ih4VE9ZD5m_PV8kGZFWU2AJbv55mzcZUCeVPYDg4Nr_Pf23yqyPs9w_f7EQHTjxZuCOOC1Lx8y-2LlgG1B2efzsrgauClatnmyToqZoO66lsqaQG_N3Ul2kArX8eSjeVfhp-yJTQ17-cuCKBI6IlIBUMYhOeUS8jDr5cz8fhRN9h-At6ZkmAQGHAqEmeqXl5EYuHZUwhxRG_o4K6yVa0j4178E2xDlfMw5a5ropgKx_xjJ3ewhvhwPHH825bG2VHuOOu3RVscYc5q8CBHqofrjtSPySaVtVxvdyiB4pLqMoTPlpYVe66E3PJdSXhbeUIByy7U-KFnPmgqNqMZUQ",
+    "photo": "places/ChIJIU4DcxCUuEcRdCzSPf-1Ytc/photos/AaVGc3kGTzn6tA_FuVwthUscFVGneOXJWIUARMmWdOjUQsuL1iCGHOH5yXWh4_R55YP_EJkF504DerxqDRF9O-B59LU9M-cF0J408vLqLTnvu7ZYQY48zBwNdODL124ZTI8hJROCzwKNEoFjo1P_pgZVsKwPPTnUMfsnx70aZRQ08QWIX29uA3TRk6d9tm6uhPuazf_i3X1xIqnxzAvmgVP9PWayB5qflAFo0iHWGiIwWeJwg4EYXy0Zp2rj8F4V47wVoZnxBDgmYWbOxDAMn3FPySqK321uuXsujHFlRHFqMgP6lXJdQL8SudGzyrtlT249ly749K_MI_uTdPK_lDUwsWAGCHpNWwZMblC0ZiK3Pnuwz6YOmJlCA2V5rEoSvNEUTenmgK7mPzcnX961A1ewwKsAHFJe-cT2nINe9OEpFUbSJg",
     "rating": 4.6,
     "reviews": 1149,
-    "website": "http://www.labbiscafe.de/"
+    "website": "http://www.labbiscafe.de/",
+    "hours": {
+      "w": [
+        "Montag: 08:30–20:30 Uhr",
+        "Dienstag: 08:30–20:30 Uhr",
+        "Mittwoch: 08:30–20:30 Uhr",
+        "Donnerstag: 08:30–20:30 Uhr",
+        "Freitag: 08:30–20:30 Uhr",
+        "Samstag: 08:30–21:00 Uhr",
+        "Sonntag: 11:00–20:30 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 11,
+          "om": 0,
+          "cd": 0,
+          "ch": 20,
+          "cm": 30
+        },
+        {
+          "od": 1,
+          "oh": 8,
+          "om": 30,
+          "cd": 1,
+          "ch": 20,
+          "cm": 30
+        },
+        {
+          "od": 2,
+          "oh": 8,
+          "om": 30,
+          "cd": 2,
+          "ch": 20,
+          "cm": 30
+        },
+        {
+          "od": 3,
+          "oh": 8,
+          "om": 30,
+          "cd": 3,
+          "ch": 20,
+          "cm": 30
+        },
+        {
+          "od": 4,
+          "oh": 8,
+          "om": 30,
+          "cd": 4,
+          "ch": 20,
+          "cm": 30
+        },
+        {
+          "od": 5,
+          "oh": 8,
+          "om": 30,
+          "cd": 5,
+          "ch": 20,
+          "cm": 30
+        },
+        {
+          "od": 6,
+          "oh": 8,
+          "om": 30,
+          "cd": 6,
+          "ch": 21,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Café Liu||Duisburg": {
     "lat": 51.4938326,
     "lng": 6.772724999999999,
     "placeId": "ChIJUZmwNDGVuEcRZY34WfZf_rQ",
-    "photo": "places/ChIJUZmwNDGVuEcRZY34WfZf_rQ/photos/AaVGc3kcX5-pf9x5Ggv0Kf7C17ia6eg7kR94_H0qVnfBlFgbUdnMhKnUlUYn8hPGyqFQUa8PZ4qNqf8dU1mho3D_10xU7bOy4qmuHCNB2i5ppZ1UnFwgDdrqyrG1gTmB4sUu9VpN147dAcetTAxdKnbukwmwa-ryMVtJChB9NPtDYxAuLBVdFq6o3hxAW9_xnQ_SAcelNnznwwV9_okQDjgK-MKJvWzJa__LDN33B4l_qZLVa9Ma0CFrcR88wUWa3EMDo0HXb89rYPjk8RApcKX7lQ0BQZRIu05rd2Ez_mdnxNJgxZqFEEWkX-TJSx0_NBfwzUKE31Qsx3MWuuEspV85wuT1LZTzGiCQWHsE9CxZQoMiM4x1FagCFrNXxt5NrWpxoaiC4TCrB4fXQlozm_rUEEzkcA3uTnUt9ductPBFPurW2V4xnkQ_VysJzKgFYqZl",
+    "photo": "places/ChIJUZmwNDGVuEcRZY34WfZf_rQ/photos/AaVGc3lX5nv26NVshdcSzf4o7hM6GkqOy6JP3AAAAaXb7wivcOeMe_c94yHB6aGW5o9YK_yC7dRm0kuN-JzQUP6EszaklTCe4TZIGi82eDHSWPHU5aqMDUw5XXiipf7IJOyUvuljTqvNSulea2yJgWTiiD-psQNmaTRLdgv7u8C0OvkoQ-qLHRZ7Vwng-N9hd4qro58zg5FHXoDxnrRX9UjLm0t4d7s_SyQNUwnKzRvAgm6Ghjh41hyChU5ssa5ID9-zFH5ePpALqVlZv_cDc_ExbVN5XdCzUkbgsQ_W9A3ge4O2ZV_hY6Oz7-7nLo1VSYRNbF7xjea-00FaLPjqaZw6S0_yd5EaUDXBsFLjGwZ3QapUu9JuWbfxUw_rEZNdOJCug0dku1pD3XIw54h8_8vjHz9lKkg8GTOTuZ5IBomVjMReeDQckKRXWl_JZWvFi5-O",
     "rating": 4.7,
     "reviews": 228,
-    "website": "https://instagram.com/cafe_liu?igshid=NTc4MTIwNjQ2YQ=="
+    "website": "https://instagram.com/cafe_liu?igshid=NTc4MTIwNjQ2YQ==",
+    "hours": {
+      "w": [
+        "Montag: 10:00–16:00 Uhr",
+        "Dienstag: 10:00–16:00 Uhr",
+        "Mittwoch: 10:00–16:00 Uhr",
+        "Donnerstag: 10:00–16:00 Uhr",
+        "Freitag: 10:00–16:00 Uhr",
+        "Samstag: 10:00–16:00 Uhr",
+        "Sonntag: 10:30–15:30 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 10,
+          "om": 30,
+          "cd": 0,
+          "ch": 15,
+          "cm": 30
+        },
+        {
+          "od": 1,
+          "oh": 10,
+          "om": 0,
+          "cd": 1,
+          "ch": 16,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 10,
+          "om": 0,
+          "cd": 2,
+          "ch": 16,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 10,
+          "om": 0,
+          "cd": 3,
+          "ch": 16,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 10,
+          "om": 0,
+          "cd": 4,
+          "ch": 16,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 10,
+          "om": 0,
+          "cd": 5,
+          "ch": 16,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 10,
+          "om": 0,
+          "cd": 6,
+          "ch": 16,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Eli's Crumble||Duisburg": {
     "lat": 51.49093,
     "lng": 6.771039999999999,
     "placeId": "ChIJVRc4d4yVuEcRcPlTX-s1vNc",
-    "photo": "places/ChIJVRc4d4yVuEcRcPlTX-s1vNc/photos/AaVGc3nxKA6izTLKMjlQOwPYq6SGQ9sUZGu-C9QdtJaIsKroeLc4rU9dyFcKOJHd7WyNv4XOORwDCa1v1Owzc8RHB11unH9-tocxSx8n2nAwwG0KMXTBfBy1XQyBlx3LCv-OO3o63QEgDGu98O2a3J3g6cAs0rWtYf9ErU7JxQN3qTc0z_asOY72RaXyFoAeO8hA-DgBDEfW9L533Kt-wbTtrJKF4VATuwq2BYmO1yLkB10BaxbaNL376lQicio4C88oBRNHIOPZxiXBx-d-2-m4fvPTaWGanqCw4mv-XU6E7UbeNFcUgUUVgj-IBXSqt3-f0qfNYqw6s5CdD__MJa2r7kfdWUWycMumjFRrm_ytoezmOE20-5S3bIcVGtc2_mMw2BkiXH7fIVp9tolhyGbOQDiVJj1KsS8_b75zd4d9JpV-GbRYxFe0yJs0rY52vSQp",
+    "photo": "places/ChIJVRc4d4yVuEcRcPlTX-s1vNc/photos/AaVGc3mlWsDZVWf-4ZnPQ76mjUAmZH1N5zGBBem-CPPz4PApFFvsgDkdBQ6Tk_RJKfwBQaVFVlAjUj-hvr5awedx1ZQvfVpwHz8M0W_tNr6Qsh3iqq_b67B40TncFL-Qj3wSBsjZDuboh9k-jHTSkf-ZtUci0r4Zs6zd-9zgLYMl5iRIZwKfQN9fFxeqaTQ3Yx6xPeO7jYOCiCmoCF80_b3Pira2B48-cY4ncqF1KngjAlNOpAFx_e2F4sJTKYipYg8Yv-hgESaeFBJycTwJqiXZ2xkXfQXH0MAub2oMjErZijeSuscfUaiz1uqmzCtp7Dcl47EwDAlGnDdLVA4sG9aamuim38yNzbqTxtkVK7HNgOzX7om4NF2qwGTOEFq95k4Zpem79YFAOlwn7BosK0gmxTWRxH7-SMk0HtOMGdpXYpuaPxEXLYPr4xnF4uKCZXei",
     "rating": 4.8,
     "reviews": 22,
-    "website": null
+    "website": null,
+    "hours": {
+      "w": [
+        "Montag: 08:00–20:00 Uhr",
+        "Dienstag: 08:00–20:00 Uhr",
+        "Mittwoch: 08:00–20:00 Uhr",
+        "Donnerstag: 08:00–20:00 Uhr",
+        "Freitag: 08:00–22:00 Uhr",
+        "Samstag: 10:00–22:00 Uhr",
+        "Sonntag: 12:00–20:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 12,
+          "om": 0,
+          "cd": 0,
+          "ch": 20,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 8,
+          "om": 0,
+          "cd": 1,
+          "ch": 20,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 8,
+          "om": 0,
+          "cd": 2,
+          "ch": 20,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 8,
+          "om": 0,
+          "cd": 3,
+          "ch": 20,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 8,
+          "om": 0,
+          "cd": 4,
+          "ch": 20,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 8,
+          "om": 0,
+          "cd": 5,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 10,
+          "om": 0,
+          "cd": 6,
+          "ch": 22,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Cheesy Pasta||Duisburg": {
     "lat": 51.490977,
     "lng": 6.7686699,
     "placeId": "ChIJH9bhbZ2VuEcRflan_LgCO60",
-    "photo": "places/ChIJH9bhbZ2VuEcRflan_LgCO60/photos/AaVGc3lFNwpotJriR2chH9KrQNMIBVOFpyJvgh_eKk_by7k5gBCNxIieyCRS8z50RjFzdnmhDp3DFAotr27uMVA999vq2wmAAt3yqIItYUa86hVR5qoiU3-NXXq19ZLd-uSFa2W7TGold7SEPdQn7lDk42FH6iK4AUx8V6hMfx0YRL12qAI28KowUvwUWmIVCGFi_UL4AjHTo3MukaCq0bRc80pK8Uu6moCfUdrhKQPqrgxHohS0001U4rLRO66v4QbDjUj7GqYJ1CAUDUtsmQekYfyly_RMmzZaedaHA17QhAhtbhGR4DrLqZhsWz9O_eLBPuNYcn_1kjUP-EuGSmR1yz2U7D3DWfFxeBCk2cjCDijmOWvEVcl-ceuBJv3nLRRR4viBS2f_hPhaJSZWdxiitps1twruLnZ6qGU9T06kdWyZUpwqxCdgDJDh8KXbKrXq",
+    "photo": "places/ChIJH9bhbZ2VuEcRflan_LgCO60/photos/AaVGc3nCZa4PP5Ea7Z82f2kvFtppHjfA-fl6W5Gccv_M7eUtF3VB5HInM7Cg9y1aaAtRMGoN0pQXA39e9nAzfTz98vGIaEfowagIm5_XUt63zh6HbwxZrhLGsr0AMAjGnCLbnzh5VgSW8AWOzgieTkBoNIaLVpNUd6UOqDrhEd41RAZxkCR3b1p9T5a27FfDxbxziuZF7LKhcMekv7BEtMT63I6XPlxbl-MU1yDh9VwPo-5ueNRGQgWKZKzUteNamtuYTUJyX8M4c3FG30f4jdwDKWZ2f2nlAVi5GGxeG3Kx0zM4QyR16SQ3_QuWa7uCIAyWd0TrtDBWRnSnXVyRtOzvTyZ7A6LZieFzjDm1o-iF-gkqlvPJTVDZ31D1DfLBcU3rFlOr-L7Y8Oh8slBquqPf6YrXpVH5vMgGInZxUoTMvmd-3bhjDmx_q7TtktT9R90P",
     "rating": 4.9,
     "reviews": 891,
-    "website": "http://cheesy-pasta.de/"
+    "website": "http://cheesy-pasta.de/",
+    "hours": {
+      "w": [
+        "Montag: 13:00–22:00 Uhr",
+        "Dienstag: 13:00–22:00 Uhr",
+        "Mittwoch: Geschlossen",
+        "Donnerstag: 13:00–22:00 Uhr",
+        "Freitag: 13:00–23:00 Uhr",
+        "Samstag: 14:00–23:00 Uhr",
+        "Sonntag: 14:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 14,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 13,
+          "om": 0,
+          "cd": 1,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 13,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 13,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 13,
+          "om": 0,
+          "cd": 5,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 14,
+          "om": 0,
+          "cd": 6,
+          "ch": 23,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Luna Bistrobar||Duisburg": {
     "lat": 51.446140899999996,
     "lng": 6.789265,
     "placeId": "ChIJ_WUNY_O_uEcRlots5xtDM_M",
-    "photo": "places/ChIJ_WUNY_O_uEcRlots5xtDM_M/photos/AaVGc3kkMAl8X4ifk3-QQ4X7wWAVjVN562-Q3fgYDbxwzhKUw3VUSPtHX93j1yrQC5G9sP6oPZGxN81uQLcuOtrxaiyGjRz8-2jD5gNu9gFX1axxOgMjJpMtzrGJrOX1irEkEjc9f0rpwTX1ZFTRqPjM_dziXYOPULISJyjBDQ2VLffew64jvKLEBxIUvoTmZ-UJqv6L6P_DPVT3HOFbIEHu9F6EDFxI6puPFhNSv2ClddG-b3Tr8kHgwfLZq6aRe_vYbZv3cnKC2C6QGKspkbKXnYIN7idkFd31zYjUOKBT2Vipa3e0aN3zER8HLuUWlAsIm3V7aKGUWx6OjwdSmE_8_WW1pVQWYIf7oJdF-0r8eRdQex3H0AYxGiwWAeQEbDd0P0uHoizJ55uqenAoVl9zVTBWlNPQNaYqnWOo3MeGnq3Zvv5hmPgMG3OSh9TW_8k0",
+    "photo": "places/ChIJ_WUNY_O_uEcRlots5xtDM_M/photos/AaVGc3mc8FOrYnOt5hdEIO3R5bVy6bNC5X9fXwqjZfaA4gmulkIhjyQgktSCuZppmeq0P2MSVhA5OeE6IDGLQP4sIvIIMa-VY7lD9xVwuKp3ZpemnOgfUv4V-oVOWL-J2O7Zln7OZase4BqU4PP1vr7DXJ5xLsp2SlmSsRidAypfNPobAkYQSOSsNvTg92HHb0ePdbe9KC68r8zQNvit_REUo3-PzrHdsLt2AoTaOddUeAWHIfptIIMuO1HnPwDEVKTjlT7L7lLwkYUsUUGD_ybrLZTtH0qHzaija5XeEG09n6Z08Ue7dVS7b7S_hyKLKuma1ispP12PcuhIVVkLCoxXCd-hnMTChluSw01DdvZEW6Bc7Jsh48_bxh3g_LLc3V7VlkEbGWT2ktte7i09anrUUlOksBmWKJYYbZmzZJpcC6bX_KGuaasvtPkiuOLZhgYM",
     "rating": 4.7,
     "reviews": 158,
-    "website": "https://www.lunabistrobar.de/"
+    "website": "https://www.lunabistrobar.de/",
+    "hours": {
+      "w": [
+        "Montag: Geschlossen",
+        "Dienstag: 15:00–22:00 Uhr",
+        "Mittwoch: 15:00–22:00 Uhr",
+        "Donnerstag: 15:00–22:00 Uhr",
+        "Freitag: 15:00–23:00 Uhr",
+        "Samstag: 15:00–23:00 Uhr",
+        "Sonntag: 15:00–22:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 15,
+          "om": 0,
+          "cd": 0,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 15,
+          "om": 0,
+          "cd": 2,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 15,
+          "om": 0,
+          "cd": 3,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 15,
+          "om": 0,
+          "cd": 4,
+          "ch": 22,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 15,
+          "om": 0,
+          "cd": 5,
+          "ch": 23,
+          "cm": 0
+        },
+        {
+          "od": 6,
+          "oh": 15,
+          "om": 0,
+          "cd": 6,
+          "ch": 23,
+          "cm": 0
+        }
+      ]
+    }
   },
   "Brunchies||Duisburg": {
     "lat": 51.5094399,
     "lng": 6.7912513,
     "placeId": "ChIJ1TcwTduVuEcRnN08XuutNro",
-    "photo": "places/ChIJ1TcwTduVuEcRnN08XuutNro/photos/AaVGc3l8jKBMf1yW7XFGRQv5f1r-FB2sMq2PQdGc4fWUOFle5i_apdmQ3sK20AQjB8hKkG8-r4m1x6zQVgPRVB94uyqoACoGBMfa4Ab36HzRY4WqKOAr0e6rWjKNcBUFu8QUmwerUsWXLwHLGDBY3653mAESJWEwN_uvg_p4oCQ4OmQkGAoJVveL7qwjtX1kJe90e9E-it1F9uIknRmLeTie4_wKrLz9XVc8BsZgrZT6fKJxWsODuzpEYc3Fz2xL34oBtNIdr7lajAZ0ZfaQu5a4uh82tFShwrL7KBNmoO1NIEYihk7epVvgJHBElDSFgZI0HVKU--G8QJVVlLvH4riTtC_thoz6vx57HIwj-F2Bh_b6yUL_OebCJ0LamEohugozDm0cckuEFf0Ici3A87JhZJtOdvu8XjJTNNmKdAR3jrh1UK95sH9n4Zp8XZcoDA",
+    "photo": "places/ChIJ1TcwTduVuEcRnN08XuutNro/photos/AaVGc3ms2AFabCzXUq29DGtXIib6AUTS6tEikM3W5qXl8EBbcfIj4UcONF8PrP7pCRazgvMt_XdSQ_NAUDj-rX7UsDcIcpzrywGKoacZx5xso858qcODG8TU42LE_ysqKohFHMo6Oecx8Kz7oOGD26N8isu3b3j4tvPS4Fhynu8Sbh31Swzx0KyoTGRJkBd7nBBll9rw6-hFxnNFcOjUBXg5-zD_iKkkmSZ6De2Wzaqad1HYoQWk9qz6Ygj1y92-N06TQY8L0VpTCNgSC1w1aeeNxZVzBBKLblsX952l4T0oPgDcFPOFTAMlnrHYD99xQ90C2M5Mt_jKXvY4U-M10FiKKgRnDcqsvcfQhccHuUdS1gVp_8wp7Ky83pv_jPLerX8Ol1CHH0XGFKYISlRXAuaXPVgNLpVqoZ_puYkq7lnpf4U14las4g3E4UWnFtZAyw",
     "rating": 4.9,
-    "reviews": 108,
-    "website": null
+    "reviews": 109,
+    "website": null,
+    "hours": {
+      "w": [
+        "Montag: 09:30–18:00 Uhr",
+        "Dienstag: 09:30–18:00 Uhr",
+        "Mittwoch: 09:30–18:00 Uhr",
+        "Donnerstag: 09:30–18:00 Uhr",
+        "Freitag: 09:30–18:30 Uhr",
+        "Samstag: 09:30–18:00 Uhr",
+        "Sonntag: 09:30–18:00 Uhr"
+      ],
+      "p": [
+        {
+          "od": 0,
+          "oh": 9,
+          "om": 30,
+          "cd": 0,
+          "ch": 18,
+          "cm": 0
+        },
+        {
+          "od": 1,
+          "oh": 9,
+          "om": 30,
+          "cd": 1,
+          "ch": 18,
+          "cm": 0
+        },
+        {
+          "od": 2,
+          "oh": 9,
+          "om": 30,
+          "cd": 2,
+          "ch": 18,
+          "cm": 0
+        },
+        {
+          "od": 3,
+          "oh": 9,
+          "om": 30,
+          "cd": 3,
+          "ch": 18,
+          "cm": 0
+        },
+        {
+          "od": 4,
+          "oh": 9,
+          "om": 30,
+          "cd": 4,
+          "ch": 18,
+          "cm": 0
+        },
+        {
+          "od": 5,
+          "oh": 9,
+          "om": 30,
+          "cd": 5,
+          "ch": 18,
+          "cm": 30
+        },
+        {
+          "od": 6,
+          "oh": 9,
+          "om": 30,
+          "cd": 6,
+          "ch": 18,
+          "cm": 0
+        }
+      ]
+    }
   },
   "King Fusion||Düsseldorf": {
     "lat": 51.225671999999996,
