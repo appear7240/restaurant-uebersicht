@@ -1,5 +1,5 @@
 /* Restaurant-Übersicht – Service Worker (network-first) */
-var CACHE = "rue-v1";
+var CACHE = "rue-v2";
 var CORE = [
   "./", "index.html", "assets/styles.css", "assets/app.js",
   "data/restaurants.js", "config.js", "manifest.webmanifest",
@@ -9,7 +9,7 @@ var CORE = [
 self.addEventListener("install", function (e) {
   e.waitUntil(
     caches.open(CACHE)
-      .then(function (c) { return c.addAll(CORE).catch(function () {}); })
+      .then(function (c) { return c.addAll(CORE.map(function (u) { return new Request(u, { cache: "reload" }); })).catch(function () {}); })
       .then(function () { return self.skipWaiting(); })
   );
 });
@@ -31,7 +31,7 @@ self.addEventListener("fetch", function (e) {
   if (url.pathname.indexOf("/admin") === 0 || url.pathname.indexOf("/api") === 0) return; // dynamisch, nie cachen
   // Network-first: immer frisch versuchen, Cache als Offline-Fallback
   e.respondWith(
-    fetch(req).then(function (res) {
+    fetch(new Request(req, { cache: "reload" })).then(function (res) {
       var copy = res.clone();
       caches.open(CACHE).then(function (c) { c.put(req, copy); });
       return res;
