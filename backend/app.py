@@ -322,6 +322,11 @@ def export(x_admin_token: Optional[str] = Header(None)):
             if staged.returncode != 0:
                 subprocess.run(["git", "-C", str(BASE), "commit", "-m", "data: Update via Admin-Backend"],
                                check=True, capture_output=True)
+                # vor Push auf origin rebasen, sonst non-fast-forward
+                subprocess.run(["git", "-C", str(BASE), "pull", "--rebase", "--autostash"],
+                               check=True, capture_output=True,
+                               env=dict(os.environ, GIT_COMMITTER_NAME="Admin Backend",
+                                        GIT_COMMITTER_EMAIL="admin@local"))
                 subprocess.run(["git", "-C", str(BASE), "push"], check=True, capture_output=True)
                 pushed, msg = True, "geschrieben + gepusht"
             else:
