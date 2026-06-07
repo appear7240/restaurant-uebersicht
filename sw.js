@@ -1,5 +1,5 @@
 /* Restaurant-Übersicht – Service Worker (network-first) */
-var CACHE = "rue-v2";
+var CACHE = "rue-v3";
 var CORE = [
   "./", "index.html", "assets/styles.css", "assets/app.js",
   "data/restaurants.js", "config.js", "manifest.webmanifest",

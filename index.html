@@ -58,6 +58,21 @@
         <button id="roll" class="btn-roll" type="button" aria-haspopup="dialog">&#127922; Wohin heute?</button>
         <button id="theme" class="btn-icon" type="button" aria-label="Hell/Dunkel umschalten" aria-pressed="false"></button>
       </div>
+      <div class="toggles" id="toggles"></div>
+      <div class="openat" id="openat" hidden>
+        <span class="oa-lbl">Geöffnet am</span>
+        <select id="oa-day" aria-label="Wochentag">
+          <option value="1">Montag</option>
+          <option value="2">Dienstag</option>
+          <option value="3">Mittwoch</option>
+          <option value="4">Donnerstag</option>
+          <option value="5">Freitag</option>
+          <option value="6">Samstag</option>
+          <option value="0">Sonntag</option>
+        </select>
+        <input id="oa-time" type="time" value="19:00" step="900" aria-label="Uhrzeit" />
+        <button id="oa-clear" type="button" class="oa-clear" aria-label="Zurücksetzen">&times;</button>
+      </div>
       <div class="chips" id="cat-chips" role="group" aria-label="Kategorie filtern"></div>
       <div class="viewtoggle" role="tablist" aria-label="Ansicht">
         <button id="view-list" class="vt on" type="button" role="tab" aria-selected="true">Liste</button>

@@ -60,7 +60,7 @@
   var presentTags = knownTags.concat(extraTags);
 
   // State
-  var state = { q: "", qRaw: "", cats: new Set(), city: "", favOnly: false, openNow: false, sort: "city" };
+  var state = { q: "", qRaw: "", cats: new Set(), city: "", favOnly: false, openNow: false, openAt: null, sort: "city" };
   var userPos = null;
   function haversine(la1, lo1, la2, lo2) {
     var R = 6371, d2r = Math.PI / 180;
@@ -85,11 +85,9 @@
     try { localStorage.setItem(FAV_KEY, JSON.stringify(Array.from(favs))); } catch (e) {}
   }
 
-  // ── Öffnungszeiten: jetzt geöffnet? (Europe/Berlin) ─
-  function isOpenNow(h) {
+  // ── Öffnungszeiten: geöffnet zu Minute-der-Woche? (Europe/Berlin) ─
+  function isOpenAt(h, now) {
     if (!h || !h.p || !h.p.length) return null;
-    var b = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Berlin" }));
-    var now = b.getDay() * 1440 + b.getHours() * 60 + b.getMinutes();
     for (var i = 0; i < h.p.length; i++) {
       var p = h.p[i];
       if (p.cd == null || p.ch == null) return true; // ohne Schließzeit = durchgehend
@@ -99,6 +97,10 @@
       if ((now >= o && now < c) || (now + 7 * 1440 >= o && now + 7 * 1440 < c)) return true;
     }
     return false;
+  }
+  function isOpenNow(h) {
+    var b = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Berlin" }));
+    return isOpenAt(h, b.getDay() * 1440 + b.getHours() * 60 + b.getMinutes());
   }
   var view = "list";
 
@@ -154,26 +156,77 @@
     b.addEventListener("click", o.onClick);
     return b;
   }
+  var elToggles = $("toggles");
   var resetChip = makeChip({ label: "Alle", n: ALL.length, reset: true,
     onClick: function () { state.cats.clear(); syncChips(); refresh(); } });
   elChips.appendChild(resetChip);
+
+  // Toggles (eigene Zeile)
   var favChip = makeChip({ label: "\u2665 Favoriten", onClick: function () { state.favOnly = !state.favOnly; syncChips(); refresh(); } });
-  favChip.classList.add("toggle"); elChips.appendChild(favChip);
-  var openChip = makeChip({ label: "Jetzt geöffnet", onClick: function () { state.openNow = !state.openNow; syncChips(); refresh(); } });
-  openChip.classList.add("toggle"); elChips.appendChild(openChip);
-  var tagChips = {};
-  presentTags.forEach(function (t) {
+  favChip.classList.add("toggle"); elToggles.appendChild(favChip);
+  var openChip = makeChip({ label: "Jetzt geöffnet", onClick: function () {
+    state.openNow = !state.openNow;
+    if (state.openNow) { state.openAt = null; elOpenAt.hidden = true; }
+    syncChips(); refresh();
+  } });
+  openChip.classList.add("toggle"); elToggles.appendChild(openChip);
+  var openAtChip = makeChip({ label: "Geöffnet am…", onClick: function () { toggleOpenAt(); } });
+  openAtChip.classList.add("toggle"); elToggles.appendChild(openAtChip);
+
+  // „Geöffnet am ‹Tag› ‹Uhrzeit›"-Panel
+  var elOpenAt = $("openat"), oaDay = $("oa-day"), oaTime = $("oa-time"), oaClear = $("oa-clear");
+  oaDay.value = String(new Date().getDay());
+  function applyOpenAt() {
+    var d = parseInt(oaDay.value, 10), t = oaTime.value;
+    if (isNaN(d) || !t) { state.openAt = null; }
+    else {
+      var hh = parseInt(t.slice(0, 2), 10), mm = parseInt(t.slice(3, 5), 10);
+      state.openAt = { mow: d * 1440 + hh * 60 + mm };
+      state.openNow = false;
+    }
+    syncChips(); refresh();
+  }
+  function toggleOpenAt() {
+    if (state.openAt) { state.openAt = null; elOpenAt.hidden = true; syncChips(); refresh(); }
+    else { elOpenAt.hidden = false; applyOpenAt(); }
+  }
+  oaDay.addEventListener("change", applyOpenAt);
+  oaTime.addEventListener("change", applyOpenAt);
+  oaClear.addEventListener("click", function () { state.openAt = null; elOpenAt.hidden = true; syncChips(); refresh(); });
+
+  // Kategorie-Chips: nach Häufigkeit, Top 6 + „Mehr"
+  var tagsByCount = presentTags.slice().sort(function (a, b) {
+    if (catCount[b] !== catCount[a]) return catCount[b] - catCount[a];
+    return a.localeCompare(b, "de");
+  });
+  var TOP = 6, tagChips = {};
+  function makeTagChip(t) {
     var c = makeChip({ label: t, n: catCount[t], tag: t, dot: true,
       onClick: function () {
         if (state.cats.has(t)) state.cats.delete(t); else state.cats.add(t);
         syncChips(); refresh();
       } });
-    tagChips[t] = c; elChips.appendChild(c);
-  });
+    tagChips[t] = c; return c;
+  }
+  tagsByCount.slice(0, TOP).forEach(function (t) { elChips.appendChild(makeTagChip(t)); });
+  if (tagsByCount.length > TOP) {
+    var restWrap = document.createElement("span"); restWrap.className = "chips-rest"; restWrap.hidden = true;
+    tagsByCount.slice(TOP).forEach(function (t) { restWrap.appendChild(makeTagChip(t)); });
+    var moreN = tagsByCount.length - TOP;
+    var moreBtn = makeChip({ label: "Mehr (" + moreN + ")", onClick: function () {
+      restWrap.hidden = !restWrap.hidden;
+      moreBtn.firstElementChild.textContent = restWrap.hidden ? "Mehr (" + moreN + ")" : "Weniger";
+      moreBtn.classList.toggle("on", !restWrap.hidden);
+    } });
+    moreBtn.classList.add("more");
+    elChips.appendChild(moreBtn); elChips.appendChild(restWrap);
+  }
+
   function syncChips() {
     resetChip.classList.toggle("on", state.cats.size === 0);
     favChip.classList.toggle("on", state.favOnly);
     openChip.classList.toggle("on", state.openNow);
+    openAtChip.classList.toggle("on", !!state.openAt);
     presentTags.forEach(function (t) { tagChips[t].classList.toggle("on", state.cats.has(t)); });
   }
 
@@ -281,7 +334,8 @@
 
   function matches(r) {
     if (state.favOnly && !isFav(r)) return false;
-    if (state.openNow && isOpenNow(r.hours) !== true) return false;
+    if (state.openAt) { if (isOpenAt(r.hours, state.openAt.mow) !== true) return false; }
+    else if (state.openNow && isOpenNow(r.hours) !== true) return false;
     if (state.city && r.city !== state.city) return false;
     if (state.cats.size && !(r.tags || []).some(function (t) { return state.cats.has(t); })) return false;
     if (state.q && r._s.indexOf(state.q) === -1) return false;
