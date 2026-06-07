@@ -7,8 +7,6 @@ window.RESTAURANT_DATA = {
       "city": "Bochum",
       "tags": [
         "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant mit Trüffelspezialitäten.",
@@ -86,8 +84,6 @@ window.RESTAURANT_DATA = {
       "city": "Bochum",
       "tags": [
         "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Italienisches Restaurant mit einer Auswahl an Trüffelgerichten.",
@@ -342,8 +338,6 @@ window.RESTAURANT_DATA = {
       "name": "Chillers",
       "city": "Bochum",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch"
       ],
       "blurb": "Chillers ist ein italienisches Restaurant in Bochum.",
@@ -444,9 +438,6 @@ window.RESTAURANT_DATA = {
       "name": "Heiter & Herrlich",
       "city": "Bochum",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Heiter & Herrlich bietet italienische Küche in Bochum.",
@@ -531,9 +522,6 @@ window.RESTAURANT_DATA = {
       "name": "Kleene Tocke",
       "city": "Bochum",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Kleene Tocke bietet italienische Küche in Bochum an.",
@@ -549,9 +537,6 @@ window.RESTAURANT_DATA = {
       "name": "Knüppelknifte",
       "city": "Bochum",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Knüppelknifte bietet italienische Küche in Bochum an.",
@@ -697,9 +682,6 @@ window.RESTAURANT_DATA = {
       "name": "Mufasa",
       "city": "Bochum",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Frühstück"
       ],
@@ -862,9 +844,6 @@ window.RESTAURANT_DATA = {
       "name": "Nandy's",
       "city": "Bochum",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Indisch"
       ],
@@ -1053,8 +1032,6 @@ window.RESTAURANT_DATA = {
       "city": "Bochum",
       "tags": [
         "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Italienisches Restaurant mit Trüffelspezialitäten in Bochum.",
@@ -1155,9 +1132,6 @@ window.RESTAURANT_DATA = {
       "name": "Traumkuh",
       "city": "Bochum",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Burger"
       ],
@@ -1328,8 +1302,6 @@ window.RESTAURANT_DATA = {
       "city": "Bottrop",
       "tags": [
         "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant mit Trüffelspezialitäten.",
@@ -1524,9 +1496,6 @@ window.RESTAURANT_DATA = {
       "name": "Labbis",
       "city": "Dinslaken",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Café"
       ],
@@ -1613,8 +1582,6 @@ window.RESTAURANT_DATA = {
       "name": "AMI Restaurant",
       "city": "Dortmund",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant in Dortmund mit Trüffelspezialitäten.",
@@ -1691,9 +1658,6 @@ window.RESTAURANT_DATA = {
       "name": "Amara",
       "city": "Dortmund",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Frühstück"
       ],
@@ -1819,8 +1783,6 @@ window.RESTAURANT_DATA = {
       "name": "BASE.KITCHEN",
       "city": "Dortmund",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant in Dortmund mit Trüffelgerichten.",
@@ -1889,9 +1851,6 @@ window.RESTAURANT_DATA = {
       "name": "Bocca",
       "city": "Dortmund",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Bocca ist ein italienisches Restaurant in Dortmund.",
@@ -1976,9 +1935,7 @@ window.RESTAURANT_DATA = {
       "name": "Bosco",
       "city": "Dortmund",
       "tags": [
-        "Trüffelpasta",
         "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant in Dortmund mit Trüffelspezialitäten.",
@@ -2294,8 +2251,6 @@ window.RESTAURANT_DATA = {
       "name": "Imperatore",
       "city": "Dortmund",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Trüffel",
         "Italienisch"
       ],
@@ -2458,9 +2413,6 @@ window.RESTAURANT_DATA = {
       "name": "Medusa",
       "city": "Dortmund",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Frühstück"
       ],
@@ -2608,8 +2560,6 @@ window.RESTAURANT_DATA = {
       "name": "MemorieZ",
       "city": "Dortmund",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch"
       ],
       "blurb": "MemorieZ bietet italienische Küche in Dortmund an.",
@@ -2718,9 +2668,6 @@ window.RESTAURANT_DATA = {
       "name": "Noché",
       "city": "Dortmund",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Frühstück"
       ],
@@ -2987,8 +2934,6 @@ window.RESTAURANT_DATA = {
       "name": "Pasta Lounge",
       "city": "Dortmund",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch",
         "Pasta"
       ],
@@ -3074,8 +3019,6 @@ window.RESTAURANT_DATA = {
       "name": "Raphael's am Phoenixsee",
       "city": "Dortmund",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant am Phoenixsee in Dortmund.",
@@ -3469,9 +3412,6 @@ window.RESTAURANT_DATA = {
       "name": "Sono",
       "city": "Dortmund",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Sono ist ein italienisches Restaurant in Dortmund.",
@@ -3548,8 +3488,6 @@ window.RESTAURANT_DATA = {
       "name": "bona'me",
       "city": "Dortmund",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch"
       ],
       "blurb": "Italienisches Restaurant mit Fokus auf Trüffelgerichten.",
@@ -3813,9 +3751,6 @@ window.RESTAURANT_DATA = {
       "name": "Eli's Crumble",
       "city": "Duisburg",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Café"
       ],
@@ -3980,8 +3915,6 @@ window.RESTAURANT_DATA = {
       "name": "20° RESTOBAR",
       "city": "Düsseldorf",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch",
         "Bar"
       ],
@@ -4493,8 +4426,6 @@ window.RESTAURANT_DATA = {
       "name": "Cloud Kitchen",
       "city": "Düsseldorf",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch",
         "Frühstück"
       ],
@@ -4917,8 +4848,6 @@ window.RESTAURANT_DATA = {
       "city": "Düsseldorf",
       "tags": [
         "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant in Düsseldorf mit Trüffelspezialitäten.",
@@ -5082,8 +5011,6 @@ window.RESTAURANT_DATA = {
       "city": "Düsseldorf",
       "tags": [
         "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant in Düsseldorf mit Trüffelspezialitäten.",
@@ -5253,9 +5180,6 @@ window.RESTAURANT_DATA = {
       "name": "Rheinhardts",
       "city": "Düsseldorf",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Käsefondue"
       ],
@@ -5334,8 +5258,6 @@ window.RESTAURANT_DATA = {
       "city": "Düsseldorf",
       "tags": [
         "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Riva ist ein italienisches Restaurant in Düsseldorf.",
@@ -5515,7 +5437,6 @@ window.RESTAURANT_DATA = {
       "city": "Düsseldorf",
       "tags": [
         "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch"
       ],
       "blurb": "Shari's Kitchen bietet italienische Küche in Düsseldorf an.",
@@ -5794,8 +5715,6 @@ window.RESTAURANT_DATA = {
       "name": "The Loft Garden",
       "city": "Düsseldorf",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant mit einem besonderen Gartenambiente.",
@@ -5812,8 +5731,6 @@ window.RESTAURANT_DATA = {
       "city": "Düsseldorf",
       "tags": [
         "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant in Düsseldorf mit Trüffelspezialitäten.",
@@ -5922,9 +5839,6 @@ window.RESTAURANT_DATA = {
       "name": "Trattoria il Tartufo",
       "city": "Düsseldorf",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant mit Trüffelspezialitäten.",
@@ -6125,9 +6039,6 @@ window.RESTAURANT_DATA = {
       "name": "Zweigleisig",
       "city": "Düsseldorf",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant in Düsseldorf mit Trüffelspezialitäten.",
@@ -6212,9 +6123,6 @@ window.RESTAURANT_DATA = {
       "name": "bona'me",
       "city": "Düsseldorf",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant in Düsseldorf mit Trüffelgerichten.",
@@ -6299,9 +6207,6 @@ window.RESTAURANT_DATA = {
       "name": "thewaytonapoli",
       "city": "Düsseldorf",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant in Düsseldorf mit Trüffelspezialitäten.",
@@ -6387,8 +6292,6 @@ window.RESTAURANT_DATA = {
       "city": "Essen",
       "tags": [
         "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant mit Trüffelspezialitäten.",
@@ -6529,8 +6432,6 @@ window.RESTAURANT_DATA = {
       "name": "Chillers",
       "city": "Essen",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch"
       ],
       "blurb": "Chillers bietet italienische Küche in Essen an.",
@@ -6948,9 +6849,6 @@ window.RESTAURANT_DATA = {
       "name": "Trattoria Trüffel",
       "city": "Essen",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant mit Trüffelspezialitäten.",
@@ -7167,9 +7065,6 @@ window.RESTAURANT_DATA = {
       "name": "BUERNO",
       "city": "Gelsenkirchen",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Café"
       ],
@@ -7187,9 +7082,6 @@ window.RESTAURANT_DATA = {
       "name": "Buer 1",
       "city": "Gelsenkirchen",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Frühstück"
       ],
@@ -7609,8 +7501,6 @@ window.RESTAURANT_DATA = {
       "city": "Hamburg",
       "tags": [
         "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant in Hamburg mit Wein und Trüffeln.",
@@ -7765,8 +7655,6 @@ window.RESTAURANT_DATA = {
       "name": "Cheat Day",
       "city": "Krefeld",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch",
         "Frühstück"
       ],
@@ -7783,9 +7671,6 @@ window.RESTAURANT_DATA = {
       "name": "Sigon",
       "city": "Krefeld",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant in Krefeld.",
@@ -7870,8 +7755,6 @@ window.RESTAURANT_DATA = {
       "name": "Bricco -The Club Restaurant-",
       "city": "Köln",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant in Köln mit besonderen Gerichten.",
@@ -8034,9 +7917,6 @@ window.RESTAURANT_DATA = {
       "name": "Gigi Italian",
       "city": "Köln",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Frühstück"
       ],
@@ -8201,8 +8081,6 @@ window.RESTAURANT_DATA = {
       "name": "Haus am See",
       "city": "Köln",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch"
       ],
       "blurb": "Ein Restaurant am See mit italienischer Küche.",
@@ -8375,8 +8253,6 @@ window.RESTAURANT_DATA = {
       "city": "Köln",
       "tags": [
         "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant in Köln mit Trüffelspezialitäten.",
@@ -8454,8 +8330,6 @@ window.RESTAURANT_DATA = {
       "city": "Köln",
       "tags": [
         "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Ein italienisches Restaurant mit Trüffelspezialitäten.",
@@ -8532,9 +8406,6 @@ window.RESTAURANT_DATA = {
       "name": "bona'me",
       "city": "Köln",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "bona'me bietet italienische Küche in Köln an.",
@@ -8813,9 +8684,6 @@ window.RESTAURANT_DATA = {
       "name": "La Calma",
       "city": "Moers",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "La Calma bietet italienische Küche in Moers.",
@@ -9144,8 +9012,6 @@ window.RESTAURANT_DATA = {
       "name": "Perfetto Moers am Altmarkt",
       "city": "Moers",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch",
         "Frühstück"
       ],
@@ -9315,9 +9181,6 @@ window.RESTAURANT_DATA = {
       "name": "Trattoria Emma",
       "city": "Moers",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Trattoria Emma bietet italienische Küche in Moers.",
@@ -9394,9 +9257,6 @@ window.RESTAURANT_DATA = {
       "name": "Brotkorb",
       "city": "Mülheim",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Frühstück"
       ],
@@ -9558,9 +9418,6 @@ window.RESTAURANT_DATA = {
       "name": "Edelweiß",
       "city": "Oberhausen",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch",
         "Café"
       ],
@@ -9910,9 +9767,6 @@ window.RESTAURANT_DATA = {
       "name": "Goldalm",
       "city": "Wuppertal",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
-        "Trüffel",
         "Italienisch"
       ],
       "blurb": "Das Restaurant Goldalm bietet italienische Küche in Wuppertal.",
@@ -10013,8 +9867,6 @@ window.RESTAURANT_DATA = {
       "name": "The Loft",
       "city": "Wuppertal",
       "tags": [
-        "Trüffelpasta",
-        "Trüffelpizza",
         "Italienisch",
         "Frühstück"
       ],
