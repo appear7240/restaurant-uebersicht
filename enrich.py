@@ -29,7 +29,7 @@ ENDPOINT = "https://api.openai.com/v1/chat/completions"
 
 # Erlaubte Kategorie-Tags (deutsch, Title Case). GPT darf nur hieraus wählen.
 ALLOWED_TAGS = [
-    "Trüffelpasta", "Trüffelpizza", "Trüffel", "Italienisch", "Sushi", "Poké",
+    "Italienisch", "Sushi", "Poké",
     "Ramen", "Indisch", "Burger", "Frühstück", "Café", "Eis", "Bar", "Shisha",
     "Käsefondue", "Vietnamesisch", "Chinesisch", "Japanisch", "Koreanisch",
     "Thailändisch", "Asiatisch", "Fusion", "Griechisch", "Türkisch", "Mexikanisch",

@@ -292,6 +292,8 @@ def merge_enrichment(records, path="enriched.json"):
         extra = list(e.get("extra_tags") or [])
         if e.get("cuisine"):
             extra.append(e["cuisine"])
+        # Trüffel-Tags nur aus kuratierten Notizen, nie aus GPT
+        extra = [t for t in extra if t not in ("Trüffelpasta", "Trüffelpizza", "Trüffel")]
         merged = list(rec["tags"])
         for t in extra:
             t = (t or "").strip()
