@@ -113,6 +113,58 @@
     btn.disabled = false;
   });
 
+  // ── Tags bearbeiten ───────────────────────────────
+  var RS = [], curTags = [];
+  function renderTagChips() {
+    var box = $("t-tags"); box.replaceChildren();
+    curTags.forEach(function (t, i) {
+      var chip = document.createElement("span"); chip.className = "t-chip";
+      var lab = document.createElement("span"); lab.textContent = t; chip.appendChild(lab);
+      var x = document.createElement("button"); x.type = "button"; x.textContent = "\u00d7";
+      x.setAttribute("aria-label", "Entfernen: " + t);
+      x.addEventListener("click", function () { curTags.splice(i, 1); renderTagChips(); });
+      chip.appendChild(x); box.appendChild(chip);
+    });
+  }
+  function addTag() {
+    var inp = $("t-add"), v = (inp.value || "").trim();
+    if (v && curTags.indexOf(v) === -1) { curTags.push(v); renderTagChips(); }
+    inp.value = ""; inp.focus();
+  }
+  async function loadTagEditor() {
+    try { RS = await api("restaurants"); } catch (e) { return; }
+    var sel = $("t-sel");
+    RS.slice().sort(function (a, b) { return (a.city + a.name).localeCompare(b.city + b.name, "de"); })
+      .forEach(function (r) {
+        var o = document.createElement("option");
+        o.value = String(r.id); o.textContent = r.name + " (" + r.city + ")"; sel.appendChild(o);
+      });
+    var all = {}; RS.forEach(function (r) { (r.tags || []).forEach(function (t) { all[t] = 1; }); });
+    var dl = $("t-alltags");
+    Object.keys(all).sort(function (a, b) { return a.localeCompare(b, "de"); })
+      .forEach(function (t) { var o = document.createElement("option"); o.value = t; dl.appendChild(o); });
+  }
+  $("t-sel").addEventListener("change", function () {
+    var v = this.value, r = RS.find(function (x) { return String(x.id) === v; });
+    curTags = r ? (r.tags || []).slice() : []; renderTagChips(); msg($("m-tags"), "");
+  });
+  $("t-add-btn").addEventListener("click", addTag);
+  $("t-add").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); addTag(); } });
+  $("t-save").addEventListener("click", async function () {
+    var id = $("t-sel").value;
+    if (!id) { msg($("m-tags"), "Erst ein Restaurant wählen.", false); return; }
+    var btn = this; btn.disabled = true; msg($("m-tags"), "Speichere…");
+    try {
+      var d = await api("restaurants/" + id + "/tags",
+        { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ tags: curTags }) });
+      curTags = d.tags || curTags; renderTagChips();
+      var r = RS.find(function (x) { return String(x.id) === id; }); if (r) r.tags = d.tags;
+      msg($("m-tags"), "Gespeichert (" + d.tags.length + " Tags) + exportiert.", true);
+    } catch (e) { msg($("m-tags"), "Fehler: " + e.message, false); }
+    btn.disabled = false;
+  });
+
   loadStatus();
   loadKeys();
+  loadTagEditor();
 })();

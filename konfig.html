@@ -36,6 +36,16 @@
     .khint { font-size: 12px; color: var(--muted); }
     [data-theme=dark] .kmsg.ok { color: #7fd28a; }
     #offline { display: none; color: var(--accent); font-weight: 600; }
+    .kcard select { font: inherit; font-size: 14px; padding: 9px 12px; border: 1px solid var(--line);
+      border-radius: 10px; background: var(--paper); color: var(--ink); width: 100%; max-width: 420px; }
+    .kcard input[list] { flex: 1 1 160px; font: inherit; font-size: 14px; padding: 9px 12px;
+      border: 1px solid var(--line); border-radius: 10px; background: var(--paper); color: var(--ink); }
+    .t-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
+    .t-tags:empty::before { content: "—"; color: var(--muted); }
+    .t-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600;
+      padding: 6px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); }
+    .t-chip button { border: none; background: none; color: var(--muted); cursor: pointer; font-size: 15px; line-height: 1; padding: 0; }
+    .t-chip button:hover { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -89,6 +99,21 @@
         <span class="kmsg" id="m-export"></span>
       </div>
       <p class="khint">„Anreichern" holt Küche/Beschreibung via OpenAI; „Export" schreibt die Daten in die statische Seite.</p>
+    </div>
+    <div class="kcard">
+      <h2>Tags bearbeiten</h2>
+      <select id="t-sel"><option value="">&mdash; Restaurant w&auml;hlen &mdash;</option></select>
+      <div id="t-tags" class="t-tags"></div>
+      <div class="krow">
+        <input id="t-add" list="t-alltags" placeholder="Tag hinzuf&uuml;gen&hellip;" />
+        <datalist id="t-alltags"></datalist>
+        <button class="kbtn ghost" id="t-add-btn" type="button">+ Tag</button>
+      </div>
+      <div class="krow">
+        <button class="kbtn" id="t-save" type="button">Speichern</button>
+        <span class="kmsg" id="m-tags"></span>
+      </div>
+      <p class="khint">&Auml;nderung wird sofort gespeichert &amp; exportiert.</p>
     </div>
   </div>
   <script src="assets/konfig.js"></script>

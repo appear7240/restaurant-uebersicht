@@ -385,6 +385,7 @@
   function render() {
     updateCounts();
     var list = ALL.filter(matches);
+    lastList = list;
     if (userPos) list.forEach(function (r) {
       r._dist = (typeof r.lat === "number") ? haversine(userPos.lat, userPos.lng, r.lat, r.lng) : null;
     });
@@ -430,12 +431,14 @@
       ? "0 von " + ALL.length + " angezeigt"
       : list.length + " von " + ALL.length + " angezeigt · " + shownCities + (shownCities === 1 ? " Stadt" : " Städte");
 
+    if (view === "map" && googleReady) renderPins();
     writeHash();
   }
 
   // ── Ansicht: Liste / Landkarte ─────────────────────
   var elMapView = $("map"), elViewList = $("view-list"), elViewMap = $("view-map");
   var mapInited = false, mapObj = null, googleReady = false;
+  var gMap = null, gG = null, gInfo = null, gMarkers = [], lastList = [];
 
   function esc(s) {
     return String(s).replace(/[&<>"]/g, function (c) {
@@ -495,21 +498,31 @@
     var g = window.google && window.google.maps;
     if (!g) { if (window.L) initLeaflet(); return; }
     googleReady = true;
-    var map = new g.Map(elMapView, {
+    gG = g;
+    gMap = new g.Map(elMapView, {
       center: { lat: 51.3, lng: 7.1 }, zoom: 8,
       streetViewControl: false, mapTypeControl: false, fullscreenControl: true
     });
-    var svc = null; // legacy PlacesService entfällt – Details via places.Place (New)
-    var iw = new g.InfoWindow();
-    var bounds = new g.LatLngBounds();
-    var withGeo = ALL.filter(function (r) { return typeof r.lat === "number"; });
+    gInfo = new g.InfoWindow();
+    renderPins();
+  }
+
+  // Pins folgen den aktiven Filtern (gleiche Liste wie die Kartenansicht)
+  function renderPins() {
+    if (!googleReady || !gMap || !gG) return;
+    gMarkers.forEach(function (m) { m.setMap(null); });
+    gMarkers = [];
+    var src = lastList.length ? lastList : ALL.filter(matches);
+    var withGeo = src.filter(function (r) { return typeof r.lat === "number"; });
+    var bounds = new gG.LatLngBounds();
     withGeo.forEach(function (r) {
       var pos = { lat: r.lat, lng: r.lng };
       bounds.extend(pos);
-      var m = new g.Marker({ position: pos, map: map, title: r.name });
-      m.addListener("click", function () { openInfo(r, m, map, svc, iw, g); });
+      var m = new gG.Marker({ position: pos, map: gMap, title: r.name });
+      m.addListener("click", function () { openInfo(r, m, gMap, null, gInfo, gG); });
+      gMarkers.push(m);
     });
-    if (withGeo.length) map.fitBounds(bounds);
+    if (withGeo.length) gMap.fitBounds(bounds);
   }
 
   async function openInfo(r, marker, map, svc, iw, g) {
@@ -555,12 +568,13 @@
     if (isMap) {
       elResults.style.display = "none"; elEmpty.hidden = true;
       initMap();
+      render();
       if (mapObj) setTimeout(function () { mapObj.invalidateSize(); }, 0);
     } else {
       render();
     }
   }
-  function refresh() { if (view !== "list") setView("list"); else render(); }
+  function refresh() { render(); }
   function showCity(c) {
     state.city = c; elCity.value = c; setView("list");
     window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });

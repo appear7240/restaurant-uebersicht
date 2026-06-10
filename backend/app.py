@@ -22,7 +22,7 @@ import urllib.parse
 import urllib.request
 from datetime import date
 from pathlib import Path
-from typing import Optional
+from typing import Optional, List
 
 from fastapi import FastAPI, Header, HTTPException
 from fastapi.responses import HTMLResponse
@@ -260,6 +260,33 @@ def del_restaurant(rid: int, x_admin_token: Optional[str] = Header(None)):
     con.commit()
     con.close()
     return {"deleted": rid}
+
+
+class TagsBody(BaseModel):
+    tags: List[str]
+
+
+@app.put("/api/restaurants/{rid}/tags")
+def update_tags(rid: int, item: TagsBody, x_admin_token: Optional[str] = Header(None)):
+    check_auth(x_admin_token)
+    clean = []
+    for t in item.tags:
+        t = (t or "").strip()
+        if t and t not in clean:
+            clean.append(t)
+    clean = order_tags(clean)
+    con = db()
+    cur = con.execute("UPDATE restaurants SET tags=? WHERE id=?",
+                      (json.dumps(clean, ensure_ascii=False), rid))
+    con.commit()
+    con.close()
+    if cur.rowcount == 0:
+        raise HTTPException(404, "Nicht gefunden")
+    try:
+        do_export()
+    except Exception:
+        pass
+    return {"id": rid, "tags": clean}
 
 
 @app.get("/api/status")
