@@ -702,7 +702,7 @@
   // ── Karte (Standort-Modal, keyless Google-Embed) ───
   var elMap = $("mapmodal"), elFrame = $("map-frame"),
       elMapTitle = $("map-title"), elMapLink = $("map-link"), elRMap = $("rl-map"),
-      elDPhoto = $("d-photo"), elDCity = $("d-city"), elDRate = $("d-rate"),
+      elDGallery = $("d-gallery"), elDCity = $("d-city"), elDRate = $("d-rate"),
       elDBlurb = $("d-blurb"), elDNote = $("d-note"), elDTags = $("d-tags"),
       elDNav = $("d-nav"), elDSite = $("d-site"),
       elDOpen = $("d-open"), elDHours = $("d-hours"), elDFav = $("d-fav"), elDShare = $("d-share");
@@ -713,11 +713,19 @@
     var pid = r.placeId ? "&destination_place_id=" + encodeURIComponent(r.placeId) : "";
     var mk = mapsKey();
     mapLastFocus = document.activeElement;
-    if (r.photo && mk) {
-      elDPhoto.src = "https://places.googleapis.com/v1/" + r.photo +
-                     "/media?maxWidthPx=900&maxHeightPx=440&key=" + encodeURIComponent(mk);
-      elDPhoto.hidden = false;
-    } else { elDPhoto.hidden = true; elDPhoto.removeAttribute("src"); }
+    var pics = (r.photos && r.photos.length) ? r.photos : (r.photo ? [r.photo] : []);
+    elDGallery.replaceChildren();
+    if (pics.length && mk) {
+      pics.forEach(function (name) {
+        var im = document.createElement("img");
+        im.className = "d-gimg"; im.loading = "lazy"; im.alt = "";
+        im.src = "https://places.googleapis.com/v1/" + name +
+                 "/media?maxWidthPx=900&maxHeightPx=440&key=" + encodeURIComponent(mk);
+        elDGallery.appendChild(im);
+      });
+      elDGallery.classList.toggle("single", pics.length === 1);
+      elDGallery.hidden = false; elDGallery.scrollLeft = 0;
+    } else { elDGallery.hidden = true; }
     elDCity.textContent = r.city + (r._dist != null ? " · " + fmtKm(r._dist) : "");
     elMapTitle.textContent = r.name;
     if (r.rating) { elDRate.textContent = "\u2605 " + r.rating + (r.reviews ? " (" + r.reviews + ")" : ""); elDRate.hidden = false; }

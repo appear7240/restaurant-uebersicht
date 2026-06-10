@@ -58,7 +58,7 @@ def init_db():
     )
     con.execute("CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY, value TEXT)")
     for col, decl in (("lat", "REAL"), ("lng", "REAL"), ("place_id", "TEXT"),
-                      ("photo", "TEXT"), ("rating", "REAL"), ("reviews", "INTEGER"),
+                      ("photo", "TEXT"), ("photos", "TEXT"), ("rating", "REAL"), ("reviews", "INTEGER"),
                       ("website", "TEXT"), ("hours", "TEXT"), ("resolved", "INTEGER")):
         try:
             con.execute(f"ALTER TABLE restaurants ADD COLUMN {col} {decl}")
@@ -89,9 +89,10 @@ def apply_geo(con, path=None):
         name, _, city = k.partition("||")
         hrs = g.get("hours")
         con.execute(
-            "UPDATE restaurants SET lat=?, lng=?, place_id=?, photo=?, rating=?, reviews=?, website=?, "
+            "UPDATE restaurants SET lat=?, lng=?, place_id=?, photo=?, photos=?, rating=?, reviews=?, website=?, "
             "hours=COALESCE(?,hours), resolved=COALESCE(?,resolved) WHERE name=? AND city=?",
-            (g["lat"], g["lng"], g.get("placeId"), g.get("photo"), g.get("rating"),
+            (g["lat"], g["lng"], g.get("placeId"), g.get("photo"),
+             json.dumps(g.get("photos") or [], ensure_ascii=False), g.get("rating"),
              g.get("reviews"), g.get("website"),
              (json.dumps(hrs, ensure_ascii=False) if hrs else None),
              1 if g.get("hours") else None, name, city))
@@ -154,6 +155,13 @@ def row_public(r):
         d["placeId"] = r["place_id"]
     if r["photo"]:
         d["photo"] = r["photo"]
+    if r["photos"]:
+        try:
+            ph = json.loads(r["photos"])
+            if ph:
+                d["photos"] = ph
+        except (ValueError, TypeError):
+            pass
     if r["rating"] is not None:
         d["rating"] = r["rating"]
         d["reviews"] = r["reviews"] or 0
@@ -462,6 +470,7 @@ def geocode_one(name, city, key, timeout=12):
     return {
         "lat": loc["latitude"], "lng": loc["longitude"], "place_id": p.get("id"),
         "photo": photos[0]["name"] if photos else None,
+        "photos": [ph["name"] for ph in photos[:6] if ph.get("name")],
         "rating": p.get("rating"), "reviews": p.get("userRatingCount"),
         "website": p.get("websiteUri"), "hours": hours,
     }, None
@@ -476,7 +485,7 @@ def geocode_all(limit: int = 4, x_admin_token: Optional[str] = Header(None)):
     if not key:
         return {"error": "Kein Maps-Key gesetzt", "geocoded": 0, "remaining": 0}
     con = db()
-    sel = ("(resolved IS NULL OR resolved=0 OR hours IS NULL) "
+    sel = ("(resolved IS NULL OR resolved=0 OR hours IS NULL OR photos IS NULL) "
            "AND (place_id IS NULL OR place_id!='∅')")
     rows = con.execute(
         "SELECT * FROM restaurants WHERE " + sel + " ORDER BY id LIMIT ?", (limit,)).fetchall()
@@ -495,13 +504,15 @@ def geocode_all(limit: int = 4, x_admin_token: Optional[str] = Header(None)):
             con.execute("UPDATE restaurants SET place_id=COALESCE(place_id,'∅'), resolved=1, hours='' WHERE id=?", (r["id"],))
             continue
         hrs = json.dumps(res["hours"], ensure_ascii=False) if res["hours"] else ""
+        phs = json.dumps(res.get("photos") or [], ensure_ascii=False)
         con.execute(
-            "UPDATE restaurants SET lat=?, lng=?, place_id=?, photo=?, rating=?, reviews=?, website=?, hours=?, resolved=1 WHERE id=?",
-            (res["lat"], res["lng"], res["place_id"], res["photo"], res["rating"],
+            "UPDATE restaurants SET lat=?, lng=?, place_id=?, photo=?, photos=?, rating=?, reviews=?, website=?, hours=?, resolved=1 WHERE id=?",
+            (res["lat"], res["lng"], res["place_id"], res["photo"], phs, res["rating"],
              res["reviews"], res["website"], hrs, r["id"]))
         geo[r["name"] + "||" + r["city"]] = {
             "lat": res["lat"], "lng": res["lng"], "placeId": res["place_id"],
-            "photo": res["photo"], "rating": res["rating"], "reviews": res["reviews"],
+            "photo": res["photo"], "photos": res.get("photos") or [],
+            "rating": res["rating"], "reviews": res["reviews"],
             "website": res["website"], "hours": res["hours"] or None}
         done += 1
     con.commit()
