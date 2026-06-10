@@ -245,6 +245,10 @@ def add_restaurant(item: NewRestaurant, x_admin_token: Optional[str] = Header(No
     con.commit()
     row = con.execute("SELECT * FROM restaurants WHERE id=?", (cur.lastrowid,)).fetchone()
     con.close()
+    try:
+        do_export()
+    except Exception:
+        pass
     return dict(id=row["id"], enriched=bool(key), **row_public(row))
 
 
@@ -307,9 +311,7 @@ def test_openai(body: Optional[TestKey] = None, x_admin_token: Optional[str] = H
         return {"ok": False, "error": str(e)}
 
 
-@app.post("/api/export")
-def export(x_admin_token: Optional[str] = Header(None)):
-    check_auth(x_admin_token)
+def do_export():
     n = write_data_file()
     write_config_file()
     pushed, msg = False, "geschrieben"
@@ -317,12 +319,10 @@ def export(x_admin_token: Optional[str] = Header(None)):
         try:
             subprocess.run(["git", "-C", str(BASE), "add", DATA_PATH, CONFIG_PATH, GEO_PATH],
                            check=True, capture_output=True)
-            # nur committen, wenn es Änderungen gibt
             staged = subprocess.run(["git", "-C", str(BASE), "diff", "--cached", "--quiet"])
             if staged.returncode != 0:
                 subprocess.run(["git", "-C", str(BASE), "commit", "-m", "data: Update via Admin-Backend"],
                                check=True, capture_output=True)
-                # vor Push auf origin rebasen, sonst non-fast-forward
                 subprocess.run(["git", "-C", str(BASE), "pull", "--rebase", "--autostash"],
                                check=True, capture_output=True,
                                env=dict(os.environ, GIT_COMMITTER_NAME="Admin Backend",
@@ -333,6 +333,13 @@ def export(x_admin_token: Optional[str] = Header(None)):
                 pushed, msg = True, "geschrieben (keine Änderung)"
         except subprocess.CalledProcessError as e:
             msg = "geschrieben; Push-Fehler: " + (e.stderr.decode().strip() if e.stderr else str(e))
+    return n, pushed, msg
+
+
+@app.post("/api/export")
+def export(x_admin_token: Optional[str] = Header(None)):
+    check_auth(x_admin_token)
+    n, pushed, msg = do_export()
     return {"count": n, "pushed": pushed, "message": msg, "path": DATA_PATH}
 
 
@@ -371,6 +378,11 @@ def enrich_all(limit: int = 5, x_admin_token: Optional[str] = Header(None)):
     out = {"enriched": done, "remaining": remaining}
     if done == 0 and rows:
         out["error"] = getattr(enrich, "LAST_ERROR", None) or "Anreicherung lieferte nichts"
+    if remaining == 0:
+        try:
+            do_export()
+        except Exception:
+            pass
     return out
 
 
@@ -476,6 +488,11 @@ def geocode_all(limit: int = 4, x_admin_token: Optional[str] = Header(None)):
     out = {"geocoded": done, "remaining": remaining}
     if done == 0 and rows:
         out["error"] = last_err or "Keine Treffer"
+    if remaining == 0:
+        try:
+            do_export()
+        except Exception:
+            pass
     return out
 
 
